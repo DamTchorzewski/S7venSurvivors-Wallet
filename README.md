@@ -1,7 +1,7 @@
 
-
-#  <img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/src/assets/logo.svg" title="logo" **alt="Git" width="40" height="40"/> Wallet App
-
+<div>
+<img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/src/assets/logo.svg" title="logo" alt="logo" width="40" height="40"/> <h1>Wallet App</h1>
+</div>
 
 ## parcel-project-template
 
