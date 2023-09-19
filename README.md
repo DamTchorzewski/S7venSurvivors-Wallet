@@ -19,6 +19,5 @@ npm install
 ```shell
 npm run dev
 ```
-
 W przeglądarce przejść na [http://localhost:1234](http://localhost:1234).
 
