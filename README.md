@@ -1,8 +1,8 @@
 
-<span>
-<h1>Wallet App</h1>
-<img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/blob/main/src/assets/logo.svg" title="logo" alt="logo" /> 
-</span>
+
+<h1><img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/blob/main/src/assets/logo.svg" title="logo" alt="logo" /> Wallet App</h1>
+
+
 
 ## parcel-project-template
 
