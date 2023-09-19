@@ -1,4 +1,9 @@
-# parcel-project-template
+
+
+#  <img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/src/assets/logo.svg" title="logo" **alt="Git" width="40" height="40"/> Wallet App
+
+
+## parcel-project-template
 
 ## Zalezności
 
