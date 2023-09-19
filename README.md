@@ -7,18 +7,15 @@
 
 Na komputerze musi być zainstalowana LTS-wersja [Node.js](https://nodejs.org/en/).
 
-## Przed rozpoczęciem pracy
+## Storzone za pomocą Vite
 
-Jeden raz na projekt zainstalować wszystkie zalezności.
-
+1. Sklonować repo
+2. Stworzyć swój branch
+3. Zainstalować zasoby:
 ```shell
-npm ci
+npm install
 ```
-
-### Praca
-
-Włączyć tryp pracy.
-
+4. Włączyć tryb pracy:
 ```shell
 npm run dev
 ```
