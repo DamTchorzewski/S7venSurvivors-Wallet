@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { register } from "../../../redux/auth/authOperations";
 import { Formik, Field, ErrorMessage } from 'formik';
+import { PasswordStrenghtMeter } from './PasswordStrenghtMeter';
 import * as Yup from 'yup';
 
 import s from "./RegisterForm.module.css";
@@ -114,7 +115,7 @@ export const RegisterForm = () => {
             </label>
         </div>
 
-        {/* <PasswordStrengthMeter password={password} /> */}
+        <PasswordStrenghtMeter password={password} />
 
         <div>
             <ErrorMessage
