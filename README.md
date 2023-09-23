@@ -1,6 +1,6 @@
 
 
-<h1><img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/blob/main/src/assets/logo.svg" title="logo" alt="logo" /> Wallet App</h1>
+<h1><img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/blob/main/src/images/wallet.svg" title="logo" alt="logo" /> Wallet App</h1>
 
 
 ## Zalezności
