@@ -1,7 +1,7 @@
 import zxcvbn from 'zxcvbn';
 import PropTypes from 'prop-types';
 
-import s from './RegistrationForm.module.scss';
+import s from './Register.module.scss';
 
 const PasswordStrenghtMeter = ({ password }) => {
     const testResult = zxcvbn(password);

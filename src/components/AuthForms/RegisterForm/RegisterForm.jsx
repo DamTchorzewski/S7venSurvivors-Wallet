@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { register } from "../../../redux/auth/authOperations";
 import { Formik, Field, ErrorMessage } from 'formik';
 import { PasswordStrenghtMeter } from './PasswordStrenghtMeter';
@@ -10,7 +10,7 @@ import s from "./RegisterForm.module.css";
 
 export const RegisterForm = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const [password, setPassword] = useState('');
 
     const validationsSchema = Yup.object({
@@ -51,7 +51,7 @@ export const RegisterForm = () => {
         );
         
         // form.reset();
-        history.push('/login');
+        navigate.push('/login');
     };
 
     return (

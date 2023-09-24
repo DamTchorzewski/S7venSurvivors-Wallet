@@ -13,7 +13,6 @@ export const register = createAsyncThunk('auth/register',
             return res.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
-
         }
     } 
 );
