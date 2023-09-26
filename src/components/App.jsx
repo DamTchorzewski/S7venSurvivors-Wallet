@@ -1,27 +1,27 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import authSelectors from '../redux/auth/authSelectors';
-// import PrivateRoute from '../routes/PrivateRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import PublicRoute from '../routes/publicRoute';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 
 export const App = () => {
-    // const dispatch = useDispatch();
-    const isLoading = useSelector(authSelectors.getLoading)
-
-    // useEffect(() => {
-    //     dispatch(authOperations.fetchCurrentUser());
-    // }, [dispatch]);
 
     return (
-        !isLoading && (
-            <>  
-                <Routes>
-                    <Route path="/signup" element={<PublicRoute redirectTo="/login" restricted><RegisterPage /></PublicRoute>} />
-                </Routes>
-            </>
-        )
+        <>
+            <Routes>
+                <Route path="/">
+                <Route
+                path="/home"
+                element={
+                    <PublicRoute redirectTo="/login" component={<RegisterPage />} />
+                    }
+                />
+                </Route>
+            </Routes>
+            <ToastContainer position="bottom-right" />
+        </>
     );
 };

@@ -1,9 +1,9 @@
 import zxcvbn from 'zxcvbn';
 import PropTypes from 'prop-types';
 
-import s from './Register.module.scss';
+import s from './RegisterForm.module.css';
 
-const PasswordStrenghtMeter = ({ password }) => {
+export const PasswordStrenghtMeter = ({ password }) => {
     const testResult = zxcvbn(password);
     const num = (testResult.score * 100) / 4;
 
@@ -68,8 +68,6 @@ const PasswordStrenghtMeter = ({ password }) => {
         </>
     );
 };
-
-export default PasswordStrenghtMeter;
 
 PasswordStrenghtMeter.propTypes = {
     password: PropTypes.string.isRequired,

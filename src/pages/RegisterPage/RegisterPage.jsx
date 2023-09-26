@@ -1,14 +1,10 @@
 import { RegisterForm } from "../../components/AuthForms/RegisterForm/RegisterForm";
-import s from "./RegisterPage.module.css";
+// import s from "./RegisterPage.module.css";
 
-export const Register = () => {
+export const RegisterPage = () => {
     return (
         <>
-            <div className={s.signupContainer}>
-                <div className={s.signupFormContainer}>
-                    <RegisterForm />
-                </div>
-            </div>
+            <RegisterForm />
         </>
     );
 };
