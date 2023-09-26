@@ -1,25 +1,35 @@
-import { lazy } from 'react';
-import { Switch } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
-// import PrivateRoute from '../routes/PrivateRoute';
-import PublicRoute from '../routes/PublicRoute';
+import { useEffect, lazy } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+
+import { useAuth } from '../hooks/useAuth.js';
+import { refreshUser } from '../redux/auth/authOperations.js';
+
+import PublicRoute from '../routes/publicRoute.jsx';
 
 const RegisterPage = lazy(() => import('../pages/register.jsx'));
 
 export const App = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const { isRefreshing } = useAuth();
 
-    // useEffect(() => {
-    //     dispatch(authOperations.fetchCurrentUser());
-    // }, [dispatch]);
+    useEffect(() => {
+        dispatch(refreshUser());
+    }, [dispatch]);
 
-    return (
-        // !isLoading && (
-        <Switch>
-            <PublicRoute path="/signup" redirectTo="/login" restricted>
-                <RegisterPage />
-            </PublicRoute>
-        </Switch>
-        // )
-    );
+    return isRefreshing ? (
+        <b>Refreshing user...</b>
+    ) : (
+        <Routes>
+            <Route
+            path="/register"
+            element={
+                <PublicRoute
+                redirectTo="/contacts"
+                component={<RegisterPage />}
+                />
+            }
+            />
+        </Routes>
+    )
 };

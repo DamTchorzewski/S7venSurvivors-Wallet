@@ -1,15 +1,26 @@
-import { Route, Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectToken } from '../redux/auth/authSelectors';
+import { useEffect } from 'react';
+import { refreshUser } from '../redux/auth/authOperations';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 
-import authSelectors from '../redux/auth/auth-selectors';
+export const PrivateRoute = ({
+    component: Component,
+    redirectTo = '/home',
+}) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(refreshUser());
+    }, [dispatch]);
 
-export default function PrivateRoute({ children, redirectTo = '/', ...routeProps }) {
-    const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-    return <Route {...routeProps}>{isLoggedIn ? children : <Redirect to={redirectTo} />}</Route>;
-    }
+    const token = useSelector(selectToken);
+    const shouldRedirect = !token;
+
+    return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
+};
 
 PrivateRoute.propTypes = {
-    children: PropTypes.node.isRequired,
+    component: PropTypes.node.isRequired,
     redirectTo: PropTypes.string,
 };
