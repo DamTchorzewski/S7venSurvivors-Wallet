@@ -1,5 +1,5 @@
-<img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/blob/main/src/assets/svg/wallet.svg"  title="logo" alt="logo" /> <h1>Wallet App</h1>
-
+<div><img src="https://github.com/damtchorzewski/S7venSurvivors-Wallet/blob/main/src/assets/svg/wallet.svg"  title="logo" alt="logo" /> <h1>Wallet App</h1>
+</div>
 ## Zalezności
 
 Na komputerze musi być zainstalowana LTS-wersja [Node.js](https://nodejs.org/en/).
