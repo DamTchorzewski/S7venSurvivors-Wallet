@@ -1,5 +1,5 @@
 import React from 'react';
-import { transactionsSelectors } from '../../redux/finance/transaction-selectors';
+import { transactionsSelectors } from '../../redux/trans/transaction-selectors.js';
 import { useSelector } from 'react-redux';
 import styles from './DiagramTab.module.css';
 export default function DiagramTab({ allArray }) { //TO DO: allArray
