@@ -13,3 +13,4 @@ PrivateRoute.propTypes = {
     children: PropTypes.node.isRequired,
     redirectTo: PropTypes.string,
 };
+
