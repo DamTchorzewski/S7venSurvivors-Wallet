@@ -24,3 +24,4 @@ PrivateRoute.propTypes = {
     component: PropTypes.node.isRequired,
     redirectTo: PropTypes.string,
 };
+
