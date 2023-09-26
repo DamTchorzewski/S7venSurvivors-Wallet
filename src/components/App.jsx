@@ -11,17 +11,17 @@ export const App = () => {
 
     return (
         <>
-            <Routes>
-                <Route path="/">
-                <Route
-                path="/home"
-                element={
-                    <PublicRoute redirectTo="/login" component={<RegisterPage />} />
-                    }
-                />
-                </Route>
-            </Routes>
-            <ToastContainer position="bottom-right" />
+        <Routes>
+
+            <Route
+            path="/home"
+            element={
+                <PublicRoute redirectTo="/login" component={<RegisterPage />} />
+                }
+            />
+
+        </Routes>
+        <ToastContainer position="bottom-right" />
         </>
-    );
+    )
 };
