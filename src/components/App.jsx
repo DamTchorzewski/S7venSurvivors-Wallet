@@ -1,21 +1,34 @@
-import { ButtonAddTransactions } from './ButtonAddTransactions/buttonAddTransactions';
 
-export const App = () => {
+
+import { Routes, Route } from "react-router-dom";
+import Register  from "../pages/register";
+import Login from "../pages/login";
+
+// import PrivateRoute from "../routes/privateRoute";
+// import PublicRoute from "../services/routes/publicRoute";
+//import SharedLayout from "./SharedLayout/SharedLayout";
+
+
+//const RegisterPage = lazy(() => import("../pages/Register"));
+//const LoginPage = lazy(() => import("../pages/Login"));
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '1000px',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-        flexDirection: 'column',
-      }}
-    >
-      <h1>TEST</h1>
-      <ButtonAddTransactions />
-    </div>
-  );
+    
+      
+    
+    <>
+      <Routes>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+       
+        {/* <Route path="/dashboard" element={<DashBoard />}></Route> */}
+        <Route path="*" element={<Register />} />
+      </Routes>
+    </>
+  );   
+      
+    
 };
+
+export default App;
