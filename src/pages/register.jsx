@@ -1,5 +1,5 @@
 
-//import s from '../components/RegisterForm/RegisterForm.module.scss';
+
 
 import RegisterForm from "../components/RegisterForm/RegisterForm";
 

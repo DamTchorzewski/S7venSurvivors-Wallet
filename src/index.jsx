@@ -5,7 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
-import Loader from "./components/Loader/Loader";
+//import Loader from "./components/Loader/Loader";
 import "./stylesheet/common.css";
 import 'modern-normalize'
 
@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
     <Provider store={store}>
-      <PersistGate loading={<Loader />} persistor={persistor}>
+      <PersistGate persistor={persistor}>
           <App />
          </PersistGate>
         </Provider>
