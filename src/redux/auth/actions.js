@@ -13,7 +13,7 @@ const clearAuthHeader = () => {
 
 /*
  * POST @ /users/register
- * body: { name, email, password }
+ * body: { username, email, password }
  */
 export const register = createAsyncThunk(
   "auth/register",
