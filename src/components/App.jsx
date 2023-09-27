@@ -17,12 +17,13 @@ const App = () => {
       
     
     <>
-      <Routes>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-       
-        {/* <Route path="/dashboard" element={<DashBoard />}></Route> */}
-        <Route path="*" element={<Register />} />
+       <Routes>
+        <Route path="S7venSurvivors-Wallet/" element={<Register />}>
+          <Route index element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+        
+  <Route path="*" element={<Login />} />
       </Routes>
     </>
   );   

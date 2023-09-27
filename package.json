@@ -1,9 +1,8 @@
 {
   "name": "s7vensurvivors-wallet",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
-  "homepage": "https://damtchorzewski.github.io/s7vensurvivors-wallet/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -23,7 +22,6 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet-async": "^1.3.0",
     "react-hook-form": "^7.46.2",
     "react-icons": "^4.11.0",
     "react-media": "^1.10.0",
@@ -32,8 +30,8 @@
     "react-toastify": "^9.1.3",
     "redux-persist": "^6.0.0",
     "scss": "^0.2.4",
-    "yup": "^1.2.0",
-    "zxcvbn": "^4.4.2"
+    "yup": "^1.2.0"
+   
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
