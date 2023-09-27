@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://damtchorzewski.github.io/s7vensurvivors-wallet/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
