@@ -1,0 +1,122 @@
+.form-login {
+  @media screen and (min-width: 320px) {
+    width: 320px;
+    margin: 0 auto;
+    height: auto;
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+  @media screen and (min-width: 767px) {
+    position: absolute;
+    margin: auto;
+    bottom: 110px;
+    right: 50%;
+    width: 540px;
+    border-radius: 20px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    transform: translate(50%);
+  }
+  @media screen and (min-width: 1280px) {
+    bottom: 50%;
+    right: 85px;
+    transform: translateY(50%);
+    margin: 0;
+  }
+  background-color: #ffffff;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.text {
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  font-family: 'Circe';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.container_input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+  @media screen and (min-width: 767px) {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+.container_input div {
+  display: none;
+}
+.error_message {
+  color: #ff6596;
+  font-size: 10px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.label2 + .error_message {
+  margin-top: 10px;
+}
+
+.error_message--password {
+  padding-bottom: 20px;
+  font-size: 10px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  color: #ff6596;
+}
+.input {
+  border: none;
+  outline-style: none;
+  padding-left: 25px;
+  width: 250px;
+  height: 35px;
+  font-family: 'Circe';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  @media screen and (min-width: 768px) {
+    width: 409px;
+  }
+}
+.button_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_btn {
+  display: inline-block;
+  height: 50px;
+  width: 280px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  transition: 100ms linear, color 100ms linear, border-color 100ms linear;
+  background-color: #24cca7;
+  border: transparent;
+  margin-bottom: 20px;
+  &:hover {
+    background-color: #05bd95;
+  }
+}
