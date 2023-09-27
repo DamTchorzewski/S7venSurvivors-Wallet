@@ -1,25 +1,33 @@
-import { lazy } from 'react';
-import { Switch } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
-// import PrivateRoute from '../routes/PrivateRoute';
-import PublicRoute from '../routes/PublicRoute';
 
-const RegisterPage = lazy(() => import('../pages/register.jsx'));
+import { Routes, Route } from "react-router-dom";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
 
-export const App = () => {
-    // const dispatch = useDispatch();
+// import PrivateRoute from "../routes/privateRoute";
+// import PublicRoute from "../services/routes/publicRoute";
+//import SharedLayout from "./SharedLayout/SharedLayout";
 
-    // useEffect(() => {
-    //     dispatch(authOperations.fetchCurrentUser());
-    // }, [dispatch]);
 
-    return (
-        // !isLoading && (
-        <Switch>
-            <PublicRoute path="/signup" redirectTo="/login" restricted>
-                <RegisterPage />
-            </PublicRoute>
-        </Switch>
-        // )
-    );
+//const RegisterPage = lazy(() => import("../pages/Register"));
+//const LoginPage = lazy(() => import("../pages/Login"));
+
+const App = () => {
+  return (
+    
+      
+    
+    <>
+      <Routes>
+        <Route path="s7vensurvivors-wallet/register" element={<Register />}></Route>
+        <Route path="s7vensurvivors-wallet/login" element={<Login />}></Route>
+       
+        {/* <Route path="/dashboard" element={<DashBoard />}></Route> */}
+        <Route path="*" element={<Register />} />
+      </Routes>
+    </>
+  );   
+      
+    
 };
+
+export default App;
