@@ -4,7 +4,7 @@
 const Login = () => {
     return (
         <div>
-            <title>Wallet-Sign In</title>
+            <title>Wallet-Login</title>
             
    </div>
         

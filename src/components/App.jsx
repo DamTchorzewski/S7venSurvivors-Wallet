@@ -19,7 +19,7 @@ const App = () => {
     <>
        <Routes>
         <Route path="S7venSurvivors-Wallet/" element={<Register />}>
-          <Route index element={<Login />} />
+          <Route patch="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
         
