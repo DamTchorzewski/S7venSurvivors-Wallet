@@ -18,11 +18,11 @@ const App = () => {
     
     <>
       <Routes>
-        <Route path="s7vensurvivors-wallet/register" element={<Register />}></Route>
-        <Route path="s7vensurvivors-wallet/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
        
         {/* <Route path="/dashboard" element={<DashBoard />}></Route> */}
-        <Route path="*" element={<Login />} />
+        <Route path="*" element={<Register />} />
       </Routes>
     </>
   );   
