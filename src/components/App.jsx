@@ -8,27 +8,23 @@ import Login from "../pages/login";
 //import SharedLayout from "./SharedLayout/SharedLayout";
 
 
-//const RegisterPage = lazy(() => import("../pages/Register"));
+//const Register = lazy(() => import("../pages/Register"));
 //const LoginPage = lazy(() => import("../pages/Login"));
 
 const App = () => {
   return (
     
-      
-    
     <>
-       <Routes>
-        <Route path="S7venSurvivors-Wallet/" element={<Register />}>
-          <Route patch="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-        </Route>
+      <Routes>
+          <Route path="S7venSurvivors-Wallet/" element={<Register />}>
+            <Route patch="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
         
-  <Route path="*" element={<Login />} />
+          <Route path="*" element={<Login />} />
       </Routes>
     </>
   );   
-      
-    
 };
 
 export default App;

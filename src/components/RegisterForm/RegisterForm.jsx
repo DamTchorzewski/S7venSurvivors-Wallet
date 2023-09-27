@@ -1,118 +1,214 @@
+import { Formik, Form } from 'formik';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
 
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import { register } from "../../redux/auth/actions";
-import useAuth from "../../utils/hooks/useAuth";
-import useAuthPending from "../../utils/hooks/useAuthPending";
-import usePasswordVisibility from "../../utils/hooks/usePasswordVisibility";
-import useValidateInputs from "../../utils/hooks/useAuthPending";
-import clsx from "clsx";
-import scss from "./RegisterForm.module.scss";
+import PasswordStrengthMeter from "./PasswordStrenghtMeter";
+
+import logo from '../../assets/svg/logo.svg';
+import IconEmail from '@mui/icons-material/Email';
+import IconLock from '@mui/icons-material/Lock';
+import IconName from '@mui/icons-material/AccountBox';
+// import VisibilityIcon from '@mui/icons-material/Visibility';
+// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+
+import s from "./RegisterForm.module.css";
+
+const validationsSchema = Yup.object({
+    email: Yup.string()
+        .email('Enter a valid email')
+        .required('Email is required!'),
+    password: Yup.string()
+        .min(6, 'Password must be at least 6 charaters')
+        .max(12, 'Password should be of maximum 12 characters length')
+        .required('Password is required!'),
+    confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password')], 'Passwords are not the same')
+        .required('Password confirmation is required!'),
+    name: Yup.string()
+        .typeError()
+        .min(1, 'Name should be of minimum 1 character length')
+        .max(12, 'Name should be of maximum 12 characters length')
+        .required('Name is required!'),
+});
+
+const initialValues = {
+    email: '',
+    password: '',
+    confirmPassword: '',
+    name: '',
+};
 
 const RegisterForm = () => {
-  const { isAuthPending } = useAuth();
-  const { AuthPendingIcon } = useAuthPending();
-  const { PasswordIcon, passwordRef, togglePasswordVisibility } =
-    usePasswordVisibility();
-  const { validateUsername, validateEmail, validatePassword } =
-    useValidateInputs();
-  const dispatch = useDispatch();
+    const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
+    const handleSubmit = ({ name, email, password }) => {
+        dispatch(register({ name, email, password }));
+        navigate('/login');
+    };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+    return (
+        <Formik
+            initialValues={initialValues}
+            validateOnBlur
+            validationSchema={validationsSchema}
+            onSubmit={handleSubmit}
+        >
+            {({ 
+                handleChange,
+                handleBlur,
+                touched,
+                isValid,
+                dirty,
+                values,
+                errors, 
+            }) => (
+        <div className={s.form__container}>
+        <Form className={s.form}>
 
-    const form = e.currentTarget;
-    const username = form.elements.username;
-    const email = form.elements.email;
-    const password = form.elements.password;
+            <div className={s.logo__container}>
+                <img className={s.logo} alt="Logo" src={logo} />
+                <h1 className={s.title}>Wallet</h1>
+            </div>
 
-    if (validateUsername(username.value)) {
-      return username.focus();
-    }
+            <div className={s.input__container}>
+                {touched.email && errors.email ? (
+                <p className={s.errors}>
+                    {errors.email}
+                </p>
+                ) : null}
 
-    if (validateEmail(email.value)) {
-      return email.focus();
-    }
+                <IconEmail
+                    className={s.input__icon}
+                    style={{ color: '#e0e0e0' }}
+                />
 
-    if (validatePassword(password.value)) {
-      return password.focus();
-    }
+                <input
+                    className={s.input}
+                    type="text"
+                    name="email"
+                    id="email"
+                    placeholder="E-mail"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    onInput={e => setPassword(e.target.value)}
+                />
+            </div>
 
-    dispatch(
-      register({
-        name: username.value,
-        email: email.value,
-        password: password.value,
-      })
+            <div className={s.input__container}>
+                {touched.password && errors.password ? (
+                <p className={s.errors}>
+                    {errors.password}
+                </p>
+                ) : null}
+
+                <IconLock
+                    className={s.input__icon}
+                    style={{ color: '#e0e0e0' }}
+                />
+
+                <input
+                    className={s.input}
+                    name="password"
+                    placeholder="Password"
+                    id="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    onInput={e => setPassword(e.target.value)}
+                />
+
+              {/* <span
+                onClick={handlePasswordVisibility}
+                className={s.password__visibility__toggle}
+              >
+                {showPassword ? (
+                  <VisibilityOffIcon style={{ color: '#e0e0e0' }} />
+                ) : (
+                  <VisibilityIcon style={{ color: '#e0e0e0' }} />
+                )}
+              </span> */}
+                <PasswordStrengthMeter password={password} />
+            </div>
+
+            <div className={s.input__container}>
+                {touched.confirmPassword && errors.confirmPassword ? (
+                <p className={s.errors}>
+                    {errors.confirmPassword}
+                </p>
+                ) : null}
+
+                <IconLock
+                    className={s.input__icon}
+                    style={{ color: '#e0e0e0' }}
+                />
+
+                <input
+                    className={s.input}
+                    // type={showPassword ? 'text' : 'password'}
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    value={values.confirmPassword}
+                    // onChange={handleChange}
+                    // onBlur={handleBlur}
+                />
+            </div>
+
+            <div className={s.input__container}>
+                {touched.name && errors.name ? (
+                <p className={s.errors}>
+                    {errors.name}
+                </p>
+                ) : null}
+
+                <IconName
+                    className={s.input__icon}
+                    style={{ color: '#e0e0e0' }}
+                />
+
+                <input
+                    className={s.input}
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="First name"
+                    value={values.name}
+                    // onChange={handleChange}
+                    // onBlur={handleBlur}
+                />
+            </div>
+
+            <div className={s.btn__cnt}>
+                <button
+                    type="submit"
+                    className={s.main__btn}
+                    disabled={!isValid && !dirty}
+                >
+                    Register
+                </button>
+                <Link to="/login">
+                    <button 
+                        type="button" 
+                        className={s.scd__btn}
+                    >
+                        Log in
+                    </button>
+                </Link>
+            </div>
+
+        </Form>
+        </div>
+    )}
+    </Formik>
     );
-  };
-
-  return (
-    <section className={scss.section}>
-      <div>
-        <h1 className={scss.formTitle}>Registration</h1>
-        <form className={scss.registerForm} onSubmit={handleSubmit}>
-          <label className={scss.label}>
-            <span className={scss.fieldName}>Username</span>
-            <input
-              className={scss.input}
-              type="text"
-              name="username"
-              title="Only letters and spaces are allowed"
-              required
-            />
-          </label>
-          <label className={scss.label}>
-            <span className={scss.fieldName}>E-mail</span>
-            <input
-              className={scss.input}
-              type="email"
-              name="email"
-              title="Enter a valid e-mail address"
-              required
-            />
-          </label>
-          <label className={scss.label}>
-            <span className={scss.fieldName}>Password</span>
-            <input
-              className={clsx(scss.input, scss.passwordInput)}
-              ref={passwordRef}
-              type="password"
-              name="password"
-              title="Password must contain at least 8 characters, including one letter and one number"
-              required
-            />
-            <button
-              className={scss.passwordBtn}
-              type="button"
-              onClick={togglePasswordVisibility}
-            >
-              <PasswordIcon className={scss.passwordIcon}/>
-            
-            </button>
-          </label>
-          <button className={scss.submitBtn} type="submit">
-            {isAuthPending ? (
-              <AuthPendingIcon className={scss.authPendingIcon} />
-            ) : (
-              "Register"
-            )}
-          </button>
-        </form>
-      </div>
-      <div>
-        <p className={scss.formInfo}>
-          * username can contain only letters and <span>spaces</span>, but
-          spaces not at the <span>beginning</span> and at the end, the length{" "}
-          <span>must</span> be from 3 to 25 characters
-        </p>
-        <p className={scss.formInfo}>
-          * password must contain at least 8 <span>characters</span>, including
-          one letter and one <span>number</span>
-        </p>
-      </div>
-    </section>
-  );
-};
+}
 
 export default RegisterForm;
