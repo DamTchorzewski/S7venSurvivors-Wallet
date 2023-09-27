@@ -6,7 +6,6 @@ import RegisterForm from "../components/RegisterForm/RegisterForm";
 const Register = () => {
  return(
     <div>
-        <title>Wallet-register</title>
         
         <RegisterForm />
        </div> 
