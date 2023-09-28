@@ -7,7 +7,7 @@ import useAuthPending from "../../utils/hooks/useAuthPending";
 import usePasswordVisibility from "../../utils/hooks/usePasswordVisibility";
 import useValidateInputs from "../../utils/hooks/useAuthPending";
 import clsx from "clsx";
-import scss from "./RegisterForm.module.scss";
+import css from "./RegisterForm.module.css";
 
 const RegisterForm = () => {
   const { isAuthPending } = useAuth();
@@ -48,34 +48,34 @@ const RegisterForm = () => {
   };
 
   return (
-    <section className={scss.section}>
+    <section className={css.section}>
       <div>
-        <h1 className={scss.formTitle}>Registration</h1>
-        <form className={scss.registerForm} onSubmit={handleSubmit}>
-          <label className={scss.label}>
-            <span className={scss.fieldName}>Username</span>
+        <h1 className={css.formTitle}>Registration</h1>
+        <form className={css.registerForm} onSubmit={handleSubmit}>
+          <label className={css.label}>
+            <span className={css.fieldName}>Username</span>
             <input
-              className={scss.input}
+              className={css.input}
               type="text"
               name="username"
               title="Only letters and spaces are allowed"
               required
             />
           </label>
-          <label className={scss.label}>
-            <span className={scss.fieldName}>E-mail</span>
+          <label className={css.label}>
+            <span className={css.fieldName}>E-mail</span>
             <input
-              className={scss.input}
+              className={css.input}
               type="email"
               name="email"
               title="Enter a valid e-mail address"
               required
             />
           </label>
-          <label className={scss.label}>
-            <span className={scss.fieldName}>Password</span>
+          <label className={css.label}>
+            <span className={css.fieldName}>Password</span>
             <input
-              className={clsx(scss.input, scss.passwordInput)}
+              className={clsx(css.input, css.passwordInput)}
               ref={passwordRef}
               type="password"
               name="password"
@@ -83,17 +83,17 @@ const RegisterForm = () => {
               required
             />
             <button
-              className={scss.passwordBtn}
+              className={css.passwordBtn}
               type="button"
               onClick={togglePasswordVisibility}
             >
-              <PasswordIcon className={scss.passwordIcon}/>
+              <PasswordIcon className={css.passwordIcon}/>
             
             </button>
           </label>
-          <button className={scss.submitBtn} type="submit">
+          <button className={css.submitBtn} type="submit">
             {isAuthPending ? (
-              <AuthPendingIcon className={scss.authPendingIcon} />
+              <AuthPendingIcon className={css.authPendingIcon} />
             ) : (
               "Register"
             )}
@@ -101,12 +101,12 @@ const RegisterForm = () => {
         </form>
       </div>
       <div>
-        <p className={scss.formInfo}>
+        <p className={css.formInfo}>
           * username can contain only letters and <span>spaces</span>, but
           spaces not at the <span>beginning</span> and at the end, the length{" "}
           <span>must</span> be from 3 to 25 characters
         </p>
-        <p className={scss.formInfo}>
+        <p className={css.formInfo}>
           * password must contain at least 8 <span>characters</span>, including
           one letter and one <span>number</span>
         </p>

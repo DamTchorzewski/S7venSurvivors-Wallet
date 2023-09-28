@@ -16,7 +16,14 @@ const useAuth = () => {
     const isAuthPending = useSelector(selectIsPending);
     const isRefreshing = useSelector(selectIsRefreshing);
 
-  return { user, Error,isAuthLoading, isLoggedIn, isAuthPending, isRefreshing };
+  return {
+    user,
+    Error,
+    isLoggedIn,
+    isAuthLoading,
+    isAuthPending,
+    isRefreshing
+  };
 };
 
 export default useAuth;
