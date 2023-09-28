@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import React, { lazy, useEffect } from 'react';
+import { lazy } from 'react';
 import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
 import Login from '../pages/login';
 import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
@@ -19,7 +19,7 @@ const App = () => {
           <Route index element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
-         
+        
         <Route path="S7venSurvivors-Wallet/dashboard" element={<SharedLayoutPrivate />}>
           <Route index element={<DashBoard />} />
           {/* <Route path="currency" element={<Currency />} />
