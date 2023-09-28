@@ -11,9 +11,9 @@ const SharedLayoutPublic = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Outlet />
-        <Link to="dashboard">
-          {/* <Button text="Go to Dashboard" /> */}
-        </Link>
+        {/* <Link to="dashboard">
+          <Button text="Go to Dashboard" />
+        </Link> */}
         <Loader isVisible={isAuthLoading} />
       </Suspense>
     </>
