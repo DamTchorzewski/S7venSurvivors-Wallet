@@ -1,8 +1,9 @@
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-// import Loader from '../Loader/Loader';
 
-// import useAuth from '../../utils/hooks/useAuth';
+import React, { Suspense } from 'react';
+import {Link, Outlet} from 'react-router-dom';
+import Loader from '../Loader/Loader';
+import useAuth from '../../utils/hooks/useAuth';
+
 
 const SharedLayoutPublic = () => {
   // const { isAuthLoading } = useAuth();
@@ -11,7 +12,9 @@ const SharedLayoutPublic = () => {
     <>
       <Suspense fallback={null}>
         <Outlet />
-        {/* <Loader isVisible={isAuthLoading} /> */}
+
+        <Loader isVisible={isAuthLoading} />
+
       </Suspense>
     </>
   );

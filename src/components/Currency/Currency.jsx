@@ -2,14 +2,18 @@
 // import React, { useState } from 'react';
 // import styles from './Currency.module.css';
 // import { getCurrency } from './getCurrency';
+
 // import { Loader } from 'components/Loader/Loader';
 // import { useSelector } from 'react-redux';
 // import { selectToken } from 'redux/auth/auth-selectors';
 
+
 // function Currency() {
 //   const [currencyData, setCurrencyData] = useState(null);
 //   const [isLoading, setIsLoading] = useState(false);
+
 //   const token = useSelector(selectToken);
+
 
 //   async function fetchData() {
 //     const data = await getCurrency(token);

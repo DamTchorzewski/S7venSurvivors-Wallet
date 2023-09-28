@@ -8,6 +8,7 @@ import App from "./components/App";
 import Loader from "./components/Loader/Loader";
 import './stylesheet/fonts.css';
 import "./stylesheet/common.css";
+import './stylesheet/vars.css';
 import 'modern-normalize'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
