@@ -9,12 +9,17 @@ import { useState } from 'react';
 import { register } from "../../redux/auth/actions";
 import PasswordStrengthMeter from "./PasswordStrenghtMeter";
 
+import useAuth from "../../utils/hooks/useAuth";
+import useAuthPending from "../../utils/hooks/useAuthPending";
+import usePasswordVisibility from "../../utils/hooks/usePasswordVisibility";
+import useValidateInputs from "../../utils/hooks/useAuthPending";
+
 import logo from '../../assets/svg/logo.svg';
 import IconEmail from '@mui/icons-material/Email';
 import IconLock from '@mui/icons-material/Lock';
 import IconName from '@mui/icons-material/AccountBox';
-// import VisibilityIcon from '@mui/icons-material/Visibility';
-// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 import s from "./RegisterForm.module.css";
 
@@ -45,12 +50,48 @@ const initialValues = {
 
 const RegisterForm = () => {
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const { isAuthPending } = useAuth();
+    const { AuthPendingIcon } = useAuthPending();
+    const { PasswordIcon, passwordRef, togglePasswordVisibility } =
+      usePasswordVisibility();
+    const { validateUsername, validateEmail, validatePassword } =
+    useValidateInputs();
     
-    const handleSubmit = ({ name, email, password }) => {
-        dispatch(register({ name, email, password }));
+    const handleSubmit = e => {
+
+      const form = e.currentTarget;
+      const username = form.elements.username;
+      const email = form.elements.email;
+      const password = form.elements.password;
+        
+      if (validateUsername(username.value)) {
+        return username.focus();
+      }
+  
+      if (validateEmail(email.value)) {
+        return email.focus();
+      }
+  
+      if (validatePassword(password.value)) {
+        return password.focus();
+      }
+  
+      dispatch(
+        register({
+          name: username.value,
+          email: email.value,
+          password: password.value,
+        })
+      );
         navigate('/login');
+    };
+
+    const handlePasswordVisibility = () => {
+      setShowPassword(!showPassword);
     };
 
     return (
@@ -116,6 +157,7 @@ const RegisterForm = () => {
 
                 <input
                     className={s.input}
+                    type={showPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password"
                     id="password"
@@ -125,7 +167,7 @@ const RegisterForm = () => {
                     onInput={e => setPassword(e.target.value)}
                 />
 
-              {/* <span
+              <span
                 onClick={handlePasswordVisibility}
                 className={s.password__visibility__toggle}
               >
@@ -134,7 +176,8 @@ const RegisterForm = () => {
                 ) : (
                   <VisibilityIcon style={{ color: '#e0e0e0' }} />
                 )}
-              </span> */}
+              </span>
+
                 <PasswordStrengthMeter password={password} />
             </div>
 
@@ -152,13 +195,13 @@ const RegisterForm = () => {
 
                 <input
                     className={s.input}
-                    // type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? 'text' : 'password'}
                     name="confirmPassword"
                     id="confirmPassword"
                     placeholder="Confirm password"
                     value={values.confirmPassword}
-                    // onChange={handleChange}
-                    // onBlur={handleBlur}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                 />
             </div>
 
@@ -181,8 +224,8 @@ const RegisterForm = () => {
                     id="name"
                     placeholder="First name"
                     value={values.name}
-                    // onChange={handleChange}
-                    // onBlur={handleBlur}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                 />
             </div>
 

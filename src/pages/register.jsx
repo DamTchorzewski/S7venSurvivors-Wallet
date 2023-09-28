@@ -1,6 +1,6 @@
 import Media from 'react-media';
 import RegisterForm from '../components/RegisterForm/RegisterForm';
-import s from './register.module.css'
+import s from './pages.module.css'
 import frame from '../assets/desktop-registration/image-center.png';
 import frame2x from '../assets/desktop-registration/image-center@2x.png';
 

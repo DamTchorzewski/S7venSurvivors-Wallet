@@ -132,6 +132,14 @@
         rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
+.password__visibility__toggle {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -5px;
+    top: 30%;
+    cursor: pointer;
+}
 
 /*Tablet*/
 @media screen and (min-width: 768px) {
