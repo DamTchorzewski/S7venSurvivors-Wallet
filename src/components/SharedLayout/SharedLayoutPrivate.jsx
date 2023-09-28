@@ -18,9 +18,9 @@ const SharedLayoutPrivate = () => {
         {/* <Navigation /> */}
         <Suspense fallback={<Loader />}>
           <Outlet />
-          <Link to="/S7venSurvivors-Wallet/">
-            {/* <Button text="Go to Login" /> */}
-          </Link>
+          {/* <Link to="/S7venSurvivors-Wallet">
+            <Button text="Go to Login" />
+          </Link> */}
           <Loader isVisible={isAuthLoading || isTransactionsLoading} />
         </Suspense>
       </div>
