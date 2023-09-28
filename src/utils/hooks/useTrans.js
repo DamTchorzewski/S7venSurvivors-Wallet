@@ -4,7 +4,7 @@ import {
   selectCategory,
   selectTransactionsError,
   selectIsTransactionsLoading,
-} from '../redux/transactions/selectors';
+} from '../../redux/trans/selectors';
 
 const useTransactions = () => {
   const transactions = useSelector(selectTransactions);

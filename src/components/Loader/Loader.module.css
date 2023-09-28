@@ -9,6 +9,7 @@
 }
 .s {
   background-color: #110021;
+  opacity: -1.0;
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -16,6 +17,7 @@
   left: 0;
   animation: zast 2s linear;
   z-index: 999999999;
+  
 }
 @keyframes zast {
   0% {
