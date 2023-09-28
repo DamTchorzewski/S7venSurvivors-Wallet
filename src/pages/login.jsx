@@ -1,45 +1,36 @@
-
-//import LoginForm from '../components/LoginForm/LoginForm';
-import logo from '../assets/svg/wallet.svg';
-import css from '../components/LoginForm/LoginForm.module.css';
-import centrumTab from '../assets/tablet-login/image-centrum.png';
-import centrumDesk from '../assets/desktop-login/image-centrum.png';
-import elementUpTab from '../assets/tablet-login/element-up.png';
-import elementDownTab from '../assets/tablet-login/element-down.png';
-import elementDownDesk from '../assets/desktop-login/element-down.png';
+import Media from 'react-media';
+import s from './pages.module.css'
+import frame from '../assets/desktop-login/image-centrum.png';
+import frame2x from '../assets/desktop-login/image-centrum@2x.png';
 import Loader from '../components/Loader/Loader';
 import useAuth from '../utils/hooks/useAuth';
+import LoginForm from '../components/LoginForm/LoginForm';
 
 const Login = () => {
   const { isAuthLoading } = useAuth();
 
   return (
     <>
-      <div className={css.loginContainer}>
-        <div className={css.elementTabletUp}>
-          <img src={elementUpTab}></img>
+      <div className={s.commonContainer}>
+            <Media
+                query="(min-width: 767px)"
+                render={() => (
+                    <div className={s.logoContainer}>
+                    <img 
+                        className={s.regImage} 
+                        srcSet={`${frame} 1x, ${frame2x} 2x`}
+                        sizes="(max-width: 767px) 100vw, 50vw"
+                        src={frame} 
+                        alt="" 
+                    />
+                    <h1 className={s.title}>Finance App</h1>
+                    </div>
+                )}
+            />
+            <div className={s.formContainer}>
+              <LoginForm />
+            </div>
         </div>
-        <div className={css.desktopContainer}>
-          <img src={centrumDesk}></img>
-          <span className={css.finance}>Finance App</span>
-        </div>
-        <div className={css.tabletContainer}>
-          <img src={centrumTab}></img>
-          <span className={css.finance}>Finance App</span>
-        </div>
-        <div className={css.loginWrapper}>
-          <div className={css.logoContainer}>
-            <img className={css.logo} src={logo} alt="wallet-logo"></img>
-          </div>
-          {/* <LoginForm /> */}
-        </div>
-        <div className={css.elementTabDown}>
-          <img src={elementDownTab}></img>
-        </div>
-        <div className={css.elementDeskDown}>
-          <img src={elementDownDesk}></img>
-        </div>
-      </div>
       <Loader isVisible={isAuthLoading} />
     </>
   );
