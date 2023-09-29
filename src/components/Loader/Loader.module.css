@@ -9,10 +9,10 @@
 }
 .s {
   background-color: #110021;
-  opacity: -1.0;
+  opacity: 0;
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: static; 
   top: 0;
   left: 0;
   animation: zast 2s linear;
