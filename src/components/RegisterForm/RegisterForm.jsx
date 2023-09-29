@@ -18,7 +18,7 @@ import IconName from '@mui/icons-material/AccountBox';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-import s from "./RegisterForm.module.css";
+import css from "./RegisterForm.module.css";
 
 const validationsSchema = Yup.object({
     email: Yup.string()
@@ -103,28 +103,28 @@ const RegisterForm = () => {
                 values,
                 errors, 
             }) => (
-        <div className={s.form__container}>
-        <Form className={s.form}>
+        <div className={css.form__container}>
+        <Form className={css.form}>
 
-            <div className={s.logo__container}>
-                <img className={s.logo} alt="Logo" src={logo} />
-                <h1 className={s.title}>Wallet</h1>
+            <div className={css.logo__container}>
+                <img className={css.logo} alt="Logo" src={logo} />
+                <h1 className={css.title}>Wallet</h1>
             </div>
 
-            <div className={s.input__container}>
+            <div className={css.input__container}>
                 {touched.email && errors.email ? (
-                <p className={s.errors}>
+                <p className={css.errors}>
                     {errors.email}
                 </p>
                 ) : null}
 
                 <IconEmail
-                    className={s.input__icon}
+                    className={css.input__icon}
                     style={{ color: '#e0e0e0' }}
                 />
 
                 <input
-                    className={s.input}
+                    className={css.input}
                     type="text"
                     name="email"
                     id="email"
@@ -136,20 +136,20 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={s.input__container}>
+            <div className={css.input__container}>
                 {touched.password && errors.password ? (
-                <p className={s.errors}>
+                <p className={css.errors}>
                     {errors.password}
                 </p>
                 ) : null}
 
                 <IconLock
-                    className={s.input__icon}
+                    className={css.input__icon}
                     style={{ color: '#e0e0e0' }}
                 />
 
                 <input
-                    className={s.input}
+                    className={css.input}
                     type={showPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password"
@@ -162,7 +162,7 @@ const RegisterForm = () => {
 
               <span
                 onClick={handlePasswordVisibility}
-                className={s.password__visibility__toggle}
+                className={css.password__visibility__toggle}
               >
                 {showPassword ? (
                   <VisibilityOffIcon style={{ color: '#e0e0e0' }} />
@@ -174,20 +174,20 @@ const RegisterForm = () => {
                 <PasswordStrenghtMeter password={password} />
             </div>
 
-            <div className={s.input__container}>
+            <div className={css.input__container}>
                 {touched.confirmPassword && errors.confirmPassword ? (
-                <p className={s.errors}>
+                <p className={css.errors}>
                     {errors.confirmPassword}
                 </p>
                 ) : null}
 
                 <IconLock
-                    className={s.input__icon}
+                    className={css.input__icon}
                     style={{ color: '#e0e0e0' }}
                 />
 
                 <input
-                    className={s.input}
+                    className={css.input}
                     type={showPassword ? 'text' : 'password'}
                     name="confirmPassword"
                     id="confirmPassword"
@@ -198,20 +198,20 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={s.input__container}>
+            <div className={css.input__container}>
                 {touched.name && errors.name ? (
-                <p className={s.errors}>
+                <p className={css.errors}>
                     {errors.name}
                 </p>
                 ) : null}
 
                 <IconName
-                    className={s.input__icon}
+                    className={css.input__icon}
                     style={{ color: '#e0e0e0' }}
                 />
 
                 <input
-                    className={s.input}
+                    className={css.input}
                     type="text"
                     name="name"
                     id="name"
@@ -222,10 +222,10 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={s.btn__cnt}>
+            <div className={css.btn__cnt}>
                 <button
                     type="submit"
-                    className={s.main__btn}
+                    className={css.main__btn}
                     disabled={!isValid && !dirty}
                 >
                     Register
@@ -233,7 +233,7 @@ const RegisterForm = () => {
                 <Link to="/login">
                     <button 
                         type="button" 
-                        className={s.scd__btn}
+                        className={css.scd__btn}
                     >
                         Log in
                     </button>

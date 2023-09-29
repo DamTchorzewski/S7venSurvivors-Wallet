@@ -1,7 +1,7 @@
 import zxcvbn from 'zxcvbn';
 import PropTypes from 'prop-types';
 
-import s from './RegisterForm.module.css'
+import css from './RegisterForm.module.css'
 
 const PasswordStrenghtMeter = ({ password }) => {
     const testResult = zxcvbn(password);
@@ -58,11 +58,11 @@ const PasswordStrenghtMeter = ({ password }) => {
 
     return (
         <>
-            <div className={s.progress} style={changeStyleProgress()}>
+            <div className={css.progress} style={changeStyleProgress()}>
                 <div className="progress-bar" style={changePasswordColor()}></div>
             </div>
 
-            <p className={s.Text} style={{ color: funcProgressColor() }}>
+            <p className={css.Text} style={{ color: funcProgressColor() }}>
                 {createPasswordLabel()}
             </p>
         </>
