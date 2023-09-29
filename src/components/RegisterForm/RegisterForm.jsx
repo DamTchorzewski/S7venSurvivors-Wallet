@@ -56,23 +56,23 @@ const RegisterForm = () => {
     
     const handleSubmit = e => {
 
-      const form = e.currentTarget;
-      const username = form.elements.username;
-      const email = form.elements.email;
-      const password = form.elements.password;
+    const form = e.currentTarget;
+    const username = form.elements.username;
+    const email = form.elements.email;
+    const password = form.elements.password;
         
-      if (validateUsername(username.value)) {
-        return username.focus();
-      }
-  
-      if (validateEmail(email.value)) {
-        return email.focus();
-      }
-  
-      if (validatePassword(password.value)) {
-        return password.focus();
-      }
-  
+    if (validateUsername(username.value)) {
+    return username.focus();
+    }
+
+    if (validateEmail(email.value)) {
+    return email.focus();
+    }
+
+    if (validatePassword(password.value)) {
+    return password.focus();
+    }
+
       dispatch(
         register({
           name: username.value,
@@ -80,7 +80,7 @@ const RegisterForm = () => {
           password: password.value,
         })
       );
-        navigate('/login');
+        navigate('S7venSurvivors-Wallet/');
     };
 
     const handlePasswordVisibility = () => {
@@ -230,7 +230,7 @@ const RegisterForm = () => {
                 >
                     Register
                 </button>
-                <Link to="/login">
+                <Link to="/S7venSurvivors-Wallet/">
                     <button 
                         type="button" 
                         className={css.scd__btn}

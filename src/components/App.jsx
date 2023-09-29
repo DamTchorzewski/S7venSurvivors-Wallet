@@ -25,7 +25,6 @@ const App = () => {
           {/* <Route path="currency" element={<Currency />} />
           <Route path="" element={<Statistics />} /> */}
         </Route>
-       
         <Route path="*" element={<Login />} />
       </Routes>
     </>

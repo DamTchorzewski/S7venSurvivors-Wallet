@@ -1,7 +1,7 @@
 /*Mobile*/
 
 /*Tablet*/
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
     .commonContainer {
         background-image: url(../assets/desktop-login/element-down.png),
         url(../assets/desktop-login/element-up.png);
@@ -26,7 +26,9 @@
 
     .title {
         font-family: 'Poppins';
+        src: url('../assets//fonts//Poppins-Regular.ttf') format('truetype');
         font-weight: 400;
+        font-style: normal;
         font-size: 30px;
         line-height: 1.5;
     }
@@ -37,8 +39,8 @@
 }
 
 /*Desktop*/
-@media screen and (min-width: 1280px) {
-    .commonContainer {
+@media screen and (min-width: 1279px) {
+    .common__container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -49,7 +51,7 @@
         overflow: hidden;
     }
 
-    .logoContainer {
+    .logo__container {
         display: flex;
         align-items: center;
         flex-direction: column;
