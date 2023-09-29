@@ -5,17 +5,19 @@ import frame2x from '../assets/desktop-login/image-centrum@2x.png';
 import Loader from '../components/Loader/Loader';
 import useAuth from '../utils/hooks/useAuth';
 import LoginForm from '../components/LoginForm/LoginForm';
+import Container from '../components/Container/Container';
 
 const Login = () => {
   const { isAuthLoading } = useAuth();
 
   return (
     <>
-      <div className={s.commonContainer}>
+      <div className={s.common__container}>
+        <Container>
             <Media
                 query="(min-width: 767px)"
                 render={() => (
-                    <div className={s.logoContainer}>
+                    <div className={s.logo__container}>
                     <img 
                         className={s.regImage} 
                         srcSet={`${frame} 1x, ${frame2x} 2x`}
@@ -30,6 +32,7 @@ const Login = () => {
             <div className={s.formContainer}>
               <LoginForm />
             </div>
+            </Container>
         </div>
       <Loader isVisible={isAuthLoading} />
     </>

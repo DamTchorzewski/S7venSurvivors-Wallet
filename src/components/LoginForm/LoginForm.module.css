@@ -34,7 +34,9 @@
 
 .title {
     font-family: 'Poppins';
+    src: url('../../assets/fonts/Poppins-Bold.ttf') format('truetype');
     font-weight: 700;
+    font-style: normal;
     font-size: 22px;
     line-height: 0.85;
     color: black;
@@ -49,8 +51,9 @@
 
 .input {
     font-family: 'Circe';
-    font-style: normal;
+    src: url('../../assets/fonts/Circe-Regular.otf') format('truetype');
     font-weight: 400;
+    font-style: normal;
     font-size: 18px;
     line-height: 1.5;
     color: #bdbdbd;
@@ -73,14 +76,16 @@
     top: 30%;
 }
 
-.btn__container {
+.btn__cnt {
     display: flex;
     flex-direction: column;
 }
 
 .main__btn {
     font-family: 'Circe';
+    src: url('../../assets//fonts//Circe-Regular.otf') format('truetype');
     font-weight: 400;
+    font-style: normal;
     font-size: 18px;
     line-height: 1.5;
     text-align: center;
@@ -107,12 +112,15 @@
 
 .scd__btn {
     font-family: 'Circe';
+    src: url('../../assets//fonts/Circe-Regular.otf') format('truetype');
     font-weight: 400;
+    font-style: normal;
     font-size: 18px;
     line-height: 1.5;
     text-align: center;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+
     color: #4a56e2;
     background: #ffffff;
     border: 1px solid #4a56e2;
@@ -138,7 +146,7 @@
 }
 
 /* Tablet */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
     .form {
         height: auto;
         max-width: 468px;

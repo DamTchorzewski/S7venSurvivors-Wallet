@@ -6,10 +6,11 @@ import { store, persistor } from "./redux/store";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Loader from "./components/Loader/Loader";
-import './stylesheet/fonts.css';
-import "./stylesheet/common.css";
-import './stylesheet/vars.css';
 import 'modern-normalize'
+import "./stylesheet/common.css";
+import './stylesheet/fonts.css';
+import './stylesheet/vars.css';
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

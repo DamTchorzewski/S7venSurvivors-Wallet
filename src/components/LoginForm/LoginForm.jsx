@@ -129,7 +129,7 @@ const LoginForm = () => {
                 >
                     Log in
                 </button>
-                <Link to="/">
+                <Link to="/S7venSurvivors-Wallet/register">
                     <button
                         type="button"
                         className={s.scd__btn}
