@@ -7,7 +7,7 @@ import {
   getMonthDashboard,
   getYearDashboard,
 } from '../../services/DateFunctions';
-import { ButtonAddTransactions }  from '../Buttons/ButtonAddTransactions/ButtonAddTransactions';
+//import { ButtonAddTransactions }  from '../Buttons/ButtonAddTransactions/ButtonAddTransactions';
 import { useDispatch } from 'react-redux';
 import {
   getTransactions,
@@ -108,7 +108,7 @@ export const DashboardMobile = () => {
                     </li>
                   </ul>
                 </div>
-                 <ButtonAddTransactions addDashboard={addData} /> 
+                 {/* <ButtonAddTransactions addDashboard={addData} />  */}
               </>
             );
           })}
