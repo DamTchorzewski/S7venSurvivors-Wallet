@@ -5,7 +5,7 @@ import {refreshUser} from '../redux/auth/actions';
 import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
 import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
 import ProtectedRoute from '../routes/ProtectedRoute';
-import PrivateRoute from '../routes/PrivateRoute';
+import PrivateRoute from '../routes/PrivateRoute.jsx';
 import Login from '../pages/login';
 
 
