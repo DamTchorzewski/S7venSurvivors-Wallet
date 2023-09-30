@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
 import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
@@ -15,6 +15,12 @@ const Statistics = lazy(() => import('../pages/statistic'));
 const Currency = lazy(() => import('../components/Currency/Currency'));
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <>
       <Routes>
