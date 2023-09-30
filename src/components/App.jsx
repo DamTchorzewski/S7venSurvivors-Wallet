@@ -1,20 +1,20 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { refreshUser } from '../redux/auth/actions';
-import ProtectedRoute from '../routes/ProtectedRoute';
-import PrivateRoute from '../routes/PrivateRoute.jsx';
+
+import ProtectedRoute from './ProtectedRoute';
+import PrivateRoute from './PrivateRoute';
 import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
 import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
-
+import { refreshUser } from '../redux/auth/actions';
 import Login from '../pages/login';
 
 
 
 const Register = lazy(() => import('../pages/register'));
 const DashBoard = lazy(() => import('../pages/dashboard'));
-const Statistics = lazy(() => import('../pages/statistic'));
 const Currency = lazy(() => import('../components/Currency/Currency'));
+const Statistics = lazy(() => import('../pages/statistic'));
 
 const App = () => {
   const dispatch = useDispatch();
