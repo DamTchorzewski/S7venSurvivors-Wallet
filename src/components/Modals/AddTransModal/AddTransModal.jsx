@@ -1,14 +1,22 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import css from './AddTransModal.module.css';
 
 export const AddTransModal = () => {
   const [positionSlider, setPositionSlider] = useState(false);
   const handleSlider = () => setPositionSlider(!positionSlider);
+  const [category, setCategory] = useState('');
+
+  // const handleSubmit = () => {
+
+  // }
+
+  const handleCategoryChange = ev => {
+    setCategory(ev.target.value);
+  };
 
   return (
     <section className={css.container}>
-      <button className={css.closeBtn}>X</button>
       <h2 className={css.title}>Add transaction</h2>
       <div className={css.sliderContainer}>
         {!positionSlider ? (
@@ -32,21 +40,38 @@ export const AddTransModal = () => {
         )}
       </div>
       <form className={css.formContainer}>
+        {!positionSlider ? (
+          <select type="select" value={category} onChange={handleCategoryChange}>
+            <option value="">Select a category</option>
+            <option value="mainExpenses">Main expenses</option>
+            <option value="products">Products</option>
+            <option value="car">Car</option>
+            <option value="selfCare">Sefl care</option>
+            <option value="childCare">Child care</option>
+            <option value="householdProducts">Household products</option>
+            <option value="education">Education</option>
+            <option value="leisure">Leisure</option>
+            <option value="otherExpenses">Other expenses</option>
+            <option value="entertainment">Entertainment</option>
+          </select>
+        ) : (
+          <></>
+        )}
         <input type="number" placeholder="0.00"></input>
         <input type="date"></input>
         <input type="textarea" placeholder="Comment"></input>
         <div className={css.btnContainer}>
-          <button className={css.btnForm} type="submit">
+          <button className={css.btnAdd} type="submit">
             ADD
           </button>
-          <button className={css.btnForm}>CANCEL</button>
+          <button className={css.btnCancel}>CANCEL</button>
         </div>
       </form>
     </section>
   );
 };
 
-AddTransModal.PropTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  closeModal: PropTypes.func.isRequired,
-};
+// AddTransModal.propTypes = {
+//   isOpen: PropTypes.bool.isRequired,
+//   closeModal: PropTypes.func.isRequired,
+// };
