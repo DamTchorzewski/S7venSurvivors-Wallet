@@ -9,10 +9,6 @@
         background-repeat: no-repeat, no-repeat;
         background-position: bottom left, top right;
         background-color: #e7eaf2;
-
-        height: 100vh;
-        width: 100vw;
-        
     }
 
     .logo__container {
@@ -47,7 +43,7 @@
     .common__container {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         height: 100vh;
         width: 100vw;
         margin: 0;
@@ -62,7 +58,7 @@
         padding: 153px 31px 77.5px 66px;
     }
 
-    .regImage {
+    .reg__image {
         margin-bottom: 32px;
         width: 452px;
         height: 413px;
@@ -70,11 +66,9 @@
 
     .form__container {
         min-height: 100vh;
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        justify-content: center;
-        padding: 52px 91px 52px 107px;
+
         background: rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(25px);
     }
 }
