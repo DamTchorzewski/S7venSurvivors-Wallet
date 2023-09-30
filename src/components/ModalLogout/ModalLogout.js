@@ -18,12 +18,10 @@ export const ModalLogout = ({ closeModal, handleLogout }) => {
       <div className={css.logoutModal}>
         <div className={css.logoutContent}>
           <p className={css.logoutInfo}>Are you sure you want to sign out?</p>
-          <div lassName={css.modalButtons}>
-            <button
-              type="button"
-              text="LOGOUT"
-              lassName={css.buttonLogout}
-              onClick={handleLogout}
+          <div className={css.modalButtons}>
+            <button type="button" text="logout"
+              className={css.buttonLogout}
+              onClick={handleLogout} 
             >
               {" "}
               Yes{" "}
@@ -31,7 +29,7 @@ export const ModalLogout = ({ closeModal, handleLogout }) => {
             <button
               onClick={closeModal}
               type="button"
-              lassName={css.buttonCancel}
+              className={css.buttonCancel}
             >
               No
             </button>
