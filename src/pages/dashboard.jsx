@@ -1,7 +1,7 @@
 import React, { Fragment, Suspense, lazy } from 'react';
 import Media from 'react-media';
-//import { Dashboard } from '../components/Dashboard/Dashboard';
-// import { DashboardMobile } from '../components/Dashboard/DashboardMobile';
+import { Dashboard } from '../components/Dashboard/Dashboard';
+ import { DashboardMobile } from '../components/Dashboard/DashboardMobile';
 //import BalanceComponent from '../components/Balance/Balance';
 
 const Currency = lazy(() => import('../components/Currency/Currency'));

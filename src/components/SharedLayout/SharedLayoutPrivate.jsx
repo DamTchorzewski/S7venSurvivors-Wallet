@@ -1,7 +1,8 @@
-import React, { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { Suspense,useEffect } from 'react';
+import {Outlet} from 'react-router-dom';
 // import Header from '../components/Header/Header';
 // import Navigation from './Navigation/Navigation';
+import Notiflix from 'notiflix';
 import Loader from '../Loader/Loader';
 import useAuth from '../../utils/hooks/useAuth';
 import useTransactions from '../../utils/hooks/useTrans';
@@ -13,6 +14,10 @@ const SharedLayoutPrivate = () => {
   const { isAuthLoading } = useAuth();
   const { isTransactionsLoading } = useTransactions();
 
+    useEffect(() => {
+    if (transactionsError) Notiflix.Notify.failure(transactionsError);
+    }, [transactionsError]);
+  
   return (
     <>
       {/* <Header /> */}
