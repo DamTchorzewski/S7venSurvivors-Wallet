@@ -3,7 +3,7 @@
 import { EditPen } from '../EditPen/EditPen';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { ButtonAddTransactions } from '../Buttons/ButtonAddTransactions/ButtonAddTransactions';
+//import { ButtonAddTransactions } from '../Buttons/ButtonAddTransactions/ButtonAddTransactions';
 import {
   getDayDashboard,
   getMonthDashboard,
@@ -91,7 +91,7 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          <ButtonAddTransactions addDashboard={addData} />
+          {/* <ButtonAddTransactions addDashboard={addData} /> */}
         </>
       ) : !isTransactionsLoading ? (
         <h2>There are no transactions</h2>
