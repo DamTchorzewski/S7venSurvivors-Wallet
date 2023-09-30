@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
 import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
 import PublicRoute from '../routes/publicRoute';
 import PrivateRoute from '../routes/privateRoute';
 import Login from '../pages/login';
-import {refreshUser} from '../redux/auth/actions';
+// import {refreshUser} from '../redux/auth/actions';
 
 
 const Register = lazy(() => import('../pages/register'));
@@ -41,7 +41,7 @@ const App = () => {
               <PrivateRoute redirectTo="/S7venSurvivors-Wallet/"
                 component={<Statistics />}
               />
-         }
+        }
             />
             <Route
               path="currency"

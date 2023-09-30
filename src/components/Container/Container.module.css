@@ -17,5 +17,6 @@
     .container {
         padding: 0px 20px;
         width: 1280px;
+        display: flex;
     }
 }

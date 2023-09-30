@@ -2,23 +2,27 @@
 
 /*Tablet*/
 @media screen and (min-width: 767px) {
-    .commonContainer {
+    .common__container {
         background-image: url(../assets/desktop-login/element-down.png),
         url(../assets/desktop-login/element-up.png);
 
         background-repeat: no-repeat, no-repeat;
         background-position: bottom left, top right;
         background-color: #e7eaf2;
+
+        height: 100vh;
+        width: 100vw;
+        
     }
 
-    .logoContainer {
+    .logo__container {
         display: flex;
         justify-content: center;
         align-items: center;
         padding-top: 60px;
     }
 
-    .regImage {
+    .reg__image {
         margin-bottom: 32px;
         width: 274px;
         height: 250px;
@@ -33,7 +37,7 @@
         line-height: 1.5;
     }
 
-    .formContainer {
+    .form__container {
         padding: 52px 91px 52px 107px;
     }
 }
@@ -64,7 +68,7 @@
         height: 413px;
     }
 
-    .formContainer {
+    .form__container {
         min-height: 100vh;
         display: flex;
         align-items: center;

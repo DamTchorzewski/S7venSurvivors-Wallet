@@ -14,7 +14,7 @@ const Register = () => {
                 render={() => (
                     <div className={s.logo__container}>
                     <img 
-                        className={s.regImage} 
+                        className={s.reg__image} 
                         srcSet={`${frame} 1x, ${frame2x} 2x`}
                         sizes="(max-width: 767px) 100vw, 50vw"
                         src={frame} 
@@ -24,7 +24,7 @@ const Register = () => {
                     </div>
                 )}
             />
-            <div className={s.formContainer}>
+            <div className={s.form__container}>
                 <RegisterForm />
             </div>
             </Container>

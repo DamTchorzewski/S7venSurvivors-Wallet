@@ -1,4 +1,4 @@
- :root {
+:root {
   --loader-size: 150px;
   --text-color: #CECECE;
   --color-one: #2979FF;
@@ -7,18 +7,20 @@
   --color-four: #110021;
   --light-size: 3px;
 }
+
 .s {
   background-color: #110021;
   opacity: 0;
   width: 100vw;
   height: 100vh;
-  position: static; 
+  display: inline-block;
+  position: absolute;
   top: 0;
   left: 0;
   animation: zast 2s linear;
   z-index: 999999999;
-  
 }
+
 @keyframes zast {
   0% {
     opacity: 1;
