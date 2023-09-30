@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
-import { logIn } from '../../redux/auth/actions';
+import { login } from '../../redux/auth/actions';
 
 import logo from '../../assets/svg/wallet.svg';
 import IconEmail from '@mui/icons-material/Email';
@@ -32,7 +32,7 @@ const LoginForm = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = ({ email, password }) => {
-        dispatch(logIn({ email, password }));
+        dispatch(login({ email, password }));
     };
 
     const handlePasswordVisibility = () => {

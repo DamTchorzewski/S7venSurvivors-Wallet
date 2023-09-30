@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { register, logIn, logOut, refreshUser } from "./actions";
+import { createSlice } from '@reduxjs/toolkit';
+import { register, login, logout, refreshUser } from './actions';
 
 const initialState = {
   user: { username: null, email: null },
@@ -7,48 +7,54 @@ const initialState = {
   error: null,
   isLoggedIn: false,
   isLoading: false,
-  isPending: false,
+  isRegistered: false,
   isRefreshing: false,
+  isLogoutModalOpen: false,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    toggleLogoutModal: state => {
+      state.isLogoutModalOpen = !state.isLogoutModalOpen;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isPending = true;
+        state.isRegistered = true;
       })
-      .addCase(logIn.fulfilled, (state, action) => {
+      .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        state.isPending = false;
+        state.isRegistered = false;
       })
-      .addCase(logOut.fulfilled, state => {
+      .addCase(logout.fulfilled, state => {
         state.user = { username: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
+        state.isLogoutModalOpen = false;
       })
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+        state.isLoading = false;
       })
       .addMatcher(
         action =>
           action.type.startsWith('auth') && action.type.endsWith('/pending'),
         state => {
-          state.isPending = true;
+          state.isLoading = true;
         }
       )
       .addMatcher(
@@ -56,18 +62,21 @@ const authSlice = createSlice({
           action.type.startsWith('auth') && action.type.endsWith('/fulfilled'),
         state => {
           state.error = null;
-          state.isPending = false;
+          state.isLoading = false;
         }
       )
       .addMatcher(
         action =>
-          action.type.startsWith('auth') && action.type.endsWith('/rejected'),
+          action.type.startsWith('auth') &&
+          action.type.endsWith('/rejected') &&
+          !action.type.startsWith('auth/refreshUser'),
         (state, action) => {
           state.error = action.payload;
-          state.isPending = false;
+          state.isLoading = false;
         }
       );
   },
 });
 
 export const authReducer = authSlice.reducer;
+export const { toggleLogoutModal } = authSlice.actions;
