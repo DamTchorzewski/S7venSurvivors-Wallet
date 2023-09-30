@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import {refreshUser} from '../redux/auth/actions';
-import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
-import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
+import { refreshUser } from '../redux/auth/actions';
 import ProtectedRoute from '../routes/ProtectedRoute';
 import PrivateRoute from '../routes/PrivateRoute.jsx';
+import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
+import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
+
 import Login from '../pages/login';
 
 
