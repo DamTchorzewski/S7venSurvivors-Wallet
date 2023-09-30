@@ -73,18 +73,18 @@ const RegisterForm = () => {
     return password.focus();
     }
 
-      dispatch(
+    dispatch(
         register({
-          name: username.value,
-          email: email.value,
-          password: password.value,
+            name: username.value,
+            email: email.value,
+            password: password.value,
         })
-      );
+    );
         navigate('S7venSurvivors-Wallet/');
     };
 
     const handlePasswordVisibility = () => {
-      setShowPassword(!showPassword);
+        setShowPassword(!showPassword);
     };
 
     return (
@@ -160,17 +160,16 @@ const RegisterForm = () => {
                     onInput={e => setPassword(e.target.value)}
                 />
 
-              <span
+            <span
                 onClick={handlePasswordVisibility}
                 className={css.password__visibility__toggle}
-              >
-                {showPassword ? (
-                  <VisibilityOffIcon style={{ color: '#e0e0e0' }} />
-                ) : (
-                  <VisibilityIcon style={{ color: '#e0e0e0' }} />
-                )}
-              </span>
-
+            >
+            {showPassword ? (
+                <VisibilityOffIcon style={{ color: '#e0e0e0' }} />
+            ) : (
+                <VisibilityIcon style={{ color: '#e0e0e0' }} />
+            )}
+            </span>
                 <PasswordStrenghtMeter password={password} />
             </div>
 

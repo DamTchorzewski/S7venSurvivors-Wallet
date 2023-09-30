@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-
 import ProtectedRoute from './ProtectedRoute';
 import PrivateRoute from './PrivateRoute';
 import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
@@ -49,7 +48,7 @@ const App = () => {
               <PrivateRoute redirectTo="/S7venSurvivors-Wallet/"
                 component={<Statistics />}
               />
-         }
+        }
             />
             <Route
               path="currency"

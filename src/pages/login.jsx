@@ -29,7 +29,7 @@ const Login = () => {
                     </div>
                 )}
             />
-            <div className={s.formContainer}>
+            <div className={s.form__container}>
               <LoginForm />
             </div>
             </Container>
