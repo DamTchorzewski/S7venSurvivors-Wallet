@@ -1,4 +1,4 @@
-import css from './DashboardMobile.module.css';
+//import css from './DashboardMobile.module.css';
 //import { DeleteButton } from '../DeleteButton/DeleteButton';
 import { EditPen } from '../EditPen/EditPen';
 import { useEffect, useState } from 'react';
