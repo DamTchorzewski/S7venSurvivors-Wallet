@@ -6,7 +6,7 @@ import { logIn } from '../../redux/auth/actions';
 import TextInput from '../TextInput/TextInput';
 
 import './LoginForm.scss';
-import '../Button/Button.scss';
+
 import logo from '../../assets/images/wallet-icon.png';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
