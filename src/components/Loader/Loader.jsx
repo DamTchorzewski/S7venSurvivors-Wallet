@@ -1,13 +1,15 @@
 import React from 'react';
-import s from './Loader.module.css';
-function Loader() {
+
+import css from './Loader.module.css';
+
+const Loader = ({ isVisible = false }) => { 
   return (
-    <div className={s.s}>
-      <div className={s.Loader} data-text="Wallet">
-        <span className={s.Loader__Circle}></span>
-        <span className={s.Loader__Circle}></span>
-        <span className={s.Loader__Circle}></span>
-        <span className={s.Loader__Circle}></span>
+    <div className={css.s}>
+      <div className={css.Loader} data-text="Wallet">
+        <span className={css.Loader__Circle}></span>
+        <span className={css.Loader__Circle}></span>
+        <span className={css.Loader__Circle}></span>
+        <span className={css.Loader__Circle}></span>
       </div>
     </div>
   );

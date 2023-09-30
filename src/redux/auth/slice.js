@@ -2,31 +2,33 @@ import { createSlice } from "@reduxjs/toolkit";
 import { register, logIn, logOut, refreshUser } from "./actions";
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { username: null, email: null },
   token: null,
   error: null,
   isLoggedIn: false,
+  isLoading: false,
   isPending: false,
   isRefreshing: false,
 };
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isLoggedIn = true;
+        state.isPending = true;
       })
       .addCase(logIn.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isPending = false;
       })
       .addCase(logOut.fulfilled, state => {
-        state.user = { name: null, email: null };
+        state.user = { username: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
       })
@@ -36,6 +38,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        state.isLoggedIn = true;
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, state => {
@@ -43,14 +46,14 @@ const authSlice = createSlice({
       })
       .addMatcher(
         action =>
-          action.type.startsWith("auth") && action.type.endsWith("/pending"),
+          action.type.startsWith('auth') && action.type.endsWith('/pending'),
         state => {
           state.isPending = true;
         }
       )
       .addMatcher(
         action =>
-          action.type.startsWith("auth") && action.type.endsWith("/fulfilled"),
+          action.type.startsWith('auth') && action.type.endsWith('/fulfilled'),
         state => {
           state.error = null;
           state.isPending = false;
@@ -58,7 +61,7 @@ const authSlice = createSlice({
       )
       .addMatcher(
         action =>
-          action.type.startsWith("auth") && action.type.endsWith("/rejected"),
+          action.type.startsWith('auth') && action.type.endsWith('/rejected'),
         (state, action) => {
           state.error = action.payload;
           state.isPending = false;
