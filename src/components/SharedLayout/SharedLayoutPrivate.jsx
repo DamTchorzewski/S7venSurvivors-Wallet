@@ -1,35 +1,49 @@
-import React, { Suspense,useEffect } from 'react';
-import {Outlet} from 'react-router-dom';
-// import Header from '../components/Header/Header';
-// import Navigation from './Navigation/Navigation';
-import Notiflix from 'notiflix';
+import React, { Suspense, useEffect, Fragment } from 'react';
+import { Outlet } from 'react-router-dom';
 import Loader from '../Loader/Loader';
+import Header from '../Header/Header';
+import Navigation from '../Navigation/Navigation';
 import useAuth from '../../utils/hooks/useAuth';
-import useTransactions from '../../utils/hooks/useTrans';
-//import css from './SharedLayout.module.css';
-//import Button from '../Buttons/Button/Button';
-
+import useTransactions from '../../utils/hooks//useTrans';
+import css from './SharedLayout.module.css';
+//import LogoutModal from '../components/LogoutModal/LogoutModal';
+import Notiflix from 'notiflix';
+import Media from 'react-media';
+import BalanceComponent from '../Balance/Balance';
+//import Currency from '../Currency/Currency';
 
 const SharedLayoutPrivate = () => {
   const { isAuthLoading } = useAuth();
-  const { isTransactionsLoading } = useTransactions();
+  const { isTransactionsLoading, transactionsError } = useTransactions();
 
-    useEffect(() => {
+  useEffect(() => {
     if (transactionsError) Notiflix.Notify.failure(transactionsError);
-    }, [transactionsError]);
-  
+  }, [transactionsError]);
+
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div className={css.container}>
-        {/* <Navigation /> */}
+        <div className={css.smallContainer}>
+          <div className={css.subContainer}>
+            <Navigation />
+            <Media queries={{ medium: '(min-width: 768px)' }}>
+              {matches => matches.medium && <BalanceComponent />}
+            </Media>
+          </div>
+          <Media queries={{ medium: '(min-width: 768px)' }}>
+            {/* {matches => matches.medium && <Currency />} */}
+          </Media>
+        </div>
+        <Media queries={{ big: '(min-width: 1280px)' }}>
+          {matches => matches.big && <div className={css.verticalBorder}></div>}
+        </Media>
         <Suspense fallback={<Loader />}>
           <Outlet />
-        
-          
           <Loader isVisible={isAuthLoading || isTransactionsLoading} />
         </Suspense>
       </div>
+      {/* <LogoutModal /> */}
     </>
   );
 };

@@ -3,8 +3,8 @@ import { lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
 import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
-import PublicRoute from '../routes/publicRoute';
-import PrivateRoute from '../routes/privateRoute';
+import ProtectedRoute from '../routes/ProtectedRoute';
+import PrivateRoute from '../routes/PrivateRoute';
 import Login from '../pages/login';
 import {refreshUser} from '../redux/auth/actions';
 
@@ -20,12 +20,12 @@ const App = () => {
       <Routes>
         <Route path="S7venSurvivors-Wallet/" element={<SharedLayoutPublic />}>
           <Route index element={
-          <PublicRoute redirectTo="/S7venSurvivors-Wallet/dashboard"
+          <ProtectedRoute redirectTo="/S7venSurvivors-Wallet/dashboard"
             component={<Login />}
           />
           }
           />
-          <Route path="register" element={<PublicRoute redirectTo="/S7venSurvivors-Wallet/dashboard"
+          <Route path="register" element={<ProtectedRoute redirectTo="/S7venSurvivors-Wallet/dashboard"
             component={<Register />}
           />
           }
