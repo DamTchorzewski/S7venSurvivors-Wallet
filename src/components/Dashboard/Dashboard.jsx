@@ -80,10 +80,10 @@ export const Dashboard = () => {
                           type={type}
                           updateDashboard={updateData}
                         />
-                        <DeleteButton
+                        {/* <DeleteButton
                           onClick={() => deleteLine(_id)}
                           name="Delete"
-                        />
+                        /> */}
                       </span>
                     </td>
                   </tr>
@@ -91,7 +91,7 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          <AddTransactionButton addDashboard={addData} />
+          <ButtonAddTransactions addDashboard={addData} />
         </>
       ) : !isTransactionsLoading ? (
         <h2>There are no transactions</h2>
