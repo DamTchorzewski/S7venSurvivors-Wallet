@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import { register } from "../../redux/auth/actions";
+import { signup } from "../../redux/auth/actions";
 import PasswordStrenghtMeter from './PasswordStrengthMeter';
 
 import logo from '../../assets/svg/wallet.svg';
@@ -54,7 +54,7 @@ const RegisterForm = () => {
     const handleSubmit = async ({ email, password, name }) => {
 
         try {
-            await dispatch(register({ email, password, name }));
+            await dispatch(signup({ email, password, name }));
             Notiflix.Notify.Success('Registered successfully!');
             navigate('/S7venSurvivors-Wallet/');
         } catch (error) {

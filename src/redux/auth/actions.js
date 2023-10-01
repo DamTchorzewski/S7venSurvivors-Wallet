@@ -2,7 +2,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://brave-mite-sun-hat.cyclic.cloud';
+axios.defaults.baseURL = 'https://wallet-app-api.cyclic.cloud/api';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -13,14 +13,14 @@ const clearAuthHeader = () => {
 };
 
 /*
- * POST @ /users/register
+ * POST @ /users/signup
  * body: { username, email, password }
  */
-export const register = createAsyncThunk(
+export const signup = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/register', credentials);
+      const res = await axios.post('/users/signup', credentials);
       return res.data.result;
     } catch (err) {
       console.error(err.message);
