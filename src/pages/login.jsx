@@ -2,24 +2,20 @@ import Media from 'react-media';
 import s from './pages.module.css'
 import frame from '../assets/desktop-login/image-centrum.png';
 import frame2x from '../assets/desktop-login/image-centrum@2x.png';
-import Loader from '../components/Loader/Loader';
-import useAuth from '../utils/hooks/useAuth';
 import LoginForm from '../components/LoginForm/LoginForm';
-import Container from '../components/Container/Container';
 
 const Login = () => {
-  const { isAuthLoading } = useAuth();
 
   return (
     <>
       <div className={s.common__container}>
-        <Container>
+
             <Media
                 query="(min-width: 767px)"
                 render={() => (
                     <div className={s.logo__container}>
                     <img 
-                        className={s.regImage} 
+                        className={s.reg__image} 
                         srcSet={`${frame} 1x, ${frame2x} 2x`}
                         sizes="(max-width: 767px) 100vw, 50vw"
                         src={frame} 
@@ -32,9 +28,8 @@ const Login = () => {
             <div className={s.form__container}>
               <LoginForm />
             </div>
-            </Container>
         </div>
-      <Loader isVisible={isAuthLoading} />
+
     </>
   );
 };

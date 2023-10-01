@@ -1,14 +1,14 @@
 import Media from 'react-media';
 import RegisterForm from '../components/RegisterForm/RegisterForm';
 import s from './pages.module.css'
-import Container from '../components/Container/Container';
 import frame from '../assets/desktop-registration/image-center.png';
 import frame2x from '../assets/desktop-registration/image-center@2x.png';
+
 
 const Register = () => {
     return (
         <div className={s.common__container}>
-            <Container>
+
             <Media
                 query="(min-width: 767px)"
                 render={() => (
@@ -27,7 +27,7 @@ const Register = () => {
             <div className={s.form__container}>
                 <RegisterForm />
             </div>
-            </Container>
+
         </div>
     )
 };

@@ -2,14 +2,14 @@ import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
+import Notiflix from 'notiflix';
+
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 import { register } from "../../redux/auth/actions";
 import PasswordStrenghtMeter from './PasswordStrengthMeter';
-
-import useValidateInputs from "../../utils/hooks/useAuthPending";
 
 import logo from '../../assets/svg/wallet.svg';
 import IconEmail from '@mui/icons-material/Email';
@@ -50,38 +50,18 @@ const RegisterForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const { validateUsername, validateEmail, validatePassword } =
-    useValidateInputs();
     
-    const handleSubmit = e => {
+    const handleSubmit = async ({ email, password, name }) => {
 
-    const form = e.currentTarget;
-    const username = form.elements.username;
-    const email = form.elements.email;
-    const password = form.elements.password;
-        
-    if (validateUsername(username.value)) {
-    return username.focus();
-    }
-
-    if (validateEmail(email.value)) {
-    return email.focus();
-    }
-
-    if (validatePassword(password.value)) {
-    return password.focus();
-    }
-
-    dispatch(
-        register({
-            name: username.value,
-            email: email.value,
-            password: password.value,
-        })
-    );
-        navigate('S7venSurvivors-Wallet/');
+        try {
+            await dispatch(register({ email, password, name }));
+            Notiflix.Notify.Success('Registered successfully!');
+            navigate('/S7venSurvivors-Wallet/');
+        } catch (error) {
+            Notiflix.Notify.Failure('Registration failed. Please try again later.'); 
+        }
     };
+
 
     const handlePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -93,6 +73,7 @@ const RegisterForm = () => {
             validateOnBlur
             validationSchema={validationsSchema}
             onSubmit={handleSubmit}
+            
         >
             {({ 
                 handleChange,
