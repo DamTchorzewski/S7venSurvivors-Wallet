@@ -1,25 +1,30 @@
-import React, { Suspense, useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 import Notiflix from 'notiflix';
 import useAuth from '../../utils/hooks/useAuth';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
 
 
 const SharedLayoutPublic = () => {
-  const { isAuthLoading, authError} = useAuth();
+  const { authError} = useAuth();
 
   useEffect(() => {
     if (authError) Notiflix.Notify.failure(authError);
   }, [authError]);
 
+  const isRefreshing = useSelector(selectIsRefreshing);
+
   return (
     <>
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-
-        <Loader isVisible={isAuthLoading} />
-
-      </Suspense>
+      {isRefreshing ? (
+        <Loader />
+      ) : (
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      )}
     </>
   );
 };

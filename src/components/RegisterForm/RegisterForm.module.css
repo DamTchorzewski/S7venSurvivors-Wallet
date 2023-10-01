@@ -1,7 +1,6 @@
 .form {
     margin: 0px auto;
     height: 100vh;
-    max-width: 480px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
