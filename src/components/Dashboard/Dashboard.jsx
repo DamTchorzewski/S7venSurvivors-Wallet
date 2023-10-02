@@ -3,12 +3,12 @@
 import { EditPen } from '../EditPen/EditPen';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { AddTransButton } from '../Buttons/AddTransButton/AddTransButton';
 
 import { getDayDashboard, getMonthDashboard, getYearDashboard } from '../../services/DateFunctions';
 import useTransactions from '../../utils/hooks/useTrans';
 import { getTransactions, removeTransaction } from '../../redux/trans/actions';
 import { nanoid } from 'nanoid';
+import AddTransButton from '../Buttons/AddTransButton/AddTransButton';
 
 export const Dashboard = () => {
   const { transactions, isTransactionsLoading } = useTransactions();
