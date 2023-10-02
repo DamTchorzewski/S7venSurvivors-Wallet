@@ -7,6 +7,7 @@ import SharedLayoutPublic from './SharedLayout/SharedLayoutPublic';
 import SharedLayoutPrivate from './SharedLayout/SharedLayoutPrivate';
 import { refreshUser } from '../redux/auth/actions';
 import Login from '../pages/login';
+import Notiflix from 'notiflix';
 
 
 
@@ -16,6 +17,7 @@ const Currency = lazy(() => import('../components/Currency/Currency'));
 const Statistics = lazy(() => import('../pages/statistic'));
 
 const App = () => {
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,7 +27,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="S7venSurvivors-Wallet/" element={<SharedLayoutPublic />}>
+        <Route path="/S7venSurvivors-Wallet/" element={<SharedLayoutPublic />}>
           <Route index element={
           <ProtectedRoute redirectTo="/S7venSurvivors-Wallet/dashboard"
             component={<Login />}

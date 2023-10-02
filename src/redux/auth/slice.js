@@ -7,7 +7,7 @@ const initialState = {
   error: null,
   isLoggedIn: false,
   isLoading: false,
-  isRegistered: false,
+  IsPending: false,
   isRefreshing: false,
   isLogoutModalOpen: false,
 };
@@ -24,13 +24,13 @@ const authSlice = createSlice({
     builder
       .addCase(signup.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.isRegistered = true;
+        state.IsPending = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        state.isRegistered = false;
+        state.IsPending = false;
       })
       .addCase(logout.fulfilled, state => {
         state.user = { username: null, email: null };

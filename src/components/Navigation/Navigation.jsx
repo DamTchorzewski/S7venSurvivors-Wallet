@@ -8,13 +8,13 @@ import { NavLink } from 'react-router-dom';
 function Navigation({ onClickCurrency }) {
   return (
     <div className={styles.navigation}>
-      <NavLink to="/home" className={styles.navigation__item}>
+      <NavLink to="/S7venSurvivors-Wallet/dashboard" className={styles.navigation__item}>
         <div className={styles.navigation__icon}>
           <HomeIcon fontSize="inherit" />
         </div>
         <div className={styles.navigation__text}>Home</div>
       </NavLink>
-      <NavLink to="/statistics" className={styles.navigation__item}>
+      <NavLink to="diagram" className={styles.navigation__item}>
         <div className={styles.navigation__icon}>
           <TimelineIcon fontSize="inherit" />
         </div>

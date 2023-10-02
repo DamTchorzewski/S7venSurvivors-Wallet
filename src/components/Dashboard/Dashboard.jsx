@@ -1,6 +1,6 @@
 import styles from "./Dashboard.module.css";
 //import { DeleteButton } from "../DeleteButton/DeleteButton";
-import { EditPen } from "../EditPen/EditPen";
+import { EditPen } from "../Pen/Pen";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 //import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";

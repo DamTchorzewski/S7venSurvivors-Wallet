@@ -1,8 +1,9 @@
+
 import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
-
 import Notiflix from 'notiflix';
+
 
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +19,8 @@ import nameIcon from '../../assets/svg/nameForm.svg';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-import css from "./RegisterForm.module.css";
+import styles from './RegisterForm.module.css';
+
 
 const validationsSchema = Yup.object({
     email: Yup.string()
@@ -46,6 +48,7 @@ const initialValues = {
 };
 
 const RegisterForm = () => {
+    
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
@@ -84,25 +87,25 @@ const RegisterForm = () => {
                 values,
                 errors, 
             }) => (
-        <div className={css.form__container}>
-        <Form className={css.form}>
+        <div className={styles.form__container}>
+        <Form className={styles.form}>
 
-            <div className={css.logo__container}>
-                <img className={css.logo} alt="Logo" src={logo} />
-                <h1 className={css.title}>Wallet</h1>
+            <div className={styles.logo__container}>
+                <img className={styles.logo} alt="Logo" src={logo} />
+                <h1 className={styles.title}>Wallet</h1>
             </div>
 
-            <div className={css.input__container}>
+            <div className={styles.input__container}>
                 {touched.email && errors.email ? (
-                <p className={css.errors}>
+                <p className={styles.errors}>
                     {errors.email}
                 </p>
                 ) : null}
 
-                <img className={css.icon__input} alt="email" src={emailIcon} />
+                <img className={styles.icon__input} alt="email" src={emailIcon} />
 
                 <input
-                    className={css.input}
+                    className={styles.input}
                     type="text"
                     name="email"
                     id="email"
@@ -114,17 +117,17 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={css.input__container}>
+            <div className={styles.input__container}>
                 {touched.password && errors.password ? (
-                <p className={css.errors}>
+                <p className={styles.errors}>
                     {errors.password}
                 </p>
                 ) : null}
 
-                <img className={css.icon__input} alt="password" src={passwordIcon} />
+                <img className={styles.icon__input} alt="password" src={passwordIcon} />
 
                 <input
-                    className={css.input}
+                    className={styles.input}
                     type={showPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password"
@@ -137,7 +140,7 @@ const RegisterForm = () => {
 
             <span
                 onClick={handlePasswordVisibility}
-                className={css.password__visibility__toggle}
+                className={styles.password__visibility__toggle}
             >
             {showPassword ? (
                 <VisibilityOffIcon style={{ color: '#e0e0e0' }} />
@@ -148,17 +151,17 @@ const RegisterForm = () => {
                 <PasswordStrenghtMeter password={password} />
             </div>
 
-            <div className={css.input__container}>
+            <div className={styles.input__container}>
                 {touched.confirmPassword && errors.confirmPassword ? (
-                <p className={css.errors}>
+                <p className={styles.errors}>
                     {errors.confirmPassword}
                 </p>
                 ) : null}
 
-               <img className={css.icon__input} alt="password again " src={passwordIcon} />
+               <img className={styles.icon__input} alt="password again " src={passwordIcon} />
 
                 <input
-                    className={css.input}
+                    className={styles.input}
                     type={showPassword ? 'text' : 'password'}
                     name="confirmPassword"
                     id="confirmPassword"
@@ -169,17 +172,17 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={css.input__container}>
+            <div className={styles.input__container}>
                 {touched.username && errors.username ? (
-                <p className={css.errors}>
+                <p className={styles.errors}>
                     {errors.username}
                 </p>
                 ) : null}
 
-                  <img className={css.icon__input} alt="name " src={nameIcon} />
+                  <img className={styles.icon__input} alt="name " src={nameIcon} />
                 
                             <input
-                    className={css.input}
+                    className={styles.input}
                     type="text"
                     name="username"
                     id="username"
@@ -190,18 +193,19 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={css.btn__cnt}>
+            <div className={styles.btn__cnt}>
                 <button
                     type="submit"
-                    className={css.main__btn}
+                    className={styles.main__btn}
                     disabled={!isValid && !dirty}
+                    
                 >
                     Register
                 </button>
                 <Link to="/S7venSurvivors-Wallet/">
                     <button 
                         type="button" 
-                        className={css.scd__btn}
+                        className={styles.scd__btn}
                     >
                         Log in
                     </button>

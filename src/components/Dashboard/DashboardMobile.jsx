@@ -1,6 +1,6 @@
 //import css from './DashboardMobile.module.css';
 //import { DeleteButton } from '../DeleteButton/DeleteButton';
-import { EditPen } from '../EditPen/EditPen';
+import { EditPen } from '../Pen/Pen';
 import { useEffect, useState } from 'react';
 import {
   getDayDashboard,
