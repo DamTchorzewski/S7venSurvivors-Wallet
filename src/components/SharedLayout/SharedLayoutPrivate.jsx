@@ -11,7 +11,7 @@ import Notiflix from 'notiflix';
 import Media from 'react-media';
 import BalanceComponent from '../Balance/Balance';
 import Currency from '../Currency/Currency';
-import css from './SharedLayout.module.css';
+import s from './SharedLayout.module.css';
 
 const SharedLayoutPrivate = () => {
   const { isAuthLoading } = useAuth();
@@ -24,9 +24,9 @@ const SharedLayoutPrivate = () => {
   return (
     <>
       <Header />
-      <div className={css.container}>
-        <div className={css.smallContainer}>
-          <div className={css.subContainer}>
+      <div className={s.container}>
+        <div className={s.smallContainer}>
+          <div className={s.subContainer}>
             <Navigation />
             <Media queries={{ medium: '(min-width: 768px)' }}>
               {matches => matches.medium && <BalanceComponent />}
@@ -37,7 +37,7 @@ const SharedLayoutPrivate = () => {
           </Media>
         </div>
         <Media queries={{ big: '(min-width: 1280px)' }}>
-          {matches => matches.big && <div className={css.verticalBorder}></div>}
+          {matches => matches.big && <div className={s.verticalBorder}></div>}
         </Media>
         <Suspense fallback={<Loader />}>
           <Outlet />
