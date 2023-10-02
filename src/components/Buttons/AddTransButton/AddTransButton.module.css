@@ -1,0 +1,35 @@
+.modalBtn {
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  background-color: #24cca7;
+  position: fixed;
+  padding: 0;
+  right: 20px;
+  bottom: 20px;
+  border: #24cca7 1px solid;
+  box-shadow: 0 10px 10px -7px rgba(36, 204, 167, 1);
+}
+
+.modalBtn::before {
+  content: url(../../../assets/svg/plus.svg);
+  color: white;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  left: 0px;
+  top: 0px;
+  font-size: 30px;
+  padding: 0;
+}
+
+.modalBtn:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .modalBtn {
+    right: 40px;
+    bottom: 40px;
+  }
+}

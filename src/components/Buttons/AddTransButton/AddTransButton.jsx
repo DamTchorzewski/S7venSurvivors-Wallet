@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-//import styles from '../ButtonAddTransactions/ButtonAddTransactions.module.css';
-import { ModalAddTransaction } from '../../Modals/ModalAddTrans/ModalAddTrans';
+import css from './AddTransButton.module.css';
+import ModalAddTrans from '../../Modals/ModalAddTrans/ModalAddTrans';
 import { getDay, getMonth, getDefYear } from '../../../services/DateFunctions';
 import { createTransaction } from '../../../redux/trans/actions';
+import PropTypes from 'prop-types';
 
-export const ButtonAddTransactions = ({ addDashboard }) => {
+const AddTransButton = ({ addDashboard }) => {
   const dispatch = useDispatch();
-  const [modal, setModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState();
 
   const dateTrim = e => {
@@ -28,31 +29,30 @@ export const ButtonAddTransactions = ({ addDashboard }) => {
         year: getDefYear(),
       },
     });
-    setModal(true);
+    setIsModalOpen(true);
   };
 
   const closeModal = e => {
     if (e) e.preventDefault();
     setData({});
-    setModal(false);
+    setIsModalOpen(false);
   };
 
-  const sliderTypePlus = () =>
-    setData({ ...data, type: '+', category: 'Income' });
+  const sliderTypePlus = () => setData({ ...data, type: '+', category: 'Income' });
   const sliderTypeMinus = () => setData({ ...data, type: '-' });
 
   const submitModal = e => {
     e.preventDefault();
     dispatch(createTransaction(data));
     addDashboard(data);
-    setModal(!modal);
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
     <>
-      <button onClick={openModal} className={styles.addButton}></button>
-      {modal && (
-        <ModalAddTransaction
+      <button onClick={openModal} className={css.modalBtn}></button>
+      {isModalOpen && (
+        <ModalAddTrans
           onSubmit={submitModal}
           onCancel={closeModal}
           onClose={closeModal}
@@ -66,4 +66,10 @@ export const ButtonAddTransactions = ({ addDashboard }) => {
       )}
     </>
   );
+};
+
+export default AddTransButton;
+
+AddTransButton.propTypes = {
+  addDashboard: PropTypes.func,
 };

@@ -3,17 +3,11 @@
 import { EditPen } from '../EditPen/EditPen';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-//import { ButtonAddTransactions } from '../Buttons/ButtonAddTransactions/ButtonAddTransactions';
-import {
-  getDayDashboard,
-  getMonthDashboard,
-  getYearDashboard,
-} from '../../services/DateFunctions';
+import { AddTransButton } from '../Buttons/AddTransButton/AddTransButton';
+
+import { getDayDashboard, getMonthDashboard, getYearDashboard } from '../../services/DateFunctions';
 import useTransactions from '../../utils/hooks/useTrans';
-import {
-  getTransactions,
-  removeTransaction,
-} from '../../redux/trans/actions';
+import { getTransactions, removeTransaction } from '../../redux/trans/actions';
 import { nanoid } from 'nanoid';
 
 export const Dashboard = () => {
@@ -62,8 +56,7 @@ export const Dashboard = () => {
                 return (
                   <tr key={_id ?? nanoid()}>
                     <td>
-                      {getDayDashboard(date)}.{getMonthDashboard(date)}.
-                      {getYearDashboard(date)}
+                      {getDayDashboard(date)}.{getMonthDashboard(date)}.{getYearDashboard(date)}
                     </td>
                     <td>{type}</td>
                     <td>{category}</td>
@@ -75,11 +68,7 @@ export const Dashboard = () => {
                     )}
                     <td>
                       <span className={styles.buttonContainer}>
-                        <EditPen
-                          id={_id}
-                          type={type}
-                          updateDashboard={updateData}
-                        />
+                        <EditPen id={_id} type={type} updateDashboard={updateData} />
                         {/* <DeleteButton
                           onClick={() => deleteLine(_id)}
                           name="Delete"
@@ -91,7 +80,7 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          {/* <ButtonAddTransactions addDashboard={addData} /> */}
+          <AddTransButton addDashboard={addData} />
         </>
       ) : !isTransactionsLoading ? (
         <h2>There are no transactions</h2>
