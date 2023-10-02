@@ -1,0 +1,66 @@
+.headerContainer {
+	background-color: white;
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+}
+.headerWrapper {
+	max-width: 1280px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 20px;
+	margin: 0 auto;
+	@media screen and (min-width: 768px) {
+		padding: 20px 32px;
+	}
+	@media screen and (min-width: 1280px) {
+		padding: 20px 16px;
+	}
+}
+.headerSide {
+	display: flex;
+	align-items: center;
+}
+.headerSide:nth-child(2) {
+	gap: 24px;
+}
+.headerLogo {
+	display: flex;
+	align-items: center;
+}
+.appName {
+	color: black;
+	margin-left: 16px;
+	@media screen and (min-width: 768px) {
+		margin-left: 20px;
+	}
+}
+.headerSideText {
+	color: #bdbdbd;
+	position: relative;
+}
+.headerSideText:nth-child(1):after {
+	bottom: 0;
+	right: -12px;
+	position: absolute;
+	content: "";
+	display: block;
+	background-color: #bdbdbd;
+	width: 1px;
+	height: 100%;
+}
+.headerLogout {
+	display: flex;
+}
+.headerLogout:hover .headerSideText,
+.headerLogout:focus .headerSideText,
+.headerLogout:hover Svg,
+.headerLogout:focus Svg {
+	color: #4a56e2;
+	fill: #4a56e2;
+}
+.headerLogout Svg {
+	margin-right: 8px;
+	fill: #bdbdbd;
+}

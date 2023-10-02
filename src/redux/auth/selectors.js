@@ -6,6 +6,6 @@ export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 
 export const selectIsAuthLoading = state => state.auth.isLoading;
 
-export const selectIsPending = state => state.auth.selectIsPending;
+export const selectIsPending = state => state.auth.IsPending;
 
 export const selectIsRefreshing = state => state.auth.isRefreshing;

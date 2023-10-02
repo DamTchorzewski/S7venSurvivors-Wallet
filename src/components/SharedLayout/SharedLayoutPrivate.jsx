@@ -1,16 +1,16 @@
 import React, { Suspense, useEffect, Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import Header from '../Header/Header';
+import Header from '..//Header/Header';
 import Navigation from '../Navigation/Navigation';
 import useAuth from '../../utils/hooks/useAuth';
-import useTransactions from '../../utils/hooks//useTrans';
-//import css from './SharedLayout.module.css';
-//import LogoutModal from '../components/LogoutModal/LogoutModal';
+import useTransactions from '../../utils/hooks/useTrans';
+import css from './SharedLayout.module.css';
+// import LogoutModal from '../ModalLogout/ModalLogout';
 import Notiflix from 'notiflix';
 import Media from 'react-media';
 import BalanceComponent from '../Balance/Balance';
-//import Currency from '../Currency/Currency';
+import Currency from '../Currency/Currency';
 
 const SharedLayoutPrivate = () => {
   const { isAuthLoading } = useAuth();
@@ -32,7 +32,7 @@ const SharedLayoutPrivate = () => {
             </Media>
           </div>
           <Media queries={{ medium: '(min-width: 768px)' }}>
-            {/* {matches => matches.medium && <Currency />} */}
+            {matches => matches.medium && <Currency />}
           </Media>
         </div>
         <Media queries={{ big: '(min-width: 1280px)' }}>

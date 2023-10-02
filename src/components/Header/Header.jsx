@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/svg/wallet.svg';
-import logout from '../../assets/svg/logout.svg';
-//import css from './Header.module.css';
+import logoutIcon from '../../assets/svg/logout.svg'
+import homeIcon from '../../assets/svg/wallet.svg'
+import css from './Header.module.css';
 import useAuth from '../../utils/hooks/useAuth';
-//import { toggleLogoutModal } from '../../redux/auth/slice';
+import { toggleLogoutModal } from '../../redux/auth/slice';
 import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/auth/actions';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -18,15 +19,15 @@ const Header = () => {
     <header className={css.headerContainer}>
       <div className={css.headerWrapper}>
         <div className={css.headerSide}>
-          <Link to='/Goit-Wallet/dashboard' className={css.headerLogo}>
-           <img className={css.logo} alt="Logo" src={logo} />
+          <Link to='/S7venSurvivors-Wallet/dashboard' className={css.headerLogo}>
+            <img className={css.homeIcon} alt="wallet" src={homeIcon} />
             <h2 className={css.appName}>Wallet</h2>
           </Link>
         </div>
         <div className={css.headerSide}>
           <p className={css.headerSideText}>{user.username ?? 'Say my name'}</p>
           <button className={css.headerLogout} onClick={openModal}>
-             <img className={css.logout} alt="Logo" src={logout} />
+            <img className={css.logoutIcon} alt="LogOut" src={logoutIcon}/>
             <p className={css.headerSideText}>Exit</p>
           </button>
         </div>

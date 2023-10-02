@@ -1,20 +1,20 @@
-//import styles from './Dashboard.module.css';
-//import { DeleteButton } from '../DeleteButton/DeleteButton';
-import { EditPen } from '../EditPen/EditPen';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-//import { ButtonAddTransactions } from '../Buttons/ButtonAddTransactions/ButtonAddTransactions';
+import styles from "./Dashboard.module.css";
+import { DeleteButton } from "../DeleteButton/DeleteButton";
+import { EditPen } from "../EditPen/EditPen";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";
 import {
   getDayDashboard,
   getMonthDashboard,
   getYearDashboard,
-} from '../../services/DateFunctions';
-import useTransactions from '../../utils/hooks/useTrans';
+} from "../../services/DateFunctions";
+import useTransactions from "../../hook/useTransactions";
 import {
   getTransactions,
   removeTransaction,
-} from '../../redux/trans/actions';
-import { nanoid } from 'nanoid';
+} from "../../redux/transactions/actions";
+import { nanoid } from "nanoid";
 
 export const Dashboard = () => {
   const { transactions, isTransactionsLoading } = useTransactions();
@@ -29,17 +29,31 @@ export const Dashboard = () => {
     setData(transactions);
   }, [transactions]);
 
-  const deleteLine = id => {
+  const deleteLine = (id) => {
     dispatch(removeTransaction(id));
-    setData(prevData => prevData.filter(({ _id }) => _id !== id));
+    setData((prevData) => prevData.filter(({ _id }) => _id !== id));
   };
 
-  const addData = data => {
-    setData(prevData => [data, ...prevData]);
+  const addData = (data) => {
+    setData((prevData) => [data, ...prevData]);
   };
 
-  const updateData = data => {
+  const updateData = (data) => {
     setData(data);
+  };
+
+  const formatSum = (data) => {
+    const numericValue = parseFloat(data);
+    const options = {
+      useGrouping: true,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    };
+    const formattedValue = numericValue
+      .toLocaleString("pl-PL", options)
+      .replace(/,/g, ".");
+
+    return formattedValue;
   };
 
   return (
@@ -68,10 +82,10 @@ export const Dashboard = () => {
                     <td>{type}</td>
                     <td>{category}</td>
                     <td>{comment}</td>
-                    {type == '+' ? (
-                      <td className={styles.green}>{sum}</td>
+                    {type == "+" ? (
+                      <td className={styles.green}>{formatSum(sum)}</td>
                     ) : (
-                      <td className={styles.red}>{sum}</td>
+                      <td className={styles.red}>{formatSum(sum)}</td>
                     )}
                     <td>
                       <span className={styles.buttonContainer}>
@@ -80,10 +94,10 @@ export const Dashboard = () => {
                           type={type}
                           updateDashboard={updateData}
                         />
-                        {/* <DeleteButton
+                        <DeleteButton
                           onClick={() => deleteLine(_id)}
                           name="Delete"
-                        /> */}
+                        />
                       </span>
                     </td>
                   </tr>
@@ -91,10 +105,15 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          {/* <ButtonAddTransactions addDashboard={addData} /> */}
+          <AddTransactionButton addDashboard={addData} />
         </>
       ) : !isTransactionsLoading ? (
-        <h2>There are no transactions</h2>
+
+        <div className={styles.dashboardClass}>
+          <h2>There are no transactions</h2>
+          <AddTransactionButton addDashboard={addData} />
+        </div>
+
       ) : null}
     </>
   );
