@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from "../ModalAddTrans/ModalAddTrans.module.css"
+import styles from "./ModalAddTrans.module.css"
 //import { GreenButton } from "../Greenbutton/GreenButton";
 //import { CancelButton } from "../CancelButton/CancelButton";
 import { SelectMenu } from "../../SelectMenu/SelectMenu";

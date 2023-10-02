@@ -4,9 +4,9 @@ import logoutIcon from '../../assets/svg/logout.svg'
 import homeIcon from '../../assets/svg/wallet.svg'
 import css from './Header.module.css';
 import useAuth from '../../utils/hooks/useAuth';
-import { toggleLogoutModal } from '../../redux/auth/slice';
+import { toggleLogoutModal }  from '../../redux/auth/slice';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../redux/auth/actions';
+
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Header = () => {
         <div className={css.headerSide}>
           <p className={css.headerSideText}>{user.username ?? 'Say my name'}</p>
           <button className={css.headerLogout} onClick={openModal}>
-            <img className={css.logoutIcon} alt="LogOut" src={logoutIcon}/>
+            <img className={css.logoutIcon} alt="logout" src={logoutIcon}/>
             <p className={css.headerSideText}>Exit</p>
           </button>
         </div>

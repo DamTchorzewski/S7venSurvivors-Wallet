@@ -1,0 +1,67 @@
+@import '../../stylesheet/vars.css';
+@import '../../stylesheet/fonts.css';
+.container {
+    padding: 70px 20px 0px;
+    background-color: var(--background-color-cream);
+    height: 100vh;
+    position: relative;
+
+    @media (min-width:768px) and (max-width:1279px) {
+        padding: 112px 32px;
+    }
+
+    @media (min-width:1280px) {
+        padding: 118px 16px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.smallContainer {
+    padding: 12px 0px;
+    display: flex;
+    justify-content: center;
+
+    @media (min-width:768px) {
+        padding: 0px;
+        height: 182px;
+        gap: 32px;
+        margin-bottom: 20px;
+    }
+
+    @media (min-width:1280px) {
+        flex-direction: column;
+        height: auto;
+        justify-content: flex-start;
+        width: 393px;
+    }
+}
+
+.subContainer {
+    @media (min-width:768px) {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 28px;
+        justify-content: flex-end;
+    }
+
+    @media (min-width:1280px) {
+        justify-content: flex-start;
+        flex: 0;
+    }
+}
+
+.mainContainer {
+    @media (min-width:1280px) {
+        flex: 3;
+    }
+}
+
+.verticalBorder {
+    width: 1px;
+    height: 85vh;
+    -webkit-box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 1);
+    box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 1);
+}

@@ -17,7 +17,7 @@
   position: relative;
   top: 0;
   left: 0;
-  animation: zast 2s linear;
+  animation: zast 2s linear forwards;
   z-index: 999999999;
 }
 
@@ -29,7 +29,9 @@
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    
+   
+    display: none;
   }
 }
 .Loader {

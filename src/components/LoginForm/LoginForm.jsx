@@ -8,8 +8,8 @@ import { useState } from 'react';
 import { login } from '../../redux/auth/actions';
 
 import logo from '../../assets/svg/wallet.svg';
-import IconEmail from '@mui/icons-material/Email';
-import IconLock from '@mui/icons-material/Lock';
+import emailIcon from '../../assets/svg/email.svg';
+import passwordIcon from '../../assets/svg/password.svg';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
@@ -70,10 +70,7 @@ const LoginForm = () => {
                 </p>
                 ) : null}
 
-                <IconEmail
-                    className={s.input__icon}
-                    style={{ color: '#e0e0e0' }}
-                />
+                <img className={s.icon__input} alt="email" src={emailIcon} />
 
                 <input
                     className={s.input}
@@ -94,10 +91,7 @@ const LoginForm = () => {
                 </p>
                 ) : null}
 
-                <IconLock
-                    className={s.input__icon}
-                    style={{ color: '#e0e0e0' }}
-                />
+                 <img className={s.icon__input} alt="poassword" src={passwordIcon} />
 
                 <input
                     className={s.input}

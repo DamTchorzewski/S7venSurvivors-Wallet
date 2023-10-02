@@ -7,7 +7,7 @@
     background-color: #4a56e2;
     border-radius: 30px;
     min-height: 174px;
-    background-image: url(../../assets/svg/);
+    background-image: url(../../assets/svg/statisticsMobile.svg);
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -28,7 +28,7 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 1.5;
-    color: var(--light-text-color);
+    color: var();
     padding-top: 12px;
     text-align: left;
     padding-bottom: 12px;
@@ -49,7 +49,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
-    color: var(--light-text-color);
+    color: var(--placeholder);
     padding: 12px 20px;
 }
 

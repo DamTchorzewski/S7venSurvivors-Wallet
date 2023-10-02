@@ -12,9 +12,9 @@ import { signup } from "../../redux/auth/actions";
 import PasswordStrenghtMeter from './PasswordStrengthMeter';
 
 import logo from '../../assets/svg/wallet.svg';
-import IconEmail from '@mui/icons-material/Email';
-import IconLock from '@mui/icons-material/Lock';
-import IconName from '@mui/icons-material/AccountBox';
+import emailIcon from '../../assets/svg/email.svg';
+import passwordIcon from '../../assets/svg/password.svg';
+import nameIcon from '../../assets/svg/nameForm.svg';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
@@ -31,7 +31,7 @@ const validationsSchema = Yup.object({
     confirmPassword: Yup.string()
         .oneOf([Yup.ref('password')], 'Passwords are not the same')
         .required('Password confirmation is required!'),
-    name: Yup.string()
+    username: Yup.string()
         .typeError()
         .min(1, 'Name should be of minimum 1 character length')
         .max(12, 'Name should be of maximum 12 characters length')
@@ -42,7 +42,7 @@ const initialValues = {
     email: '',
     password: '',
     confirmPassword: '',
-    name: '',
+    username: '',
 };
 
 const RegisterForm = () => {
@@ -51,10 +51,10 @@ const RegisterForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    const handleSubmit = async ({ email, password, name }) => {
+    const handleSubmit = async ({ email, password, username }) => {
 
         try {
-            await dispatch(signup({ email, password, name }));
+            await dispatch(signup({ email, password, username }));
             Notiflix.Notify.Success('Registered successfully!');
             navigate('/S7venSurvivors-Wallet/');
         } catch (error) {
@@ -99,10 +99,7 @@ const RegisterForm = () => {
                 </p>
                 ) : null}
 
-                <IconEmail
-                    className={css.input__icon}
-                    style={{ color: '#e0e0e0' }}
-                />
+                <img className={css.icon__input} alt="email" src={emailIcon} />
 
                 <input
                     className={css.input}
@@ -124,10 +121,7 @@ const RegisterForm = () => {
                 </p>
                 ) : null}
 
-                <IconLock
-                    className={css.input__icon}
-                    style={{ color: '#e0e0e0' }}
-                />
+                <img className={css.icon__input} alt="password" src={passwordIcon} />
 
                 <input
                     className={css.input}
@@ -161,10 +155,7 @@ const RegisterForm = () => {
                 </p>
                 ) : null}
 
-                <IconLock
-                    className={css.input__icon}
-                    style={{ color: '#e0e0e0' }}
-                />
+               <img className={css.icon__input} alt="password again " src={passwordIcon} />
 
                 <input
                     className={css.input}
@@ -179,24 +170,21 @@ const RegisterForm = () => {
             </div>
 
             <div className={css.input__container}>
-                {touched.name && errors.name ? (
+                {touched.username && errors.username ? (
                 <p className={css.errors}>
-                    {errors.name}
+                    {errors.username}
                 </p>
                 ) : null}
 
-                <IconName
-                    className={css.input__icon}
-                    style={{ color: '#e0e0e0' }}
-                />
-
-                <input
+                  <img className={css.icon__input} alt="name " src={nameIcon} />
+                
+                            <input
                     className={css.input}
                     type="text"
-                    name="name"
-                    id="name"
+                    name="username"
+                    id="username"
                     placeholder="First name"
-                    value={values.name}
+                    value={values.username}
                     onChange={handleChange}
                     onBlur={handleBlur}
                 />

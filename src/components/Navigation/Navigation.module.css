@@ -10,27 +10,27 @@
 }
 
 .navigation__item {
-    color: var(--accent-text-color);
+    color: var(--purple);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation__item:hover {
-    color: var(--green-color);
+    color: var(--green);
 }
 
 .navigation__item:hover .navigation__icon {
-    background-color: var(--green-color);
+    background-color: var(--green);
 }
 
 .navigation__icon {
     width: 36px;
     height: 36px;
-    background-color: var(--accent-text-color);
+    background-color: var(--purple);
     border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--light-text-color);
+    color: var(--placeholder);
     font-size: 30px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -57,7 +57,7 @@
         display: flex;
         gap: 23px;
         align-items: center;
-        color: var(--accent-text-color);
+        color: var(--purple);
     }
 
     .navigation__item:last-child {

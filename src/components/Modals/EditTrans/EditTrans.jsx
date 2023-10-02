@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import css from '../ModalEditTrans/ModalEditTrans.module.css';
+import css from './EditTrans.module.css';
 import { updateTransaction } from '../../../redux/trans/actions';
 //import { GreenButton } from '../Greenbutton/GreenButton';
 //import { CancelButton } from '../CancelButton/CancelButton';

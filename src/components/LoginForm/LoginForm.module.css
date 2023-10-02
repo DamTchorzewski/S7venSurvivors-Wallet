@@ -1,4 +1,6 @@
 /* Mobile */
+@import '../../stylesheet/vars.css';
+@import '../../stylesheet/fonts.css';
 .form {
     margin: 0px auto;
     height: 100vh;
@@ -9,7 +11,7 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white);
 }
 
 /* LOGO */
@@ -40,7 +42,7 @@
     font-style: normal;
     font-size: 22px;
     line-height: 0.85;
-    color: black;
+    color: var(--black);
 }
 
 /* INPUT */
@@ -57,19 +59,19 @@
     font-style: normal;
     font-size: 18px;
     line-height: 1.5;
-    color: #bdbdbd;
+    color: var(--placeholder-dark);
     border: none;
     outline: none;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--placeholder);
     height: 24px;
     padding: 8px 8px 8px 45px;
 }
 
 .input:focus {
-    border-bottom: 1px solid #24cca7;
+    border-bottom: 1px solid var(--green);
 }
 
-.input__icon {
+.icon__input {
     width: 24px;
     height: 24px;
     position: absolute;
@@ -93,8 +95,8 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
 
-    color: white;
-    background: #24cca7;
+    color: var(--white);
+    background: var(--green);
     outline: none;
     border: none;
     border-radius: 20px;
@@ -122,9 +124,9 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
 
-    color: #4a56e2;
-    background: #ffffff;
-    border: 1px solid #4a56e2;
+    color: var(--purple);
+    background: var(--white);
+    border: 1px solid var(--purple);
     border-radius: 20px;
     width: 280px;
     height: 50px;

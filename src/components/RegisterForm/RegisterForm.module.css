@@ -67,12 +67,13 @@
     border-bottom: 1px solid #24cca7;
 }
 
-.input__icon {
+.icon__input {
     width: 24px;
     height: 24px;
     position: absolute;
     left: 10px;
     top: 25%;
+   
 }
 
 /* BUTTONS */

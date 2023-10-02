@@ -105,13 +105,13 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          <AddTransactionButton addDashboard={addData} />
+          {/* <AddTransactionButton addDashboard={addData} /> */}
         </>
       ) : !isTransactionsLoading ? (
 
         <div className={styles.dashboardClass}>
           <h2>There are no transactions</h2>
-          <AddTransactionButton addDashboard={addData} />
+          {/* <AddTransactionButton addDashboard={addData} /> */}
         </div>
 
       ) : null}

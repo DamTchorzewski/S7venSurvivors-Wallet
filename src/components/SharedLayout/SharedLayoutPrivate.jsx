@@ -6,7 +6,7 @@ import Navigation from '../Navigation/Navigation';
 import useAuth from '../../utils/hooks/useAuth';
 import useTransactions from '../../utils/hooks/useTrans';
 import css from './SharedLayout.module.css';
-// import LogoutModal from '../ModalLogout/ModalLogout';
+import LogoutModal from '../Modals/Logout/Logout';
 import Notiflix from 'notiflix';
 import Media from 'react-media';
 import BalanceComponent from '../Balance/Balance';
@@ -43,7 +43,7 @@ const SharedLayoutPrivate = () => {
           <Loader isVisible={isAuthLoading || isTransactionsLoading} />
         </Suspense>
       </div>
-      {/* <LogoutModal /> */}
+      <LogoutModal />
     </>
   );
 };

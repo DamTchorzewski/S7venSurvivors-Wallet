@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //import styles from './EditPen/EditPen.module.css';
 import editImg from '../../assets/svg/pen.svg';
-import { ModalEditTransaction } from '../Modals/ModalEditTrans/ModalEditTrans';
+import { ModalEditTransaction } from '../Modals/EditTrans/EditTrans';
 
 export const EditPen = ({ id, type, updateDashboard }) => {
   const [modal, setModal] = useState(false);

@@ -6,15 +6,17 @@ import {
   selectIsAuthLoading,
   selectIsPending,
   selectIsRefreshing,
+  selectIsLogoutModalOpen
 } from "../../redux/auth/selectors";
 
 const useAuth = () => {
-    const user = useSelector(selectUser);
-    const Error = useSelector(selectError);
-    const isLoggedIn = useSelector(selectIsLoggedIn);
-    const isAuthLoading = useSelector(selectIsAuthLoading);
-    const isAuthPending = useSelector(selectIsPending);
-    const isRefreshing = useSelector(selectIsRefreshing);
+  const user = useSelector(selectUser);
+  const Error = useSelector(selectError);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isAuthLoading = useSelector(selectIsAuthLoading);
+  const isAuthPending = useSelector(selectIsPending);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const isLogoutModalOpen = useSelector(selectIsLogoutModalOpen);
 
   return {
     user,
@@ -22,7 +24,8 @@ const useAuth = () => {
     isLoggedIn,
     isAuthLoading,
     isAuthPending,
-    isRefreshing
+    isRefreshing,
+     isLogoutModalOpen
   };
 };
 

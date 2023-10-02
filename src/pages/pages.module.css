@@ -1,3 +1,6 @@
+@import '../stylesheet/vars.css';
+@import '../stylesheet/fonts.css';
+
 /*Mobile*/
 
 /*Tablet*/
@@ -8,7 +11,7 @@
 
         background-repeat: no-repeat, no-repeat;
         background-position: bottom left, top right;
-        background-color: #e7eaf2;
+        background-color: var(--background-color-cream);
     }
 
     .logo__container {
@@ -69,6 +72,6 @@
         display: inline-flex;
         align-items: center;
 
-        background: rgba(255, 255, 255, 0.4);
+        background: var(--background-color-grey);
     }
 }

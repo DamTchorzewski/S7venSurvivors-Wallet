@@ -22,8 +22,12 @@
 
 --blue-light:#81E1FF;
 
---text-placeholder:#BDBDBD;
+--placeholder-dark:#BDBDBD;
+--placeholder: #e0e0e0;
 
+--background-color-cream: #E7EAF2;
+--background-color-grey:rgba(255, 255, 255, 0.4);
+    
 
 
 }
