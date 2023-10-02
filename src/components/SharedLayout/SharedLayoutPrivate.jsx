@@ -11,7 +11,7 @@ import Notiflix from 'notiflix';
 import Media from 'react-media';
 import BalanceComponent from '../Balance/Balance';
 import Currency from '../Currency/Currency';
-import styles from './SharedLayout.module.css';
+import styles from './SharedLayoutPrivate.module.css';
 
 const SharedLayoutPrivate = () => {
   const { isAuthLoading } = useAuth();
