@@ -2,17 +2,16 @@
   height: 44px;
   width: 44px;
   border-radius: 50%;
-  background-color: #24cca7;
+  background-color: var(--green);
   position: fixed;
   padding: 0;
   right: 20px;
   bottom: 20px;
-  border: #24cca7 1px solid;
+  border: var(--green) 1px solid;
   box-shadow: 0 10px 10px -7px rgba(36, 204, 167, 1);
 }
 
-.modalBtn::before {
-  content: url(../../../assets/svg/plus.svg);
+.modalBtn:before {
   color: white;
   position: absolute;
   height: 40px;

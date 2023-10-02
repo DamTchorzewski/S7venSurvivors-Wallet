@@ -21,6 +21,7 @@ body {
   align-items: center;
   position: relative;
   z-index: 55;
+  border-radius: 20%;
 }
 
 .selectBtn,
@@ -45,49 +46,52 @@ body {
 }
 
 .optionsContainer {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(220, 220, 220, 0.7);
   opacity: 95%;
   border-radius: 20px;
-  width: 90%;
+  width: 100%;
   display: flex;
   position: absolute;
   backdrop-filter: blur(25px);
   box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
   top: 35px;
-  left: 5%;
   z-index: 60;
 }
 .options {
   list-style: none;
-  margin: 5px;
+  border-radius: 20px;
   cursor: pointer;
   text-align: left;
   width: 100%;
   padding: 0;
   opacity: 100%;
+  max-height: 50vh;
+  overflow-y: scroll;
 }
 
 .option {
   color: black;
   font-size: 18px;
   padding: 5px 15px;
-  width: 100%;
   height: 44px;
   display: flex;
   align-items: center;
+  background-color: transparent;
 }
 
 .option:hover {
-  color: #ff6596;
+  color: var(--pink);
   font-family: CirceBold;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .option:first-child {
-  margin-top: 5px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .option:last-child {
-  margin-bottom: 5px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .backdrop {
