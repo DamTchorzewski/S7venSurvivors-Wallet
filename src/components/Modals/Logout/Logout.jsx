@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './Logout.module.css';
+import styles from './Logout.module.css';
 import closeIcon from '../../../assets/svg/close.svg';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../redux/auth/actions';
@@ -29,15 +29,15 @@ const LogoutModal = () => {
   }, [isLogoutModalOpen]);
 
   return (
-    <div className={isLogoutModalOpen ? css.backdrop : `${css.backdrop} ${css.isHidden}`} onClick={closeOnBackdrop}>
-      <div className={css.logoutModal}>
-        <button className={css.logoutClose} onClick={close}>
-          <img className={css.closeIcon} alt="Close" src={closeIcon}/>
+    <div className={isLogoutModalOpen ? styles.backdrop : `${styles.backdrop} ${styles.isHidden}`} onClick={closeOnBackdrop}>
+      <div className={styles.logoutModal}>
+        <button className={styles.logoutClose} onClick={close}>
+          <img className={styles.closeIcon} alt="Close" src={closeIcon}/>
         </button>
-        <p className={css.logoutQuestion}>Are you sure you want to leave this page?</p>
-        <ul className={css.logoutList}>
-          <li><button className={css.logoutYes} onClick={() => dispatch(logout())}>Yes</button></li>
-          <li><button className={css.logoutNo} onClick={close}>Cancel</button></li>
+        <p className={styles.logoutQuestion}>Are you sure you want to leave this page?</p>
+        <ul className={styles.logoutList}>
+          <li><button className={styles.logoutYes} onClick={() => dispatch(logout())}>Yes</button></li>
+          <li><button className={styles.logoutNo} onClick={close}>Cancel</button></li>
         </ul>
       </div>
     </div>
