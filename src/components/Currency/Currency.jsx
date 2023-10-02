@@ -1,66 +1,76 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Currency.module.css';
-import { getCurrency } from './getCurrency';
+//import loader from './CurrencyLoader.module.css';
 
-import  Loader  from '../Loader/Loader';
-import { useSelector } from 'react-redux';
-import { refreshUser } from '../../redux/auth/actions';
-
-
-function Currency() {
-  const [currencyData, setCurrencyData] = useState(null);
+const Currency = () => {
+  const [usdData, setUsdData] = useState(null);
+  const [eurData, setEurData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const token = useSelector(refreshUser);
+  const currQuerry = query =>
+    `https://api.nbp.pl/api/exchangerates/rates/c/${query}/last/?format=json`;
 
-
-  async function fetchData() {
-    const data = await getCurrency(token);
-    setCurrencyData(data);
-    setIsLoading(true);
-  }
-
-  if (!isLoading) {
-    fetchData();
-    setInterval(fetchData, 6000000);
-    return (
-      <div className={styles.currency}>
-        <Loader />
-      </div>
-    );
-  }
-
-  const eurBuy = currencyData.eur.buy;
-  const eurSale = currencyData.eur.sale;
-  const USDSale = currencyData.usd.sale;
-  const USDBuy = currencyData.usd.buy;
+  useEffect(() => {
+    const fetchData = async (url, setData) => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(url);
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error('Error fetching currency data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchData(currQuerry('usd'), setUsdData);
+    fetchData(currQuerry('eur'), setEurData);
+  }, []);
 
   return (
     <div className={styles.currency}>
-      <table className={styles.currency__tbl}>
-        <thead className={styles.currency__thead}>
+      {/* <div
+        className={`${loader.body} ${isLoading ? '' : loader.bodyIsHidden}`}
+      ></div> */}
+      <table className={styles.currencyTbl}>
+        <thead className={styles.currencyThead}>
           <tr>
-            <th className={styles.currency__tbl_title}>Currency</th>
-            <th className={styles.currency__tbl_title}>Purchase</th>
-            <th className={styles.currency__tbl_title}>Sale</th>
+            <th className={styles.currencyTblTitle}>Currency</th>
+            <th className={styles.currencyTblTitle}>Purchase</th>
+            <th className={styles.currencyTblTitle}>Sale</th>
           </tr>
         </thead>
-        <tbody className={styles.currency__tbody}>
+        <tbody>
           <tr>
-            <td className={styles.currency__tbl_item}>USD</td>
-            <td className={styles.currency__tbl_item}>{USDBuy}</td>
-            <td className={styles.currency__tbl_item}>{USDSale}</td>
+            <td className={styles.currencyTblItem}>USD</td>
+            <td className={styles.currencyTblItem}>
+              {usdData && usdData.rates.length > 0
+                ? usdData.rates[0].bid.toFixed(2)
+                : '-'}
+            </td>
+            <td className={styles.currencyTblItem}>
+              {usdData && usdData.rates.length > 0
+                ? usdData.rates[0].ask.toFixed(2)
+                : '-'}
+            </td>
           </tr>
           <tr>
-            <td className={styles.currency__tbl_item}>EUR</td>
-            <td className={styles.currency__tbl_item}>{eurBuy}</td>
-            <td className={styles.currency__tbl_item}>{eurSale}</td>
+            <td className={styles.currencyTblItem}>EUR</td>
+            <td className={styles.currencyTblItem}>
+              {eurData && eurData.rates.length > 0
+                ? eurData.rates[0].bid.toFixed(2)
+                : '-'}
+            </td>
+            <td className={styles.currencyTblItem}>
+              {eurData && eurData.rates.length > 0
+                ? eurData.rates[0].ask.toFixed(2)
+                : '-'}
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   );
-}
+};
 
 export default Currency;

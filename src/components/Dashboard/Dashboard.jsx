@@ -1,19 +1,19 @@
 import styles from "./Dashboard.module.css";
-import { DeleteButton } from "../DeleteButton/DeleteButton";
+//import { DeleteButton } from "../DeleteButton/DeleteButton";
 import { EditPen } from "../EditPen/EditPen";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";
+//import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";
 import {
   getDayDashboard,
   getMonthDashboard,
   getYearDashboard,
 } from "../../services/DateFunctions";
-import useTransactions from "../../hook/useTransactions";
+import useTransactions from "../../utils/hooks/useTrans";
 import {
   getTransactions,
   removeTransaction,
-} from "../../redux/transactions/actions";
+} from "../../redux/trans/actions";
 import { nanoid } from "nanoid";
 
 export const Dashboard = () => {
@@ -94,10 +94,10 @@ export const Dashboard = () => {
                           type={type}
                           updateDashboard={updateData}
                         />
-                        <DeleteButton
+                        {/* <DeleteButton
                           onClick={() => deleteLine(_id)}
                           name="Delete"
-                        />
+                        /> */}
                       </span>
                     </td>
                   </tr>
