@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/svg/wallet.svg';
 import logout from '../../assets/svg/logout.svg';
-//import css from './Header.module.css';
+import css from './Header.module.css';
 import useAuth from '../../utils/hooks/useAuth';
 //import { toggleLogoutModal } from '../../redux/auth/slice';
 import { useDispatch } from 'react-redux';

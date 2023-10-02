@@ -2,17 +2,10 @@
 //import { DeleteButton } from '../DeleteButton/DeleteButton';
 import { EditPen } from '../EditPen/EditPen';
 import { useEffect, useState } from 'react';
-import {
-  getDayDashboard,
-  getMonthDashboard,
-  getYearDashboard,
-} from '../../services/DateFunctions';
-//import { ButtonAddTransactions }  from '../Buttons/ButtonAddTransactions/ButtonAddTransactions';
+import { getDayDashboard, getMonthDashboard, getYearDashboard } from '../../services/DateFunctions';
+import AddTransButton from '../Buttons/AddTransButton/AddTransButton';
 import { useDispatch } from 'react-redux';
-import {
-  getTransactions,
-  removeTransaction,
-} from '../../redux/trans/actions';
+import { getTransactions, removeTransaction } from '../../redux/trans/actions';
 import { nanoid } from 'nanoid';
 import useTransactions from '../../utils/hooks/useTrans';
 
@@ -50,18 +43,11 @@ export const DashboardMobile = () => {
             return (
               <>
                 <div key={_id ?? nanoid()} className={css.element}>
-                  <ul
-                    className={
-                      type === '+'
-                        ? css.greenElementList
-                        : css.redElementList
-                    }
-                  >
+                  <ul className={type === '+' ? css.greenElementList : css.redElementList}>
                     <li key={nanoid()} className={css.listElement}>
                       <span className={css.listElementTitle}>Date</span>
                       <span>
-                        {getDayDashboard(date)}.{getMonthDashboard(date)}.
-                        {getYearDashboard(date)}
+                        {getDayDashboard(date)}.{getMonthDashboard(date)}.{getYearDashboard(date)}
                       </span>
                     </li>
                     <li key={nanoid()} className={css.listElement}>
@@ -74,19 +60,11 @@ export const DashboardMobile = () => {
                     </li>
                     <li key={nanoid()} className={css.listElement}>
                       <span className={css.listElementTitle}>Comment</span>
-                      <span>
-                        {comment.length > 15
-                          ? comment.substr(0, 15) + '...'
-                          : comment}
-                      </span>
+                      <span>{comment.length > 15 ? comment.substr(0, 15) + '...' : comment}</span>
                     </li>
                     <li key={nanoid()} className={css.listElement}>
                       <span className={css.listElementTitle}>Sum</span>
-                      <span
-                        className={type === '+' ? css.green : css.red}
-                      >
-                        {sum}
-                      </span>
+                      <span className={type === '+' ? css.green : css.red}>{sum}</span>
                     </li>
                     <li key={nanoid()} className={css.listElement}>
                       {/* <DeleteButton
@@ -95,11 +73,7 @@ export const DashboardMobile = () => {
                       /> */}
                       <ul className={css.editList}>
                         <li>
-                          <EditPen
-                            id={_id}
-                            type={type}
-                            updateDashboard={updateData}
-                          />
+                          <EditPen id={_id} type={type} updateDashboard={updateData} />
                         </li>
                         <li>
                           <span>Edit</span>
@@ -108,13 +82,16 @@ export const DashboardMobile = () => {
                     </li>
                   </ul>
                 </div>
-                 {/* <ButtonAddTransactions addDashboard={addData} />  */}
+                <AddTransButton addDashboard={addData} />
               </>
             );
           })}
         </div>
       ) : !isTransactionsLoading ? (
-        <h2>There are no transactions</h2>
+        <div>
+          <h2>There are no transactions</h2>
+          <AddTransButton addDashboard={addData} />
+        </div>
       ) : null}
     </>
   );

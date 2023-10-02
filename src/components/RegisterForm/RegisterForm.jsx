@@ -18,8 +18,6 @@ import IconName from '@mui/icons-material/AccountBox';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-import AddTransButton from '../Buttons/AddTransButton/AddTransButton';
-
 import css from './RegisterForm.module.css';
 
 const validationsSchema = Yup.object({
@@ -174,7 +172,6 @@ const RegisterForm = () => {
               </Link>
             </div>
           </Form>
-          <AddTransButton />
         </div>
       )}
     </Formik>

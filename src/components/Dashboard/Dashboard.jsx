@@ -83,7 +83,10 @@ export const Dashboard = () => {
           <AddTransButton addDashboard={addData} />
         </>
       ) : !isTransactionsLoading ? (
-        <h2>There are no transactions</h2>
+        <div>
+          <h2>There are no transactions</h2>
+          <AddTransButton addDashboard={addData} />
+        </div>
       ) : null}
     </>
   );

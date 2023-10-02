@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import useAuth from '../../utils/hooks/useAuth';
 import useTransactions from '../../utils/hooks//useTrans';
-//import css from './SharedLayout.module.css';
+import css from './SharedLayout.module.css';
 //import LogoutModal from '../components/LogoutModal/LogoutModal';
 import Notiflix from 'notiflix';
 import Media from 'react-media';
