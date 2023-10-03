@@ -9,7 +9,7 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white);
 }
 
 /* LOGO */
@@ -40,7 +40,7 @@
     font-style: normal;
     font-size: 22px;
     line-height: 0.85;
-    color: black;
+    color: var(--black);
 }
 
 /* INPUT */
