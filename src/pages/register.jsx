@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Notiflix from 'notiflix';
 import Loader from '../components/Loader/Loader';
 import useAuth from '../utils/hooks/useAuth';
 import Media from 'react-media';
-
+import Notiflix from 'notiflix';
 import RegisterForm from '../components/RegisterForm/RegisterForm';
 import styles from './pages.module.css'
 import frame from '../assets/desktop-registration/image-center.png';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Currency.module.css';
-//import loader from './CurrencyLoader.module.css';
+
 
 const Currency = () => {
   const [usdData, setUsdData] = useState(null);
@@ -29,9 +29,7 @@ const Currency = () => {
 
   return (
     <div className={styles.currency}>
-      {/* <div
-        className={`${loader.body} ${isLoading ? '' : loader.bodyIsHidden}`}
-      ></div> */}
+      
       <table className={styles.currencyTbl}>
         <thead className={styles.currencyThead}>
           <tr>

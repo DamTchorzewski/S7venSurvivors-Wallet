@@ -1,12 +1,12 @@
 import React from 'react';
-import Notiflix from 'notiflix';
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { PersistGate } from "redux-persist/integration/react";
-import { store, persistor } from "./redux/store";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
 import Loader from "./components/Loader/Loader";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./redux/store";
+
 import 'modern-normalize'
 import "./stylesheet/common.css";
 import './stylesheet/fonts.css';

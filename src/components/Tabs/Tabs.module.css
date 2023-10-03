@@ -1,0 +1,16 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  height: 75vh;
+  overflow-y: auto;
+  position: relative;
+
+  @media (min-width: 768px) {
+    max-height: 62vh;
+  }
+
+  @media (min-width: 1280px) {
+    max-height: 73vh;
+  }
+}

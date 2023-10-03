@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-//import styles from '../ButtonAddTransactions/ButtonAddTransactions.module.css';
-import { ModalAddTransaction } from '../../Modals/ModalAddTrans/ModalAddTrans';
+import styles from '../ButtonAddTransactions/buttonAddTransactions.module.css';
+import { ModalAddTransaction } from '../../Modals/AddTrans/AddTrans';
 import { getDay, getMonth, getDefYear } from '../../../services/DateFunctions';
 import { createTransaction } from '../../../redux/trans/actions';
 

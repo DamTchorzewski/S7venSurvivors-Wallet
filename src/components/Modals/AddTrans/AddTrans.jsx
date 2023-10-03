@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from "./ModalAddTrans.module.css"
+import styles from "./AddTrans.module.css"
 //import { GreenButton } from "../Greenbutton/GreenButton";
 //import { CancelButton } from "../CancelButton/CancelButton";
 import { SelectMenu } from "../../SelectMenu/SelectMenu";
@@ -40,7 +40,7 @@ const sendCategory = (data) => {onChangeCategory(data)}
             </div>
             <section className={styles.modalForm}>
                 <form onSubmit={onSubmit} className={styles.Form}>
-                    {!count?<></>:<SelectMenuModal onClick={sendCategory} placeholder={'Select a category'}/>}
+                    {!count?<></>:<SelectMenu onClick={sendCategory} placeholder={'Select a category'}/>}
                     <div  className={styles.formWrapper}>
                         <input 
                             type="number" 
