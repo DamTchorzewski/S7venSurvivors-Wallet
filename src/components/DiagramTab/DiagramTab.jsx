@@ -1,9 +1,7 @@
-import { useState } from 'react';
+import React from 'react';
 import { selectTransactions } from '../../redux/trans/selectors';
 import { useSelector } from 'react-redux';
 import styles from './DiagramTab.module.css';
-
-
 export default function DiagramTab({ allArray }) { //TO DO: allArray
   const categoriesFromState = useSelector(selectTransactions.getAllCategoriesFromTransactions);
   return (
