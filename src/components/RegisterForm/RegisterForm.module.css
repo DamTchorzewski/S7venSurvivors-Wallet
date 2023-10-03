@@ -63,7 +63,8 @@
     padding: 8px 8px 8px 45px;
 }
 
-.register__input:focus {
+.register__input:focus,
+.register__input:hover {
     border-bottom: 1px solid #24cca7;
 }
 
@@ -72,7 +73,7 @@
     height: 24px;
     position: absolute;
     left: 10px;
-    top: 30%;
+    padding-top: 8px;
     
    
 }
