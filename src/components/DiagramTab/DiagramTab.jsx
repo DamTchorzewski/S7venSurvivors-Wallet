@@ -6,39 +6,39 @@ import { nanoid } from 'nanoid';
 
 const DiagramTab = ({ transactions }) => {
   const categoryColors = {
-    "Main expenses": "rgba(254, 208, 87, 1)",
-    Products: "rgba(255, 216, 208, 1)",
-    Car: "rgba(253, 148, 152, 1)",
-    "Self care": "rgba(197, 186, 255, 1)",
-    "Child care": "rgba(110, 120, 232, 1)",
-    "Household products": "rgba(74, 86, 226, 1)",
-    Education: "rgba(129, 225, 255, 1)",
-    Leisure: "rgba(36, 204, 167, 1)",
-    "Other expenses": "rgba(0, 173, 132, 1)",
-    Entertainment: "rgba(203, 242, 111, 1)",
+    'Main expenses': 'rgba(254, 208, 87, 1)',
+    Products: 'rgba(255, 216, 208, 1)',
+    Car: 'rgba(253, 148, 152, 1)',
+    'Self care': 'rgba(197, 186, 255, 1)',
+    'Child care': 'rgba(110, 120, 232, 1)',
+    'Household products': 'rgba(74, 86, 226, 1)',
+    Education: 'rgba(129, 225, 255, 1)',
+    Leisure: 'rgba(36, 204, 167, 1)',
+    'Other expenses': 'rgba(0, 173, 132, 1)',
+    Entertainment: 'rgba(203, 242, 111, 1)',
   };
 
   const monthNameToNumber = (monthName) => {
     const months = {
-      January: "01",
-      February: "02",
-      March: "03",
-      April: "04",
-      May: "05",
-      June: "06",
-      July: "07",
-      August: "08",
-      September: "09",
-      October: "10",
-      November: "11",
-      December: "12",
+      January: '01',
+      February: '02',
+      March: '03',
+      April: '04',
+      May: '05',
+      June: '06',
+      July: '07',
+      August: '08',
+      September: '09',
+      October: '10',
+      November: '11',
+      December: '12',
     };
 
     return months[monthName];
   };
 
-  const [selectedMonth, setSelectedMonth] = useState("");
-  const [selectedYear, setSelectedYear] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
 
   const setMonth = (data) => {
     const numericMonth = monthNameToNumber(data);
@@ -65,7 +65,7 @@ const DiagramTab = ({ transactions }) => {
   filteredTransactions.forEach((transaction) => {
     const category = transaction.category;
     const sum = parseFloat(transaction.sum);
-    if (category !== "Income") {
+    if (category !== 'Income') {
       if (!isNaN(sum)) {
         if (!categorySums[category]) {
           categorySums[category] = sum;
@@ -75,7 +75,7 @@ const DiagramTab = ({ transactions }) => {
       }
     }
 
-    if (category === "Income") {
+    if (category === 'Income') {
       if (!selectedMonth && !selectedYear) {
         totalIncome += sum;
       }
@@ -107,13 +107,13 @@ const DiagramTab = ({ transactions }) => {
   const uniqueCategories = [
     ...new Set(
       filteredTransactions
-        .filter((transaction) => transaction.category !== "Income")
+        .filter((transaction) => transaction.category !== 'Income')
         .map((transaction) => transaction.category)
     ),
   ];
 
   const balanceValue = (totalIncome - parseFloat(totalSum)).toFixed(2);
-  const textColor = balanceValue < 0 ? "red" : "black";
+  const textColor = balanceValue < 0 ? 'red' : 'black';
 
   return (
     <>
@@ -139,13 +139,13 @@ const DiagramTab = ({ transactions }) => {
       <div className={styles.tableDateContainer}>
         <div className={styles.dateContainer}>
           <StatisticMenu
-            placeholder={"Month"}
-            type={"month"}
+            placeholder={'Month'}
+            type={'month'}
             setDate={setMonth}
           />
           <StatisticMenu
-            placeholder={"Year"}
-            type={"year"}
+            placeholder={'Year'}
+            type={'year'}
             setDate={setYear}
           />
         </div>
@@ -164,7 +164,7 @@ const DiagramTab = ({ transactions }) => {
                   <tr key={nanoid()}>
                     <td
                       className={styles.categorySquare}
-                      style={{ "--category-color": categoryColors[category] }}
+                      style={{ '--category-color': categoryColors[category] }}
                     />
                     <td className={styles.tableBodyCategory}>{category}</td>
                     <td className={styles.tableBodySum}>

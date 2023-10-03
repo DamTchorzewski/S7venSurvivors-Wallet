@@ -6,16 +6,16 @@ ChartJS.register(ArcElement, Tooltip);
 
 function ChartComponent({ categorySums }) {
   const categoryColors = {
-    "Main expenses": "rgba(254, 208, 87, 1)",
-    Products: "rgba(255, 216, 208, 1)",
-    Car: "rgba(253, 148, 152, 1)",
-    "Self care": "rgba(197, 186, 255, 1)",
-    "Child care": "rgba(110, 120, 232, 1)",
-    "Household products": "rgba(74, 86, 226, 1)",
-    Education: "rgba(129, 225, 255, 1)",
-    Leisure: "rgba(36, 204, 167, 1)",
-    "Other expenses": "rgba(0, 173, 132, 1)",
-    Entertainment: "rgba(203, 242, 111, 1)",
+    'Main expenses': 'rgba(254, 208, 87, 1)',
+    Products: 'rgba(255, 216, 208, 1)',
+    Car: 'rgba(253, 148, 152, 1)',
+    'Self care': 'rgba(197, 186, 255, 1)',
+    'Child care': 'rgba(110, 120, 232, 1)',
+    'Household products': 'rgba(74, 86, 226, 1)',
+    Education: 'rgba(129, 225, 255, 1)',
+    Leisure: 'rgba(36, 204, 167, 1)',
+    'Other expenses': 'rgba(0, 173, 132, 1)',
+    Entertainment: 'rgba(203, 242, 111, 1)',
   };
 
   const [chartData, setChartData] = useState({
@@ -54,7 +54,7 @@ function ChartComponent({ categorySums }) {
     if (categorySums) {
       const labels = Object.keys(categorySums);
       const backgroundColors = Object.keys(categorySums).map((category) => {
-        return categoryColors[category] || "rgba(0, 0, 0, 1)";
+        return categoryColors[category] || 'rgba(0, 0, 0, 1)';
       });
       const dataValues = labels.map((category) => categorySums[category]);
       setChartData((prevChartData) => ({
@@ -73,11 +73,11 @@ function ChartComponent({ categorySums }) {
   }, [categorySums]);
 
   useEffect(() => {
-    window.addEventListener("resize", updateCutoutPercentage);
+    window.addEventListener('resize', updateCutoutPercentage);
     updateCutoutPercentage();
 
     return () => {
-      window.removeEventListener("resize", updateCutoutPercentage);
+      window.removeEventListener('resize', updateCutoutPercentage);
     };
   }, [updateCutoutPercentage]);
 
