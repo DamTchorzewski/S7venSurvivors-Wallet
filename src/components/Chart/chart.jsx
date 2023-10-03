@@ -1,7 +1,7 @@
-import React, { useEffect, useCallback, useState } from "react";
-import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import styles from "./Chart.module.css";
+import React, { useEffect, useCallback, useState } from 'react';
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+import styles from './Chart.module.css';
 ChartJS.register(ArcElement, Tooltip);
 
 function ChartComponent({ categorySums }) {
