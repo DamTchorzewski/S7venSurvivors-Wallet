@@ -95,7 +95,7 @@ const RegisterForm = () => {
                 <h1 className={styles.title}>Wallet</h1>
             </div>
 
-            <div className={styles.input__container}>
+            <div className={styles.register__input__container}>
                 {touched.email && errors.email ? (
                 <p className={styles.errors}>
                     {errors.email}
@@ -105,7 +105,7 @@ const RegisterForm = () => {
                 <img className={styles.icon__input} alt="email" src={emailIcon} />
 
                 <input
-                    className={styles.input}
+                    className={styles.register__input}
                     type="text"
                     name="email"
                     id="email"
@@ -117,7 +117,7 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={styles.input__container}>
+            <div className={styles.register__input__container}>
                 {touched.password && errors.password ? (
                 <p className={styles.errors}>
                     {errors.password}
@@ -127,7 +127,7 @@ const RegisterForm = () => {
                 <img className={styles.icon__input} alt="password" src={passwordIcon} />
 
                 <input
-                    className={styles.input}
+                    className={styles.register__input}
                     type={showPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password"
@@ -151,7 +151,7 @@ const RegisterForm = () => {
                 <PasswordStrenghtMeter password={password} />
             </div>
 
-            <div className={styles.input__container}>
+            <div className={styles.register__input__container}>
                 {touched.confirmPassword && errors.confirmPassword ? (
                 <p className={styles.errors}>
                     {errors.confirmPassword}
@@ -161,7 +161,7 @@ const RegisterForm = () => {
                <img className={styles.icon__input} alt="password again " src={passwordIcon} />
 
                 <input
-                    className={styles.input}
+                    className={styles.register__input}
                     type={showPassword ? 'text' : 'password'}
                     name="confirmPassword"
                     id="confirmPassword"
@@ -172,7 +172,7 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={styles.input__container}>
+            <div className={styles.register__input__container}>
                 {touched.username && errors.username ? (
                 <p className={styles.errors}>
                     {errors.username}
@@ -182,7 +182,7 @@ const RegisterForm = () => {
                   <img className={styles.icon__input} alt="name " src={nameIcon} />
                 
                             <input
-                    className={styles.input}
+                    className={styles.register__input}
                     type="text"
                     name="username"
                     id="username"
