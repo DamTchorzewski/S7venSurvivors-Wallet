@@ -59,11 +59,11 @@
     font-style: normal;
     font-size: 18px;
     line-height: 1.5;
-    color: var(--placeholder-dark);
+    color: var(--black);
     border: none;
     outline: none;
     border-bottom: 1px solid var(--placeholder);
-    height: 24px;
+    height: 40px;
     padding: 8px 8px 8px 45px;
 }
 
