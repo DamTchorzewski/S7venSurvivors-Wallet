@@ -1,3 +1,5 @@
+@import '../../stylesheet/vars.css';
+@import '../../stylesheet/fonts.css';
 .form {
     margin: 0px auto;
     height: 100vh;
