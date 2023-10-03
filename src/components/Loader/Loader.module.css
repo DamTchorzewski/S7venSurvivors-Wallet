@@ -44,7 +44,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-60%, -40%);
   width: 150px;
   width: var(--loader-size, 150px);
   min-width: 110px;
