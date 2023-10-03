@@ -71,7 +71,6 @@
         min-height: 100vh;
         display: inline-flex;
         align-items: center;
-
         background: var(--withe);
     }
 }
