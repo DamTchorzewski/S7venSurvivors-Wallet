@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import useTransactions from "../../hook/useTransactions";
-import styles from "../SelectStatisticsMenu/SelectStatisticsMenu.module.css";
-import { nanoid } from "nanoid";
-import { getTransactions } from "../../redux/transactions/actions";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import useTransactions from '../../utils/hooks/useTrans';
+import styles from '../StatisticMenu/StatisticMenu.module.css';
+import { nanoid } from 'nanoid';
+import { getTransactions } from '../../redux/trans/actions';
 
-const SelectStatisticsMenu = ({ placeholder, type, setDate }) => {
+const StatisticsMenu = ({ placeholder, type, setDate }) => {
   const { transactions } = useTransactions();
   const [data, setData] = useState([]);
   const [modal, setModal] = useState(false);
@@ -133,4 +133,4 @@ const SelectStatisticsMenu = ({ placeholder, type, setDate }) => {
   );
 };
 
-export default SelectStatisticsMenu;
+export default StatisticsMenu;

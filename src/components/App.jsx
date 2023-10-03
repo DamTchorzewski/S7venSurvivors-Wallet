@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import React, { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import ProtectedRoute from './ProtectedRoute';
@@ -25,45 +25,22 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+     <>
       <Routes>
         <Route path="/S7venSurvivors-Wallet/" element={<SharedLayoutPublic />}>
-          <Route index element={
-          <ProtectedRoute redirectTo="/S7venSurvivors-Wallet/dashboard"
-            component={<Login />}
-          />
-          }
-          />
-          <Route path="register" element={<ProtectedRoute redirectTo="/S7venSurvivors-Wallet/dashboard"
-            component={<Register />}
-          />
-          }
-          />
+          <Route index element={<ProtectedRoute redirectTo="/S7venSurvivors-Wallet/dashboard" component={<Login />} />} />
+          <Route path="register" element={<ProtectedRoute redirectTo="/S7venSurvivors-Wallet/dashboard" component={<Register />} />} />
+          <Route path="dashboard" element={<SharedLayoutPrivate />}>
+            <Route index element={<PrivateRoute redirectTo="/S7venSurvivors-Wallet/" component={<HomeTab />} />} />
+            <Route path="diagram" element={<PrivateRoute redirectTo="/S7venSurvivors-Wallet/" component={<Statistics />} />} />
+            <Route path="currency" element={<PrivateRoute redirectTo="/S7venSurvivors-Wallet/" component={<Currency />} />} />
           </Route>
-        <Route path="S7venSurvivors-Wallet/dashboard" element={<SharedLayoutPrivate />}>
-            <Route index element={<PrivateRoute
-              redirectTo="/S7venSurvivors-Wallet/" component={<HomeTab />}
-            />
-            }
-            />
-            <Route path="diagram" element={
-              <PrivateRoute redirectTo="/S7venSurvivors-Wallet/"
-                component={<Statistics />}
-              />
-        }
-            />
-            <Route
-              path="currency"
-              element={
-                <PrivateRoute
-                  redirectTo="/S7venSurvivors-Wallet/"
-                  component={<Currency />}
-                />
-              }
-            />
+          <Route path="*" element={<Navigate to="/S7venSurvivors-Wallet/dashboard" replace />} />
         </Route>
+        <Route path="*" element={<Navigate to="/S7venSurvivors-Wallet/dashboard" replace />} />
       </Routes>
     </>
-  );      
+  );
 };
+
 export default App;

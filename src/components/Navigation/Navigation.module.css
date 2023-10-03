@@ -2,74 +2,64 @@
 @import '../../stylesheet/fonts.css';
 
 /*Mobile*/
-
 .navigation {
     display: flex;
-    gap: 38px;
-    justify-content: center;
+}
+.navLink:focus .icon,
+.navLink:hover .icon {
+    fill: var(--purple);
+    filter: drop-shadow(0 3px 10px rgba(74, 86, 226, 0.5));
 }
 
-.navigation__item {
-    color: var(--purple);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.navigation__item:hover {
-    color: var(--green);
-}
-
-.navigation__item:hover .navigation__icon {
-    background-color: var(--green);
-}
-
-.navigation__icon {
-    width: 36px;
-    height: 36px;
-    background-color: var(--purple);
-    border-radius: 6px;
+.navLink {
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: var(--placeholder);
-    font-size: 30px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    font-size: 18px;
+    color: var(--black);
 }
 
-.navigation__text {
+.navLink:global.active {
+    font-weight: bold;
+}
+
+.navLink:global.active .icon {
+    filter: drop-shadow(0 3px 10px rgba(74, 86, 226, 0.5));
+}
+
+.text {
+    padding: 0;
+    margin: 0;
     display: none;
+
+    @media screen and (min-width: 768px) {
+        display: block;
+    }
+}
+.navList {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 32px;
+
+    @media screen and (min-width: 768px) {
+        gap: 12px;
+        column-gap: 0;
+        flex-direction: column;
+    }
 }
 
-/*Tablet*/
-@media screen and (min-width: 768px) {
-    .navigation {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .navigation__text {
-        display: block;
-        font-family: 'Poppins';
-        font-size: 18px;
-        line-height: 1.5;
-    }
-
-    .navigation__item {
-        display: flex;
-        gap: 23px;
-        align-items: center;
-        color: var(--purple);
-    }
-
-    .navigation__item:last-child {
+.navList li:nth-last-child(1) {
+    @media screen and (min-width: 768px) {
         display: none;
     }
+}
 
-    .navigation__icon {
-        width: 18px;
-        height: 18px;
-        font-size: 14px;
+.icon {
+    @media screen and (min-width: 768px) {
+        margin-right: 20px;
+        height: 24px;
+        width: 24px;
     }
 }
 
-/*Desktop*/
-@media screen and (min-width: 1280px) {}

@@ -3,7 +3,7 @@ import styles from "./Dashboard.module.css";
 import { EditPen } from "../Pen/Pen";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-//import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";
+import { ButtonAddTransactions } from "../Buttons/ButtonAddTransactions/buttonAddTransactions";
 import {
   getDayDashboard,
   getMonthDashboard,
@@ -92,7 +92,7 @@ export const Dashboard = () => {
                         <EditPen
                           id={_id}
                           type={type}
-                          updateDashboard={updateData}
+                        
                         />
                         {/* <DeleteButton
                           onClick={() => deleteLine(_id)}
@@ -105,13 +105,13 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          {/* <AddTransactionButton addDashboard={addData} /> */}
+          <ButtonAddTransactions /> 
         </>
       ) : !isTransactionsLoading ? (
 
         <div className={styles.dashboardClass}>
           <h2>There are no transactions</h2>
-          {/* <AddTransactionButton addDashboard={addData} /> */}
+           
         </div>
 
       ) : null}

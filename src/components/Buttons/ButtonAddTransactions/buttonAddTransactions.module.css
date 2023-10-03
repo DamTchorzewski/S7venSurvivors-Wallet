@@ -1,26 +1,35 @@
-.buttonDiv {
-  display: flex;
+@import '../../../stylesheet/vars.css';
+@import '../../../stylesheet/fonts.css';
+
+.addButton {
   height: 44px;
   width: 44px;
   border-radius: 50%;
-  background-color: rgb(36, 204, 167);
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
+  background-color: var(--green-color);
   position: fixed;
+  padding: 0;
   right: 20px;
   bottom: 20px;
+  border: var(--active-form) 1px solid;
+  box-shadow: 0 10px 10px -7px rgba(36, 204, 167, 1);
+  @media (min-width: 768px) {
+    right: 40px;
+    bottom: 40px;
+  }
 }
 
-.btn {
-  cursor: pointer;
-  border: 0;
-  background-color: rgb(36, 204, 167);
-  color: white;
+.addButton::before {
+  content: url(../../../assets/svg/plus.svg);
+  color: var(--withe);
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  left: -15px;
+  top: -9px;
+  font-size: 30px;
   padding: 0;
-  margin: 0;
-  width: 20px;
-  height: 20px;
+}
+
+.addButton:hover {
+  cursor: pointer;
 }

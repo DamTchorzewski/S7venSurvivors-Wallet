@@ -1,37 +1,34 @@
-import React from 'react';
-import styles from './Navigation.module.css';
-import HomeIcon from '@mui/icons-material/Home';
-import TimelineIcon from '@mui/icons-material/Timeline';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { NavLink } from 'react-router-dom';
+import iconHome from '../../assets/svg/home.svg';
+import iconDiagram from '../../assets/svg/statistics.svg';
+import iconCurrency from '../../assets/svg/dollar.svg';
 
-function Navigation({ onClickCurrency }) {
+import styles from './Navigation.module.css';
+
+const Navigation = () => {
   return (
-    <div className={styles.navigation}>
-      <NavLink to="/S7venSurvivors-Wallet/dashboard" className={styles.navigation__item}>
-        <div className={styles.navigation__icon}>
-          <HomeIcon fontSize="inherit" />
-        </div>
-        <div className={styles.navigation__text}>Home</div>
-      </NavLink>
-      <NavLink to="diagram" className={styles.navigation__item}>
-        <div className={styles.navigation__icon}>
-          <TimelineIcon fontSize="inherit" />
-        </div>
-
-        <div className={styles.navigation__text}>Statistics</div>
-      </NavLink>
-      <NavLink
-        to="/currency"
-        className={styles.navigation__item}
-        onClick={onClickCurrency}
-      >
-        <div className={styles.navigation__icon}>
-          <AttachMoneyIcon fontSize="inherit" />
-        </div>
-      </NavLink>
-    </div>
+    <nav className={styles.navigation}>
+      <ul className={styles.navList}>
+        <li>
+          <NavLink to="/S7venSurvivors-Wallet/dashboard" className={styles.navLink} end>
+            <img className={styles.icon} alt="home" src={iconHome}/>
+            <p className={styles.text}>Home</p>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="diagram" className={styles.navLink}>
+            <img className={styles.icon} alt="diagram" src={iconDiagram}/>
+            <p className={styles.text}>Statistics</p>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="currency" className={styles.navLink}>
+            <img className={styles.icon} alt="currency" src={iconCurrency}/>
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
-}
+};
 
-export default Navigation;
+export default Navigation

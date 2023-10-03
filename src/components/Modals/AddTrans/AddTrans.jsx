@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import styles from "./AddTrans.module.css"
 //import { GreenButton } from "../Greenbutton/GreenButton";
 //import { CancelButton } from "../CancelButton/CancelButton";
-import { SelectMenu } from "../../SelectMenu/SelectMenu";
+import { SelectMenu } from "../../Modals/Menu/Menu";
 
 export const ModalAddTransaction = ({
     onCancel,

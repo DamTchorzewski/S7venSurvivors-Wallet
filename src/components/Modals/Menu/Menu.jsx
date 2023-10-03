@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from '../SelectMenu/SelectMenu.module.css';
+import styles from './Menu.module.css';
 import { nanoid } from "nanoid";
 
 export const SelectMenu = ({ placeholder, onClick }) => {

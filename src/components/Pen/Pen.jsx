@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import styles from './EditPen/EditPen.module.css';
+import styles from './Pen.module.css';
 import editImg from '../../assets/svg/pen.svg';
 import { ModalEditTransaction } from '../Modals/EditTrans/EditTrans';
 

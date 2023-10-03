@@ -4,7 +4,7 @@ import css from './EditTrans.module.css';
 import { updateTransaction } from '../../../redux/trans/actions';
 //import { GreenButton } from '../Greenbutton/GreenButton';
 //import { CancelButton } from '../CancelButton/CancelButton';
-import { SelectMenu } from '../../SelectMenu/SelectMenu';
+import { SelectMenu }  from '../Menu/Menu';
 
 export const ModalEditTransaction = ({
   type,
@@ -54,7 +54,7 @@ export const ModalEditTransaction = ({
               {type === '+' ? (
                 <></>
               ) : (
-                <SelectMenuModal
+                <SelectMenu
                   onClick={e => setData({ ...data, category: e, id: id })}
                   placeholder={'Select a category'}
                 />

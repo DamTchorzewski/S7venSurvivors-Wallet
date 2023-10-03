@@ -7,9 +7,11 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
+
 	@media (min-width: 768px) {
 		width: 160px;
 	}
+
 	@media (min-width: 1280px) {
 		width: 182px;
 	}
@@ -31,23 +33,25 @@
 	cursor: pointer;
 	position: relative;
 	z-index: 1;
-	
+
 }
-.selectBtn:before{
-	content: url(../../utils/Svg/arrow.svg);
+
+.selectBtn:before {
+	content: url(../../assets/svg/arrow.svg);
 	position: absolute;
 	height: 20px;
-	right:20px;
-	bottom:15px;
+	right: 20px;
+	bottom: 15px;
 	transition: 0.5s;
 	transform: rotate(180deg);
 }
-.selectBtnActive:before{
-	content: url(../../utils/Svg/arrow.svg);
+
+.selectBtnActive:before {
+	content: url(../../assets/svg/arrow.svg);
 	position: absolute;
 	height: 20px;
-	right:20px;
-	bottom:15px;
+	right: 20px;
+	bottom: 15px;
 	transition: 0.5s;
 	transform: rotate(0deg);
 }
@@ -64,6 +68,7 @@
 	left: 0;
 	z-index: 3;
 }
+
 .options {
 	list-style: none;
 	margin: 5px;
@@ -86,9 +91,11 @@
 .option:hover {
 	background-color: #fff;
 }
+
 .option:first-child {
 	margin-top: 5px;
 }
+
 .option:last-child {
 	margin-bottom: 5px;
 }

@@ -1,10 +1,12 @@
+@import '../../stylesheet/vars.css';
+@import '../../stylesheet/fonts.css';
 .title {
   font-family: 'Prompt', sans-serif;
   font-weight: 500;
   font-size: 30px;
   line-height: 1.5;
   letter-spacing: 0.05em;
-  color: #212121e0;
+  color: var(--black);
   margin: 0 auto 20px;
   width: fit-content;
 }

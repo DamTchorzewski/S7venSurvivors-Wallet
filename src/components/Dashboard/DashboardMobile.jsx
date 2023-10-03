@@ -7,7 +7,7 @@ import {
   getMonthDashboard,
   getYearDashboard,
 } from '../../services/DateFunctions';
-//import { ButtonAddTransactions }  from '../Buttons/ButtonAddTransactions/ButtonAddTransactions';
+import { ButtonAddTransactions } from "../Buttons/ButtonAddTransactions/buttonAddTransactions";
 import { useDispatch } from 'react-redux';
 import {
   getTransactions,
@@ -98,7 +98,7 @@ export const DashboardMobile = () => {
                           <EditPen
                             id={_id}
                             type={type}
-                            updateDashboard={updateData}
+                            
                           />
                         </li>
                         <li>
@@ -108,13 +108,16 @@ export const DashboardMobile = () => {
                     </li>
                   </ul>
                 </div>
-                 {/* <ButtonAddTransactions addDashboard={addData} />  */}
+                 <ButtonAddTransactions />  
               </>
             );
           })}
         </div>
       ) : !isTransactionsLoading ? (
-        <h2>There are no transactions</h2>
+          <div>
+          <h2>There are no transactions</h2>
+           
+          </div>
       ) : null}
     </>
   );
