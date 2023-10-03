@@ -13,7 +13,7 @@ import passwordIcon from '../../assets/svg/password.svg';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-import s from "./LoginForm.module.css";
+import styles from "./LoginForm.module.css";
 
 const validationsSchema = Yup.object({
     email: Yup.string()
@@ -55,25 +55,25 @@ const LoginForm = () => {
                 values,
                 errors,
             }) => (
-        <div className={s.form__container}>
-        <Form className={s.form}>
+        <div className={styles.form__container}>
+        <Form className={styles.form}>
 
-            <div className={s.logo__container}>
-                <img className={s.logo} alt="Logo" src={logo} />
-                <h1 className={s.title}>Wallet</h1>
+            <div className={styles.logo__container}>
+                <img className={styles.logo} alt="Logo" src={logo} />
+                <h1 className={styles.title}>Wallet</h1>
             </div>
 
-            <div className={s.input__container}>
+            <div className={styles.input__container}>
                 {touched.email && errors.email ? (
-                <p className={s.errors}>
+                <p className={styles.errors}>
                     {errors.email}
                 </p>
                 ) : null}
 
-                <img className={s.icon__input} alt="email" src={emailIcon} />
+                <img className={styles.icon__input} alt="email" src={emailIcon} />
 
                 <input
-                    className={s.input}
+                    className={styles.login__input}
                     type="text"
                     name="email"
                     id="email"
@@ -84,17 +84,17 @@ const LoginForm = () => {
                 />
             </div>
 
-            <div className={s.input__container}>
+            <div className={styles.input__container}>
                 {touched.password && errors.password ? (
-                <p className={s.errors}>
+                <p className={styles.errors}>
                     {errors.password}
                 </p>
                 ) : null}
 
-                 <img className={s.icon__input} alt="poassword" src={passwordIcon} />
+                 <img className={styles.icon__input} alt="poassword" src={passwordIcon} />
 
                 <input
-                    className={s.input}
+                    className={styles.login__input}
                     type={showPassword ? 'text' : 'password'}
                     name="password"
                     placeholder="Password"
@@ -106,7 +106,7 @@ const LoginForm = () => {
 
                 <span
                     onClick={handlePasswordVisibility}
-                    className={s.password__visibility__toggle}
+                    className={styles.password__visibility__toggle}
                 >
                     {showPassword ? (
                     <VisibilityOffIcon style={{ color: '#e0e0e0' }} />
@@ -116,17 +116,17 @@ const LoginForm = () => {
                 </span>
             </div>
 
-            <div className={s.btn__cnt}>
+            <div className={styles.btn__cnt}>
                 <button 
                     type="submit" 
-                    className={s.main__btn}
+                    className={styles.main__btn}
                 >
                     Log in
                 </button>
                 <Link to="/S7venSurvivors-Wallet/register">
                     <button
                         type="button"
-                        className={s.scd__btn}
+                        className={styles.scd__btn}
                         disabled={!isValid && !dirty}
                     >
                     Register

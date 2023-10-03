@@ -67,7 +67,7 @@
 
 .register__input:focus,
 .register__input:hover {
-    border-bottom: 1px solid #24cca7;
+    border-bottom: 1px solid var(--green);
 }
 
 .icon__input {
@@ -96,7 +96,7 @@ width: 24px;
     text-transform: uppercase;
 
     color: white;
-    background: #24cca7;
+    background: var(--green);
     outline: none;
     border: none;
     border-radius: 20px;
@@ -124,9 +124,9 @@ width: 24px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
 
-    color: #4a56e2;
-    background: #ffffff;
-    border: 1px solid #4a56e2;
+    color: var(--purple);
+    background: var(--white);
+    border: 1px solid var(--purple);
     border-radius: 20px;
     width: 280px;
     height: 50px;

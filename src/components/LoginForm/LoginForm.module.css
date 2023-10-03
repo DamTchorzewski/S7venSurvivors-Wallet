@@ -52,7 +52,7 @@
     margin-bottom: 40px;
 }
 
-.input {
+.login__input {
     font-family: 'Circe';
     src: url('../../assets/fonts/Circe-Regular.otf') format('truetype');
     font-weight: 400;
@@ -67,7 +67,7 @@
     padding: 8px 8px 8px 45px;
 }
 
-.input:focus {
+.login__input:focus {
     border-bottom: 1px solid var(--green);
 }
 
@@ -167,7 +167,7 @@
         line-height: 1.5;
     }
 
-    .input {
+    .login__input {
         width: 347px;
         height: 32px;
     }
