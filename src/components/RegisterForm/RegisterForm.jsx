@@ -95,7 +95,7 @@ const RegisterForm = () => {
                 <h1 className={styles.title}>Wallet</h1>
             </div>
 
-            <div className={styles.register__input__container}>
+            <div className={styles.input__container}>
                 {touched.email && errors.email ? (
                 <p className={styles.errors}>
                     {errors.email}
@@ -117,7 +117,7 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={styles.register__input__container}>
+            <div className={styles.input__container}>
                 {touched.password && errors.password ? (
                 <p className={styles.errors}>
                     {errors.password}
@@ -151,7 +151,7 @@ const RegisterForm = () => {
                 <PasswordStrenghtMeter password={password} />
             </div>
 
-            <div className={styles.register__input__container}>
+            <div className={styles.input__container}>
                 {touched.confirmPassword && errors.confirmPassword ? (
                 <p className={styles.errors}>
                     {errors.confirmPassword}
@@ -172,7 +172,7 @@ const RegisterForm = () => {
                 />
             </div>
 
-            <div className={styles.register__input__container}>
+            <div className={styles.input__container}>
                 {touched.username && errors.username ? (
                 <p className={styles.errors}>
                     {errors.username}
