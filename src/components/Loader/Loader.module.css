@@ -10,11 +10,9 @@
 
 .s {
   background-color: #110021;
-  opacity: 0;
   width: 100%;
   height: 100%;
-  display: inline-block;
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   animation: zast 2s linear forwards;
@@ -24,16 +22,24 @@
 @keyframes zast {
   0% {
     opacity: 1;
+    pointer-events: auto;
+    /* Enable pointer events */
   }
+
   85% {
     opacity: 1;
+    pointer-events: auto;
+    /* Enable pointer events */
   }
+
   100% {
-    
-   
+    opacity: 0;
+    pointer-events: none;
+    /* Disable pointer events */
     display: none;
   }
 }
+
 .Loader {
   position: fixed;
   top: 50%;
@@ -47,6 +53,8 @@
   border-radius: 50%;
   box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.4),
     0 0 35px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  /* Disable pointer events during the animation */
 }
 .Loader::after {
   content: attr(data-text);
