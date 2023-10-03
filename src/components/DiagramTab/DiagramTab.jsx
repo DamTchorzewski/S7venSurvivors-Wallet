@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './DiagramTab.module.css';
-import ChartComponent from '../../components/Chart/Chart';
+import ChartComponent from '../Chart/Chart.jsx';
 import StatisticMenu from '../StatisticMenu/StatisticMenu';
 import { nanoid } from 'nanoid';
 
