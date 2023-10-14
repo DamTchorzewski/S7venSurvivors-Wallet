@@ -1,7 +1,7 @@
-import React, { Suspense, useEffect, Fragment } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import Header from '..//Header/Header';
+import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import useAuth from '../../utils/hooks/useAuth';
 import useTransactions from '../../utils/hooks/useTrans';
@@ -25,24 +25,29 @@ const SharedLayoutPrivate = () => {
     <>
       <Header />
       <div className={styles.container}>
-        <div className={styles.smallContainer}>
-          <div className={styles.subContainer}>
-            <Navigation />
+        <div className={styles.wrapper}>
+          <div className={styles.smallContainer}>
+            <div className={styles.subContainer}>
+              <Navigation />
+
+              <Media queries={{ medium: '(min-width: 768px)' }}>
+                {matches => matches.medium && <BalanceComponent />}
+              </Media>
+            </div>
             <Media queries={{ medium: '(min-width: 768px)' }}>
-              {matches => matches.medium && <BalanceComponent />}
+              {matches => matches.medium && <Currency />}
             </Media>
           </div>
-          <Media queries={{ medium: '(min-width: 768px)' }}>
-            {matches => matches.medium && <Currency />}
+          <Media queries={{ big: '(min-width: 1280px)' }}>
+            {matches =>
+              matches.big && <div className={styles.verticalBorder}></div>
+            }
           </Media>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+            <Loader isVisible={isAuthLoading || isTransactionsLoading} />
+          </Suspense>
         </div>
-        <Media queries={{ big: '(min-width: 1280px)' }}>
-          {matches => matches.big && <div className={styles.verticalBorder}></div>}
-        </Media>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-          <Loader isVisible={isAuthLoading || isTransactionsLoading} />
-        </Suspense>
       </div>
       <LogoutModal />
     </>
