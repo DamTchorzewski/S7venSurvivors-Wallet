@@ -1,28 +1,19 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
-}
-
-body {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  height: 100%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
+  scroll-behavior: smooth;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 ul,
 ol {
-  margin: 0;
-  padding: 0;
   list-style: none;
 }
 
@@ -36,14 +27,9 @@ img {
   height: auto;
 }
 
-html {
-  height: 100%;
-}
-
-body {
-  background-color: #e7eaf2;
-}
-
-.active {
-  font-weight: bold;
+button {
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
 }

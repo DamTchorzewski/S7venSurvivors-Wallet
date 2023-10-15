@@ -3,27 +3,14 @@ import axios from 'axios';
 
 export const getTransactions = createAsyncThunk(
   'transactions/getTransactions',
-  async ({ month = '', year = '' }, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const res = await axios.get(`/transactions?month=${month}&year=${year}`);
+      const res = await axios.get(`/transactions`);
 
       return res.data.result;
     } catch (err) {
       console.error(err.message);
       return thunkAPI.rejectWithValue('Error getting transactions');
-    }
-  }
-);
-
-export const getTransactionCategory = createAsyncThunk(
-  'transactions/getTransactionCategory',
-  async (id, thunkAPI) => {
-    try {
-      const res = await axios.get(`/transactions/categories/${id}`);
-      return res.data.result;
-    } catch (err) {
-      console.error(err.message);
-      return thunkAPI.rejectWithValue('Error getting transaction category');
     }
   }
 );

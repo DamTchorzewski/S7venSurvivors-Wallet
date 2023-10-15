@@ -4,7 +4,7 @@ import { Dashboard } from '../Dashboard/Dashboard';
 import { DashboardMobile } from '../Dashboard/DashboardMobile';
 import BalanceComponent from '../Balance/Balance';
 import styles from './Tabs.module.css';
-import { ButtonAddTransactions } from '../Buttons/ButtonAddTransactions/buttonAddTransactions';
+import { ButtonAddTransactions } from '../Buttons/AddTransactions/AddTransactions';
 
 const HomeTab = () => {
   return (

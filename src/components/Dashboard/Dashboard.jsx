@@ -1,9 +1,9 @@
 import styles from "./Dashboard.module.css";
-//import { DeleteButton } from "../DeleteButton/DeleteButton";
+import { DeleteButton } from "../Buttons/DeleteButton/DeleteButton";
 import { EditPen } from "../Pen/Pen";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { ButtonAddTransactions } from "../Buttons/ButtonAddTransactions/buttonAddTransactions";
+import { ButtonAddTransactions } from "../Buttons/AddTransactions/AddTransactions";
 import {
   getDayDashboard,
   getMonthDashboard,
@@ -29,20 +29,11 @@ export const Dashboard = () => {
     setData(transactions);
   }, [transactions]);
 
-  const deleteLine = (id) => {
+  const deleteLine = id => {
     dispatch(removeTransaction(id));
-    setData((prevData) => prevData.filter(({ _id }) => _id !== id));
   };
 
-  const addData = (data) => {
-    setData((prevData) => [data, ...prevData]);
-  };
-
-  const updateData = (data) => {
-    setData(data);
-  };
-
-  const formatSum = (data) => {
+  const formatSum = data => {
     const numericValue = parseFloat(data);
     const options = {
       useGrouping: true,
@@ -89,15 +80,11 @@ export const Dashboard = () => {
                     )}
                     <td>
                       <span className={styles.buttonContainer}>
-                        <EditPen
-                          id={_id}
-                          type={type}
-                        
-                        />
-                        {/* <DeleteButton
+                        <EditPen id={_id} type={type} />
+                        <DeleteButton
                           onClick={() => deleteLine(_id)}
                           name="Delete"
-                        /> */}
+                        />
                       </span>
                     </td>
                   </tr>
@@ -105,15 +92,13 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          <ButtonAddTransactions /> 
+          <ButtonAddTransactions />
         </>
       ) : !isTransactionsLoading ? (
-
         <div className={styles.dashboardClass}>
           <h2>There are no transactions</h2>
-           
+          <ButtonAddTransactions />
         </div>
-
       ) : null}
     </>
   );

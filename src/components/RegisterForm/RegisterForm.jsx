@@ -61,7 +61,7 @@ const RegisterForm = () => {
             Notiflix.Notify.Success('Registered successfully!');
             navigate('/S7venSurvivors-Wallet/');
         } catch (error) {
-            Notiflix.Notify.Failure('Registration failed. Please try again later.'); 
+            Notiflix.Notify.error('Registration failed. Please try again later.'); 
         }
     };
 

@@ -1,0 +1,112 @@
+@font-face {
+    font-family: Circe;
+    src: url(../../../assets/fonts/Circe-Regular.otf);
+}
+
+@font-face {
+    font-family: CirceBold;
+    src: url(../../../assets/fonts/Circe-Bold.otf);
+}
+
+body {
+    background-color: white;
+}
+
+.wrapper {
+    z-index: 55;
+    font-family: Circe;
+    color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 55;
+}
+
+.selectBtn,
+.selectBtnGrey {
+    display: flex;
+    background-color: white;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 40px;
+    width: 100%;
+    justify-content: left;
+    outline: none;
+    color: black;
+    font-weight: 400;
+    font-size: 18px;
+    border: 1px solid white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 56;
+}
+
+.selectBtnGrey {
+    color: #979797;
+}
+
+.optionsContainer {
+    background-color: white;
+    opacity: 95%;
+    border-radius: 20px;
+    width: 90%;
+    display: flex;
+    position: absolute;
+    backdrop-filter: blur(20px);
+    top: 35px;
+    left: 5%;
+    z-index: 60;
+
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.options {
+    list-style: none;
+    margin: 5px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    padding: 0;
+    opacity: 100%;
+}
+
+.option {
+    color: black;
+    font-size: 18px;
+    padding: 5px 15px;
+    width: 100%;
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.option:hover {
+    color: #ff6596;
+    font-family: CirceBold;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.option:first-child {
+    margin-top: 5px;
+}
+
+.option:last-child {
+    margin-bottom: 5px;
+}
+
+.backdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    opacity: 0;
+    color: yellow;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+}

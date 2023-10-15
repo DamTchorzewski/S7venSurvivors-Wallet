@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import useTransactions from '../../utils/hooks/useTrans';
-import styles from '../StatisticMenu/StatisticMenu.module.css';
-import { nanoid } from 'nanoid';
-import { getTransactions } from '../../redux/trans/actions';
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import useTransactions from "../../utils/hooks/useTrans";
+import styles from "./StatisticsMenu.module.css";
+import { nanoid } from "nanoid";
+import { getTransactions } from "../../redux/trans/actions";
 
 const StatisticsMenu = ({ placeholder, type, setDate }) => {
   const { transactions } = useTransactions();

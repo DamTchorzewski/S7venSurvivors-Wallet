@@ -7,14 +7,14 @@ import SharedLayoutPublic from "./SharedLayout/SharedLayoutPublic";
 import SharedLayoutPrivate from "./SharedLayout/SharedLayoutPrivate";
 import { refreshUser } from "../redux/auth/actions";
 import Login from "../pages/login";
-
+import Background from "../components/Background/Background";
 
 
 
 const Register = lazy(() => import("../pages/register"));
 const HomeTab = lazy(() => import("../components/Tabs/HomeTab"));
 const Currency = lazy(() => import("../components/Currency/Currency"));
-const Statistics = lazy(() => import("../pages/statistic"));
+const Statistics = lazy(() => import("../pages/statistics"));
 
 const App = () => {
   
@@ -77,7 +77,7 @@ const App = () => {
           />
         </Route>
       </Routes>
-     
+      <Background />
     </>
   );
 };

@@ -1,20 +1,20 @@
 import { useSelector } from 'react-redux';
 import {
   selectTransactions,
-  selectCategory,
+  selectBalance,
   selectTransactionsError,
   selectIsTransactionsLoading,
 } from '../../redux/trans/selectors';
 
 const useTransactions = () => {
   const transactions = useSelector(selectTransactions);
-  const category = useSelector(selectCategory);
+  const balance = useSelector(selectBalance);
   const transactionsError = useSelector(selectTransactionsError);
   const isTransactionsLoading = useSelector(selectIsTransactionsLoading);
 
   return {
     transactions,
-    category,
+    balance,
     transactionsError,
     isTransactionsLoading,
   };

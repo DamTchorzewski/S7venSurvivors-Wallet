@@ -1,0 +1,13 @@
+.modalButtonSubmit{
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #24CCA7;
+    background-color: #24CCA7;
+    color: white
+  }
+.modalButtonSubmit:hover{
+    border: white 1px solid;
+    background-color: #4fe7c6;
+    cursor: pointer;
+}

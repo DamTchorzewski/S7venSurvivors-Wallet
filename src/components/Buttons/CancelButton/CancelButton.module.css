@@ -1,0 +1,14 @@
+.modalButtonCancel{
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #4A56E2;
+    background-color: white;
+    color:#4A56E2
+  }
+
+  .modalButtonCancel:hover{
+    border: 1px solid #4655f8;
+    background-color: #f9faff;
+    cursor: pointer;
+}

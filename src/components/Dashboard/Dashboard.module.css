@@ -1,0 +1,78 @@
+.dashboardClass {
+	width: 715px;
+	border-collapse: collapse;
+	font-family: Circe;
+	color: black;
+	text-align: left;
+	@media (min-width: 768px) and (max-width: 1279px) {
+		width: 100%;
+	}
+}
+
+.dashboardClass th {
+	padding: 20px;
+}
+.dashboardClass td {
+	padding: 14px 20px;
+}
+.dashboardClass th {
+	background-color: white;
+	min-width: 100px;
+}
+.dashboardClass th:nth-child(4) {
+	min-width: 120px;
+}
+.dashboardClass th:first-child {
+	background-color: white;
+	border-radius: 30px 0 0 30px;
+}
+.dashboardClass th:last-child {
+	background-color: white;
+	border-radius: 0 30px 30px 0;
+}
+.dashboardClass th {
+	font-family: CirceBold;
+	font-size: 18px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: left;
+}
+.dashboardClassBody tr {
+	border-bottom: 1px solid #dcdcdc;
+}
+.dashboardClassBody tr:last-child {
+	border-bottom: none;
+}
+.dashboardClass tr:hover {
+	cursor: default;
+	box-shadow: -4px 0px 32px -19px rgba(66, 68, 90, 1);
+}
+.dashboardClass td:nth-child(5) {
+	text-align: right;
+}
+.dashboardClass td:nth-child(4) {
+	max-width: 180px;
+	word-wrap: break-word;
+}
+.dashboardClass th:nth-child(5) {
+	text-align: right;
+}
+.dashboardClass th:nth-child(5)::before {
+	content: "\00a0";
+	display: inline-block;
+	width: 0.5em;
+}
+.red {
+	color: #ff6596;
+	font-weight: bold;
+}
+.green {
+	color: #24cca7;
+	font-weight: bold;
+}
+
+.buttonContainer {
+	position: relative;
+	display: flex;
+	gap: 15px;
+}

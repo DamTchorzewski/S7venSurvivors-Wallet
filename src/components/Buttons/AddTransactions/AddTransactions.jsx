@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import styles from '../ButtonAddTransactions/buttonAddTransactions.module.css';
-import { ModalAddTransaction } from '../../Modals/AddTrans/AddTrans';
-import { getDay, getMonth, getDefYear } from '../../../services/DateFunctions';
-import { createTransaction } from '../../../redux/trans/actions';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import styles from "./AddTransactions.module.css";
+import { ModalAddTransaction } from "../../Modals/AddTrans/AddTrans";
+import { getDay, getMonth, getDefYear } from "../../../services/DateFunctions";
+import { createTransaction } from "../../../redux/trans/actions";
 
 export const ButtonAddTransactions = ({ addDashboard }) => {
   const dispatch = useDispatch();
@@ -20,8 +20,8 @@ export const ButtonAddTransactions = ({ addDashboard }) => {
 
   const openModal = () => {
     setData({
-      type: '-',
-      category: 'Other expenses',
+      type: "-",
+      category: "Other expenses",
       date: {
         day: getDay(),
         month: getMonth(),
@@ -38,8 +38,8 @@ export const ButtonAddTransactions = ({ addDashboard }) => {
   };
 
   const sliderTypePlus = () =>
-    setData({ ...data, type: '+', category: 'Income' });
-  const sliderTypeMinus = () => setData({ ...data, type: '-' });
+    setData({ ...data, type: "+", category: "Income" });
+  const sliderTypeMinus = () => setData({ ...data, type: "-" });
 
   const submitModal = e => {
     e.preventDefault();

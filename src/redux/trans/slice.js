@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   getTransactions,
-  getTransactionCategory,
   createTransaction,
   updateTransaction,
   removeTransaction,
@@ -9,7 +8,7 @@ import {
 
 const initialState = {
   items: [],
-  category: null,
+  balance: '',
   error: null,
   isLoading: false,
 };
@@ -22,11 +21,8 @@ const transactionsSlice = createSlice({
       .addCase(getTransactions.fulfilled, (state, action) => {
         state.items = action.payload;
       })
-      .addCase(getTransactionCategory.fulfilled, (state, action) => {
-        state.category = action.payload;
-      })
       .addCase(createTransaction.fulfilled, (state, action) => {
-        state.items.push(action.payload);
+        state.items.unshift(action.payload);
       })
       .addCase(updateTransaction.fulfilled, (state, action) => {
         const i = state.items.findIndex(
@@ -55,6 +51,19 @@ const transactionsSlice = createSlice({
         state => {
           state.error = null;
           state.isLoading = false;
+
+          const income = state.items
+            .filter(({ type }) => type === '+')
+            .map(({ sum }) => Number(sum))
+            .reduce((acc, n) => acc + n, 0);
+
+          const expense = state.items
+            .filter(({ type }) => type === '-')
+            .map(({ sum }) => Number(sum))
+            .reduce((acc, n) => acc + n, 0);
+
+          const balance = income - expense;
+          state.balance = String(balance);
         }
       )
       .addMatcher(

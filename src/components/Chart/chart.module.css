@@ -1,34 +1,43 @@
-@import '../../stylesheet/vars.css';
-@import '../../stylesheet/fonts.css';
-.title {
-  font-family: 'Prompt', sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  color: var(--black);
-  margin: 0 auto 20px;
-  width: fit-content;
+:root {
+  --category-color: #000;
 }
-.doughnut canvas {
-  min-width: 270px;
-  min-height: 270px;
+
+.categorySquare[data-category="Main expenses"] {
+  --category-color: rgba(254, 208, 87, 1);
 }
-.chart {
-  max-width: 400px;
-  margin-bottom: 30px;
+
+.categorySquare[data-category="Products"] {
+  --category-color: rgba(255, 216, 208, 1);
 }
-@media screen and (min-width: 768px) {
-  .chart {
-    margin-right: 25px;
-    margin-left: 25px;
-  }
+
+.categorySquare[data-category="Car"] {
+  --category-color: rgba(253, 148, 152, 1);
 }
-@media screen and (max-width: 1279px) {
-  .title {
-    font-size: 24px;
-  }
+
+.categorySquare[data-category="Self care"] {
+  --category-color: rgba(197, 186, 255, 1);
 }
-.containerChart {
-  position: relative;
+
+.categorySquare[data-category="Child care"] {
+  --category-color: rgba(110, 120, 232, 1);
+}
+
+.categorySquare[data-category="Household products"] {
+  --category-color: rgba(74, 86, 226, 1);
+}
+
+.categorySquare[data-category="Education"] {
+  --category-color: rgba(129, 225, 255, 1);
+}
+
+.categorySquare[data-category="Leisure"] {
+  --category-color: rgba(36, 204, 167, 1);
+}
+
+.categorySquare[data-category="Other expenses"] {
+  --category-color: rgba(0, 173, 132, 1);
+}
+
+.categorySquare[data-category="Entertainment"] {
+  --category-color: rgba(203, 242, 111, 1);
 }

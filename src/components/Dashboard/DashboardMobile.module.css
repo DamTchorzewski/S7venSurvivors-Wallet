@@ -1,0 +1,60 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	font-family: Circe;
+	font-size: 16px;
+}
+.element {
+	margin: 8px 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.listElement {
+	display: flex;
+	background-color: #fff;
+	margin: 1px;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 15px;
+	border-bottom: 1px solid rgb(219, 219, 219);
+}
+
+.listElement:first-child {
+	border-radius: 10px 10px 0 0;
+}
+.listElement:last-child {
+	border-radius: 0 0 10px 10px;
+	border-bottom: none;
+}
+.listElementTitle {
+	font-family: CirceBold;
+	font-size: 18px;
+}
+.red {
+	color: #ff6596;
+	font-weight: bold;
+}
+.green {
+	color: #24cca7;
+	font-weight: bold;
+}
+.redElementList li {
+	border-left: 5px #ff6596 solid;
+}
+.greenElementList li {
+	border-left: 5px #24cca7 solid;
+}
+.buttonContainer {
+	position: relative;
+	display: flex;
+	gap: 15px;
+}
+.editList {
+	display: flex;
+	gap: 8px;
+}
+
+.editList li {
+	border: none;
+}

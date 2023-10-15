@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import css from './EditTrans.module.css';
-import { updateTransaction } from '../../../redux/trans/actions';
-//import { GreenButton } from '../Greenbutton/GreenButton';
-//import { CancelButton } from '../CancelButton/CancelButton';
-import { SelectMenu }  from '../Menu/Menu';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import styles from "../EditTrans/EditTrans.module.css";
+import { updateTransaction } from "../../../redux/trans/actions";
+import { SubmitButton } from "../../Buttons/SubmitButton/SubmitButton";
+import { CancelButton } from "../../Buttons/CancelButton/CancelButton";
+import { SelectMenu } from "../Menu/Menu";
 
-export const ModalEditTransaction = ({
-  type,
-  onClose,
-  id,
-  updateDashboard,
-}) => {
+export const ModalEditTransaction = ({ type, onClose, id }) => {
   const dispatch = useDispatch();
   const [data, setData] = useState();
 
@@ -27,53 +22,54 @@ export const ModalEditTransaction = ({
     e.preventDefault();
     const dataId = data.id;
     dispatch(updateTransaction({ id: dataId, body: data }));
-    updateDashboard(data);
     onClose();
   };
 
   return (
-    <div className={css.modalWrapper}>
-      <section className={css.wrapper}>
-        <h2 className={css.header}>Edit transaction</h2>
-        <div className={css.sliderContainer}>
-          {type === '+' ? (
-            <span className={css.greenText}>Income</span>
+    <div className={styles.modalWrapper}>
+      <section className={styles.wrapper}>
+        <h2 className={styles.header}>Edit transaction</h2>
+        <div className={styles.sliderContainer}>
+          {type === "+" ? (
+            <span className={styles.greenText}>Income</span>
           ) : (
-            <span className={css.greyText}>Income</span>
+            <span className={styles.greyText}>Income</span>
           )}
-          <span className={css.greyText}>/</span>
-          {type === '+' ? (
-            <span className={css.greyText}>Expense</span>
+          <span className={styles.greyText}>/</span>
+          {type === "+" ? (
+            <span className={styles.greyText}>Expense</span>
           ) : (
-            <span className={css.redText}>Expense</span>
+            <span className={styles.redText}>Expense</span>
           )}
         </div>
-        <form onSubmit={submitModal} className={css.Form}>
-          <section className={css.modalForm}>
+        <form onSubmit={submitModal} className={styles.Form}>
+          <section className={styles.modalForm}>
             <label name="addTransForm">
-              {type === '+' ? (
+              {type === "+" ? (
                 <></>
               ) : (
                 <SelectMenu
                   onClick={e => setData({ ...data, category: e, id: id })}
-                  placeholder={'Select a category'}
+                  placeholder={"Select a category"}
                 />
               )}
-              <div className={css.formWrapper}>
+              <div className={styles.formWrapper}>
                 <input
                   type="number"
                   name="sum"
+                  step="0.01"
+                  max="999999999999"
                   onChange={e =>
                     setData({ ...data, sum: e.target.value, id: id })
                   }
                   placeholder="0.00"
-                  className={css.formValue}
+                  className={styles.formValue}
                 ></input>
                 <input
                   type="date"
                   name="date"
                   onChange={dateTrim}
-                  className={css.formDate}
+                  className={styles.formDate}
                 ></input>
               </div>
               <input
@@ -83,18 +79,18 @@ export const ModalEditTransaction = ({
                 onChange={e =>
                   setData({ ...data, comment: e.target.value, id: id })
                 }
-                className={css.formComment}
+                className={styles.formComment}
               ></input>
-              <ul className={css.modalList}>
-                {/* <li>
-                  <GreenButton name="SAVE" />
+              <ul className={styles.modalList}>
+                <li>
+                  <SubmitButton name="SAVE" />
                 </li>
                 <li>
                   <CancelButton name="CANCEL" onClick={onClose} />
-                </li> */}
+                </li>
                 <li>
                   <button
-                    className={css.closeButton}
+                    className={styles.closeButton}
                     onClick={onClose}
                   ></button>
                 </li>
@@ -103,7 +99,7 @@ export const ModalEditTransaction = ({
           </section>
         </form>
       </section>
-      <div className={css.shadow} onClick={onClose}></div>
+      <div className={styles.shadow} onClick={onClose}></div>
     </div>
   );
 };

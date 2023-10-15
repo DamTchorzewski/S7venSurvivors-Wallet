@@ -1,20 +1,20 @@
-//import css from './DashboardMobile.module.css';
-//import { DeleteButton } from '../DeleteButton/DeleteButton';
-import { EditPen } from '../Pen/Pen';
-import { useEffect, useState } from 'react';
+import styles from "./DashboardMobile.module.css";
+import { DeleteButton } from "../Buttons/DeleteButton/DeleteButton";
+import { EditPen } from "../Pen/Pen";
+import { useEffect, useState } from "react";
 import {
   getDayDashboard,
   getMonthDashboard,
   getYearDashboard,
-} from '../../services/DateFunctions';
-import { ButtonAddTransactions } from "../Buttons/ButtonAddTransactions/buttonAddTransactions";
-import { useDispatch } from 'react-redux';
+} from "../../services/DateFunctions";
+import { ButtonAddTransactions } from "../Buttons/AddTransactions/AddTransactions";
+import { useDispatch } from "react-redux";
 import {
   getTransactions,
   removeTransaction,
-} from '../../redux/trans/actions';
-import { nanoid } from 'nanoid';
-import useTransactions from '../../utils/hooks/useTrans';
+} from "../../redux/trans/actions";
+import { nanoid } from "nanoid";
+import useTransactions from "../../utils/hooks/useTrans";
 
 export const DashboardMobile = () => {
   const { transactions, isTransactionsLoading } = useTransactions();
@@ -31,75 +31,77 @@ export const DashboardMobile = () => {
 
   const deleteLine = id => {
     dispatch(removeTransaction(id));
-    setData(prevData => prevData.filter(({ _id }) => _id !== id));
   };
 
-  const addData = data => {
-    setData(prevData => [data, ...prevData]);
-  };
+  const formatSum = data => {
+    const numericValue = parseFloat(data);
+    const options = {
+      useGrouping: true,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    };
+    const formattedValue = numericValue
+      .toLocaleString("pl-PL", options)
+      .replace(/,/g, ".");
 
-  const updateData = data => {
-    setData(data);
+    return formattedValue;
   };
 
   return (
     <>
       {data.length ? (
-        <div className={css.wrapper}>
+        <div className={styles.wrapper}>
           {data.map(({ _id, date, type, category, comment, sum }) => {
             return (
               <>
-                <div key={_id ?? nanoid()} className={css.element}>
+                <div key={_id ?? nanoid()} className={styles.element}>
                   <ul
+                    key={nanoid()}
                     className={
-                      type === '+'
-                        ? css.greenElementList
-                        : css.redElementList
+                      type === "+"
+                        ? styles.greenElementList
+                        : styles.redElementList
                     }
                   >
-                    <li key={nanoid()} className={css.listElement}>
-                      <span className={css.listElementTitle}>Date</span>
+                    <li className={styles.listElement}>
+                      <span className={styles.listElementTitle}>Date</span>
                       <span>
                         {getDayDashboard(date)}.{getMonthDashboard(date)}.
                         {getYearDashboard(date)}
                       </span>
                     </li>
-                    <li key={nanoid()} className={css.listElement}>
-                      <span className={css.listElementTitle}>Type</span>
+                    <li className={styles.listElement}>
+                      <span className={styles.listElementTitle}>Type</span>
                       <span>{type}</span>
                     </li>
-                    <li key={nanoid()} className={css.listElement}>
-                      <span className={css.listElementTitle}>Category</span>
+                    <li className={styles.listElement}>
+                      <span className={styles.listElementTitle}>Category</span>
                       <span>{category}</span>
                     </li>
-                    <li key={nanoid()} className={css.listElement}>
-                      <span className={css.listElementTitle}>Comment</span>
+                    <li className={styles.listElement}>
+                      <span className={styles.listElementTitle}>Comment</span>
                       <span>
                         {comment.length > 15
-                          ? comment.substr(0, 15) + '...'
+                          ? comment.substr(0, 15) + "..."
                           : comment}
                       </span>
                     </li>
-                    <li key={nanoid()} className={css.listElement}>
-                      <span className={css.listElementTitle}>Sum</span>
+                    <li className={styles.listElement}>
+                      <span className={styles.listElementTitle}>Sum</span>
                       <span
-                        className={type === '+' ? css.green : css.red}
+                        className={type === "+" ? styles.green : styles.red}
                       >
-                        {sum}
+                        {formatSum(sum)}
                       </span>
                     </li>
-                    <li key={nanoid()} className={css.listElement}>
-                      {/* <DeleteButton
+                    <li className={styles.listElement}>
+                      <DeleteButton
                         onClick={() => deleteLine(_id)}
                         name="Delete"
-                      /> */}
-                      <ul className={css.editList}>
+                      />
+                      <ul key={nanoid()} className={styles.editList}>
                         <li>
-                          <EditPen
-                            id={_id}
-                            type={type}
-                            
-                          />
+                          <EditPen id={_id} type={type} />
                         </li>
                         <li>
                           <span>Edit</span>
@@ -108,16 +110,16 @@ export const DashboardMobile = () => {
                     </li>
                   </ul>
                 </div>
-                 <ButtonAddTransactions />  
               </>
             );
           })}
+          <ButtonAddTransactions />
         </div>
       ) : !isTransactionsLoading ? (
-          <div>
+        <div>
           <h2>There are no transactions</h2>
-           
-          </div>
+          <ButtonAddTransactions />
+        </div>
       ) : null}
     </>
   );
