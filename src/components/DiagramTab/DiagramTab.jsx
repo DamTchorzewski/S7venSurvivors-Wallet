@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./DiagramTab.module.css";
 import ChartComponent from "../chart/Chart";
-import StatisticMenu from "../StatisticsMenu/StatisticsMenu";
+import StatisticsMenu from "../StatisticsMenu/StatisticsMenu";
 import { nanoid } from "nanoid";
 
 const DiagramTab = ({ transactions }) => {
@@ -138,12 +138,12 @@ const DiagramTab = ({ transactions }) => {
       </div>
       <div className={styles.tableDateContainer}>
         <div className={styles.dateContainer}>
-          <StatisticMenu
+          <StatisticsMenu
             placeholder={"Month"}
             type={"month"}
             setDate={setMonth}
           />
-          <StatisticMenu
+          <StatisticsMenu
             placeholder={"Year"}
             type={"year"}
             setDate={setYear}
