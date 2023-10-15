@@ -16,6 +16,7 @@
     "@mui/material": "^5.14.10",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.5.0",
+    "chart.js": "^4.4.0",
     "clsx": "^2.0.0",
     "dist": "^0.1.2",
     "dotenv": "^16.3.1",
