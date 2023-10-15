@@ -5,13 +5,12 @@ import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 import useAuth from '../../utils/hooks/useAuth';
 import useTransactions from '../../utils/hooks/useTrans';
-
+import styles from './SharedLayoutPrivate.module.css';
 import LogoutModal from '../Modals/Logout/Logout';
 import Notiflix from 'notiflix';
 import Media from 'react-media';
 import BalanceComponent from '../Balance/Balance';
 import Currency from '../Currency/Currency';
-import styles from './SharedLayoutPrivate.module.css';
 
 const SharedLayoutPrivate = () => {
   const { isAuthLoading } = useAuth();

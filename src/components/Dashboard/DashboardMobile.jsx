@@ -53,7 +53,7 @@ export const DashboardMobile = () => {
         <div className={styles.wrapper}>
           {data.map(({ _id, date, type, category, comment, sum }) => {
             return (
-              <>
+              
                 <div key={_id ?? nanoid()} className={styles.element}>
                   <ul
                     key={nanoid()}
@@ -110,7 +110,6 @@ export const DashboardMobile = () => {
                     </li>
                   </ul>
                 </div>
-              </>
             );
           })}
           <ButtonAddTransactions />

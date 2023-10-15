@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import styles from "./AddTransactions.module.css";
+import styles from "../AddTransactions/AddTransactions.module.css";
 import { ModalAddTransaction } from "../../Modals/AddTrans/AddTrans";
 import { getDay, getMonth, getDefYear } from "../../../services/DateFunctions";
 import { createTransaction } from "../../../redux/trans/actions";
 
-export const ButtonAddTransactions = ({ addDashboard }) => {
+export const ButtonAddTransactions = () => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
 
   const dateTrim = e => {
     const selectedData = e.target.value.toString();
@@ -22,6 +22,7 @@ export const ButtonAddTransactions = ({ addDashboard }) => {
     setData({
       type: "-",
       category: "Other expenses",
+      comment: "*",
       date: {
         day: getDay(),
         month: getMonth(),
@@ -44,7 +45,6 @@ export const ButtonAddTransactions = ({ addDashboard }) => {
   const submitModal = e => {
     e.preventDefault();
     dispatch(createTransaction(data));
-    addDashboard(data);
     setModal(!modal);
   };
 
