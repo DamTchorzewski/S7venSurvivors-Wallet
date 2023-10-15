@@ -1,10 +1,10 @@
 import React from "react";
-import Media from 'react-media';
-import styles from './pages.module.css'
-import frame from '../assets/desktop-login/image-centrum.png';
-import frame2x from '../assets/desktop-login/image-centrum@2x.png';
-import LoginForm from '../components/LoginForm/LoginForm';
-import Loader from '../components/Loader/Loader';
+import Media from "react-media";
+import styles from "./pages.module.css"
+import frame from "../assets/desktop-login/image-centrum.png";
+import frame2x from "../assets/desktop-login/image-centrum@2x.png";
+import LoginForm from "../components/LoginForm/LoginForm";
+import Loader from "../components/Loader/Loader";
 import useAuth from "../utils/hooks/useAuth";
 
 const Login = () => {
