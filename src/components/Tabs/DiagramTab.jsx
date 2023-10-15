@@ -1,5 +1,5 @@
 import React from 'react';
-import Statistics from '../../pages/statistic';
+import Statistics from '../../pages/statistics';
 
 const DiagramTabPage = () => {
   return (
