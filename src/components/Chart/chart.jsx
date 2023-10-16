@@ -4,7 +4,7 @@ import { Doughnut } from "react-chartjs-2";
 import css from "./Chart.module.css";
 ChartJS.register(ArcElement, Tooltip);
 
-function ChartFun ({ categorySums }) {
+function ChartComponent({ categorySums }) {
   const categoryColors = {
     "Main expenses": "rgba(254, 208, 87, 1)",
     Products: "rgba(255, 216, 208, 1)",
@@ -84,4 +84,4 @@ function ChartFun ({ categorySums }) {
   return <Doughnut data={chartData} options={options} className={css.chart} />;
 }
 
-export default ChartFun;
+export default ChartComponent;

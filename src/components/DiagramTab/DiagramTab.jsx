@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styles from "./DiagramTab.module.css";
-import ChartFun from "../chart/Chart";
+import css from "./DiagramTab.module.css";
+import ChartComponent from "../chart/Chart";
 import StatisticsMenu from "../StatisticsMenu/StatisticsMenu";
 import { nanoid } from "nanoid";
 
@@ -117,27 +117,27 @@ const DiagramTab = ({ transactions }) => {
 
   return (
     <>
-      <div className={styles.titleChartContainer}>
-        <h2 className={styles.titleStatistics}>Statistics</h2>
-        <div className={styles.chartContainer}>
+      <div className={css.titleChartContainer}>
+        <h2 className={css.titleStatistics}>Statistics</h2>
+        <div className={css.chartContainer}>
           {Object.keys(categorySums).length !== 0 ? (
-            <ChartFun categorySums={categorySums} />
+            <ChartComponent categorySums={categorySums} />
           ) : (
-            <h2 className={styles.noDataInformation}>There are no expenses</h2>
+            <h2 className={css.noDataInformation}>There are no expenses</h2>
           )}
           {Object.keys(categorySums).length !== 0 ? (
-            <span className={styles.balanceValue} style={{ color: textColor }}>
+            <span className={css.balanceValue} style={{ color: textColor }}>
               PLN {balanceValue}
             </span>
           ) : (
-            <p className={styles.selectDataInformation}>
+            <p className={css.selectDataInformation}>
               Please select another date to see your expenses
             </p>
           )}
         </div>
       </div>
-      <div className={styles.tableDateContainer}>
-        <div className={styles.dateContainer}>
+      <div className={css.tableDateContainer}>
+        <div className={css.dateContainer}>
           <StatisticsMenu
             placeholder={"Month"}
             type={"month"}
@@ -149,25 +149,25 @@ const DiagramTab = ({ transactions }) => {
             setDate={setYear}
           />
         </div>
-        <div className={styles.tableContainer}>
+        <div className={css.tableContainer}>
           <table>
-            <thead className={styles.theadStatistics}>
+            <thead className={css.theadStatistics}>
               <tr>
                 <th>Category</th>
                 <th></th>
                 <th>Sum</th>
               </tr>
             </thead>
-            <tbody className={styles.bodyStatisticsTable}>
+            <tbody className={css.bodyStatisticsTable}>
               {uniqueCategories.map((category) => {
                 return (
                   <tr key={nanoid()}>
                     <td
-                      className={styles.categorySquare}
+                      className={css.categorySquare}
                       style={{ "--category-color": categoryColors[category] }}
                     />
-                    <td className={styles.tableBodyCategory}>{category}</td>
-                    <td className={styles.tableBodySum}>
+                    <td className={css.tableBodyCategory}>{category}</td>
+                    <td className={css.tableBodySum}>
                       {categorySums[category].toFixed(2)}
                     </td>
                   </tr>
@@ -175,14 +175,14 @@ const DiagramTab = ({ transactions }) => {
               })}
             </tbody>
           </table>
-          <div className={styles.sumUp}>
-            <div className={styles.containerExpensesIncome}>
-              <strong className={styles.sumUpExpenses}>Expenses:</strong>
-              <span className={styles.expensesValue}>{totalSum.toFixed(2)}</span>
+          <div className={css.sumUp}>
+            <div className={css.containerExpensesIncome}>
+              <strong className={css.sumUpExpenses}>Expenses:</strong>
+              <span className={css.expensesValue}>{totalSum.toFixed(2)}</span>
             </div>
-            <div className={styles.containerExpensesIncome}>
-              <strong className={styles.sumUpIncome}>Income:</strong>
-              <span className={styles.IncomeValue}>{totalIncome.toFixed(2)}</span>
+            <div className={css.containerExpensesIncome}>
+              <strong className={css.sumUpIncome}>Income:</strong>
+              <span className={css.IncomeValue}>{totalIncome.toFixed(2)}</span>
             </div>
           </div>
         </div>
