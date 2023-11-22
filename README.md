@@ -49,24 +49,24 @@ Wallet Manager stands as a comprehensive financial management tool, seamlessly b
 
 
 
-## Zalezności
+### Dependencies
 
-Na komputerze musi być zainstalowana LTS-wersja [Node.js](https://nodejs.org/en/).
+The LTS version of [Node. js](https://nodejs. org/en/) must be installed on the computer.
 
-## Storzone za pomocą Vite
+### Overruled with Vite
 
-1. Sklonować repo
-2. Stworzyć swój branch
-3. Zainstalować zasoby:
+1. Clone repo
+2. Create your branch
+3. Install Resources:
 
 ```shell
 npm install
 ```
 
-4. Włączyć tryb pracy:
+4. Enable working mode:
 
 ```shell
 npm run dev
 ```
 
-W przeglądarce przejść na [http://localhost:1234](http://localhost:1234).
+In your browser, go to [http://localhost:1234](http://localhost:1234).
