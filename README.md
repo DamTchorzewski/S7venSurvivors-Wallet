@@ -47,6 +47,15 @@ The project operates under the MIT license, granting users the freedom to use, m
 
 Wallet Manager stands as a comprehensive financial management tool, seamlessly blending modern design with essential features for effective budget planning and control.
 
+## Screenshot
+
+<img src="https://github.com/damtchorzewski/s7vensurvivors-wallet/blob/main/src/assets/images/stat.png"/>
+
+<img src="https://github.com/damtchorzewski/s7vensurvivors-wallet/blob/main/src/assets/images/dash.png"/>
+
+<img src="https://github.com/damtchorzewski/s7vensurvivors-wallet/blob/main/src/assets/images/log.png"/>
+
+
 
 
 ### Dependencies
