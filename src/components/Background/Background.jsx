@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './Background.module.css'
-import elipseOrange from '../../assets/desktop-login/element-up.png'
-import elipsePurple from '../../assets/desktop-login/element-down.png'
+import elipseOrange from '../../utils/elipse-orange.png'
+import elipsePurple from '../../utils/elipse-purple.png'
 
 const Background = () => {
   return (

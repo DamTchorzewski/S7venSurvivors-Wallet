@@ -1,0 +1,52 @@
+.navigation {
+	display: flex;
+}
+.navList {
+	padding: 0;
+	list-style: none;
+	display: flex;
+	gap: 32px;
+	@media screen and (min-width: 768px) {
+		gap: 12px;
+		column-gap: 0;
+		flex-direction: column;
+	}
+}
+.navList li:nth-last-child(1) {
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+}
+.icon {
+	@media screen and (min-width: 768px) {
+		margin-right: 20px;
+		height: 24px;
+		width: 24px;
+	}
+}
+.navLink:focus .icon,
+.navLink:hover .icon {
+	fill: #4a56e2;
+	filter: drop-shadow(0 3px 10px rgba(74, 86, 226, 0.5));
+}
+.navLink {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	font-size: 18px;
+	color: #000;
+}
+.navLink:global.active {
+	font-weight: bold;
+}
+.navLink:global.active .icon {
+	filter: drop-shadow(0 3px 10px rgba(74, 86, 226, 0.5));
+}
+.text {
+	padding: 0;
+	margin: 0;
+	display: none;
+	@media screen and (min-width: 768px) {
+		display: block;
+	}
+}

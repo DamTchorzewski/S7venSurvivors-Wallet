@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoutIcon from '../../assets/svg/logout.svg'
-import homeIcon from '../../assets/svg/wallet.svg'
+import Svg from '../../utils/Svg/Svg';
 import css from './Header.module.css';
-import useAuth from '../../utils/hooks/useAuth';
-import { toggleLogoutModal }  from '../../redux/auth/slice';
+import useAuth from '../../hook/useAuth';
+import { toggleLogoutModal } from '../../redux/auth/slice';
 import { useDispatch } from 'react-redux';
-
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -20,14 +18,14 @@ const Header = () => {
       <div className={css.headerWrapper}>
         <div className={css.headerSide}>
           <Link to='/S7venSurvivors-Wallet/dashboard' className={css.headerLogo}>
-            <img className={css.homeIcon} alt="wallet" src={homeIcon} />
+            <Svg icon='wallet' size='40' />
             <h2 className={css.appName}>Wallet</h2>
           </Link>
         </div>
         <div className={css.headerSide}>
           <p className={css.headerSideText}>{user.username ?? 'Say my name'}</p>
           <button className={css.headerLogout} onClick={openModal}>
-            <img className={css.logoutIcon} alt="logout" src={logoutIcon}/>
+            <Svg icon='logout' size='18' />
             <p className={css.headerSideText}>Exit</p>
           </button>
         </div>

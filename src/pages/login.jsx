@@ -1,39 +1,38 @@
 import React from "react";
-import Media from "react-media";
-import styles from "./pages.module.css"
-import frame from "../assets/desktop-login/image-centrum.png";
-import frame2x from "../assets/desktop-login/image-centrum@2x.png";
-import LoginForm from "../components/LoginForm/LoginForm";
+import LoginForm from "../components/LoginRegisterForms/LoginForm";
+import logo from "../utils/Svg/logo.svg";
+import css from "../components/LoginRegisterForms/LoginRegister.module.css";
+import tabletImg from "../utils/login/img-tablet.png";
+import desktopImg from "../utils/login/img-desktop.png";
 import Loader from "../components/Loader/Loader";
-import useAuth from "../utils/hooks/useAuth";
+import useAuth from "../hook/useAuth";
+
 
 const Login = () => {
-   const { isAuthLoading } = useAuth();
+  const { isAuthLoading } = useAuth();
 
   return (
     <>
-      <div className={styles.common__container}>
-
-            <Media
-                query="(min-width: 767px)"
-                render={() => (
-                    <div className={styles.logo__container}>
-                    <img 
-                        className={styles.reg__image} 
-                        srcSet={`${frame} 1x, ${frame2x} 2x`}
-                        sizes="(max-width: 767px) 100vw, 50vw"
-                        src={frame} 
-                        alt="" 
-                    />
-                    <h1 className={styles.title}>Finance App</h1>
-                    </div>
-                )}
-            />
-            <div className={styles.form__container}>
-              <LoginForm />
-            </div>
+      <div className={css.container}>
+        <div className={css.tabletContainer}>
+          <img src={tabletImg}></img>
+          <span className={css.finance}>Finance App</span>
         </div>
-<Loader isVisible={isAuthLoading} />
+        <div className={css.desktopContainer}>
+          <img src={desktopImg}></img>
+          <span className={css.finance}>Finance App</span>
+        </div>
+        <div className={css.formContainer}>
+          <div className={css.loginWrapper}>
+            <div className={css.logoWrapper}>
+              <img className={css.logo} src={logo} alt="wallet-logo"></img>
+              
+            </div>
+            <LoginForm />
+          </div>
+        </div>
+      </div>
+      <Loader isVisible={isAuthLoading} />
     </>
   );
 };

@@ -1,4 +1,3 @@
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -13,14 +12,14 @@ const clearAuthHeader = () => {
 };
 
 /*
- * POST @ /users/signup
+ * POST @ /users/register
  * body: { username, email, password }
  */
-export const signup = createAsyncThunk(
-  'auth/signup',
+export const register = createAsyncThunk(
+  'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/signup', credentials);
+      const res = await axios.post('/users/register', credentials);
       return res.data.result;
     } catch (err) {
       console.error(err.message);
@@ -80,7 +79,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data.result;
     } catch {
-      return thunkAPI.rejectWithValue('Unable to refresh user');
+      return thunkAPI.rejectWithValue('Refresh user failed');
     }
   }
 );

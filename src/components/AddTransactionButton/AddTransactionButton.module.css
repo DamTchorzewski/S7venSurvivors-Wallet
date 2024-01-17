@@ -1,0 +1,33 @@
+.addButton {
+	height: 44px;
+	width: 44px;
+	border-radius: 50%;
+	background-color: #24cca7;
+	position: fixed;
+	padding: 0;
+	right: 20px;
+	bottom: 100px;
+	border: #24cca7 1px solid;
+	box-shadow: 0 10px 10px -7px rgba(36, 204, 167, 1);
+
+	@media (min-width: 768px) {
+		right: 40px;
+		bottom: 40px;
+	}
+}
+
+.addButton::before {
+	content: url(../../utils/Svg/plus.svg);
+	color: white;
+	position: absolute;
+	height: 40px;
+	width: 40px;
+	left: 0px;
+	top: 0px;
+	font-size: 30px;
+	padding: 0;
+}
+
+.addButton:hover {
+	cursor: pointer;
+}

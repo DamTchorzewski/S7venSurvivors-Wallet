@@ -3,109 +3,109 @@
 
 /*Mobile*/
 .currency {
-    position: relative;
-    background-color: var(--purple);
-    border-radius: 30px;
-    min-height: 174px;
-    background-image: url(../../assets/svg/statisticsMobile.svg);
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-size: 100% 60%;
-    flex: 1;
+	position: relative;
+	background-color: var(--accent-text-color);
+	border-radius: 30px;
+	min-height: 174px;
+	background-image: url(../../utils/Svg/currency-mobile-bg.svg);
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: 100% 46%;
+	flex: 1;
 }
 
 .currencyTbl {
-    border-collapse: collapse;
-    width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 .currencyThead {
-    background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 .currencyTblTitle {
-    font-family: "Circe";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.5;
-    color: var(--white);
-    padding-top: 12px;
-    text-align: left;
-    padding-bottom: 12px;
+	font-family: "Circe";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 1.5;
+	color: var(--light-text-color);
+	padding-top: 12px;
+	text-align: left;
+	padding-bottom: 12px;
 }
 
 .currencyTblTitle:first-child {
-    padding-left: 20px;
+	padding-left: 20px;
 }
 
 .currencyTblTitle:last-child {
-    padding-right: 17px;
-    text-align: right;
+	padding-right: 17px;
+	text-align: right;
 }
 
 .currencyTblItem {
-    font-family: "Circe";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--white);
-    padding: 12px 20px;
+	font-family: "Circe";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.5;
+	color: var(--light-text-color);
+	padding: 12px 20px;
 }
 
 .currencyTblItem:nth-child(2) {
-    padding-left: 0;
-    padding-right: 0;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .currencyTblItem:last-child {
-    padding-right: 17px;
-    text-align: right;
+	padding-right: 17px;
+	text-align: right;
 }
 
 /*Tablet*/
 @media screen and (min-width: 768px) {
-    .currency {
-        min-height: 182px;
-        background-size: 100% 80%;
-    }
+	.currency {
+		min-height: 182px;
+		background-size: 100% 65%;
+	}
 }
 
 /*Desktop*/
 @media screen and (min-width: 1280px) {
-    .currency {
-        min-height: 331px;
-        background-size: 100% 40%;
-        position: relative;
-    }
+	.currency {
+		min-height: 331px;
+		background-size: 100% 36%;
+		position: relative;
+	}
 
-    .currencyTblTitle {
-        padding-top: 17px;
-        padding-bottom: 17px;
-    }
+	.currencyTblTitle {
+		padding-top: 17px;
+		padding-bottom: 17px;
+	}
 
-    .currencyTblTitle:first-child,
-    .currencyTblItem:first-child {
-        padding-left: 34px;
-        padding-right: 20px;
-    }
+	.currencyTblTitle:first-child,
+	.currencyTblItem:first-child {
+		padding-left: 34px;
+		padding-right: 20px;
+	}
 
-    .currencyTblTitle:nth-child(1),
-    .currencyTblTitle:nth-child(2),
-    .currencyTblItem:nth-child(2),
-    .currencyTblItem:nth-child(1) {
-        text-align: center;
-    }
+	.currencyTblTitle:nth-child(1),
+	.currencyTblTitle:nth-child(2),
+	.currencyTblItem:nth-child(2),
+	.currencyTblItem:nth-child(1) {
+		text-align: center;
+	}
 
-    .currencyTblTitle:last-child,
-    .currencyTblItem:last-child {
-        padding-right: 34px;
-        text-align: center;
-        padding-left: 20px;
-    }
+	.currencyTblTitle:last-child,
+	.currencyTblItem:last-child {
+		padding-right: 34px;
+		text-align: center;
+		padding-left: 20px;
+	}
 
-    .currencyTblItem {
-        padding-top: 20px;
-    }
+	.currencyTblItem {
+		padding-top: 20px;
+	}
 }

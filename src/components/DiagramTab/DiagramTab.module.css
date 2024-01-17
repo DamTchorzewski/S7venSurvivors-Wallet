@@ -1,365 +1,353 @@
+
 .containerStatistics {
-  max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-
-  @media(min-width:768px) {
-    max-width: 100%;
-  }
-
-  @media(min-width:1280px) {
-    width: 800px;
-    margin-left: 0px;
-    margin-right: 0px;
-    float: right;
-  }
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    @media(min-width:768px){
+        max-width: 100%;
+    }
+    @media(min-width:1280px){
+        width: 800px;
+        margin-left:0px;
+        margin-right:0px;
+        float: right;
+    }
 }
 
 .titleChartContainer {
-  @media(min-width:768px) {
+    @media(min-width:768px){
     display: block;
-    margin-right: 32px;
-  }
+    margin-right: 32px; 
+    }
 }
 
 .tabContainer {
-  @media(min-width:768px) {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  @media(min-width:1280px) {
-    justify-content: end;
-  }
+    @media(min-width:768px){
+        display: flex;
+        justify-content: space-between;
+    }
+    @media(min-width:1280px){
+        justify-content: end;
+    }
 }
 
 .titleStatistics {
-  color: #000;
-  text-align: start;
-  font-family: Poppins;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-top: 0px;
-
-  @media(min-width:768px) {
+    color: #000;
+text-align: start;
+font-family: Poppins;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 0px;
+@media(min-width:768px){
     height: 50px;
-  }
+}
 }
 
 .chartContainer {
-  box-sizing: border-box;
-  margin-top: 8px;
-  width: 280px;
-  height: 280px;
-
-  @media(min-width:768px) {
-    width: 336px;
-    height: 336px;
-  }
-
-  @media(min-width:1280px) {
-    width: 288px;
-    height: 288px;
-  }
+    box-sizing: border-box;
+    margin-top: 8px;
+    width:280px;
+    height:280px;
+    @media(min-width:768px){
+        width: 336px;
+        height: 336px;
+    }
+    @media(min-width:1280px){
+        width: 288px;
+        height: 288px;
+    }
 }
 
 .noDataInformation {
-  font-family: Poppins;
-  height: 50px;
-  padding-top: 100px;
+    font-family: Poppins;
+   height: 50px;
+   padding-top:100px;
 }
 
 .selectDataInformation {
-  font-family: Poppins;
-  font-size: 20px;
-  height: 70px;
-  padding-top: 40px;
-  color: #717171;
+    font-family: Poppins;
+   font-size: 20px;
+   height:70px;
+   padding-top:40px;
+   color: #717171;
 }
 
 .balanceValue {
-  text-align: center;
-  font-family: Circe;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  position: relative;
-  bottom: 150px;
-  left: 95px;
-
-  @media(min-width:768px) {
+text-align: center;
+font-family: Circe;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+position: relative;
+bottom: 150px;
+left: 95px;
+@media(min-width:768px) {
     bottom: 180px;
     left: 120px;
-  }
-
-  @media(min-width:1280px) {
+}
+@media(min-width:1280px){
     bottom: 160px;
     left: 95px;
-  }
+}
 }
 
 .tableDateContainer {
-  @media(min-width:1280px) {
-    margin-top: 58px;
-  }
+    @media(min-width:1280px){
+        margin-top: 58px;
+    }
 }
 
-.dateContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: 32px;
-
-  @media(min-width:768px) {
+.dateContainer{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 0px;
-  }
+    flex-direction: column;
+    margin-top: 32px;
+    @media(min-width:768px){  
+     display: flex;
+     flex-direction: row; 
+     justify-content: center;
+     margin-top:0px;
+    }
 }
 
 
 .tableContainer {
-  margin-top: 20px;
-  height: 604px;
+    margin-top: 20px;
+    height: 604px;
 }
 
 table {
-  width: 280px;
-  border-collapse: collapse;
-
-  @media (min-width:768px) {
-    width: 336px;
-  }
-
-  @media(min-width:1280px) {
+    width: 280px;
+   border-collapse: collapse;
+   @media (min-width:768px){
+    width:336px;
+   }
+   @media(min-width:1280px){
     width: 395px;
-  }
-
+   }
+   
 }
 
 .theadStatistics {
-  background-color: #FFFFFF;
-  border-collapse: collapse;
-  text-align: left;
-  vertical-align: top;
-  color: #000;
-  font-family: Circe;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
+    background-color: #FFFFFF;
+border-collapse: collapse;
+text-align: left;    
+vertical-align: top;
+color: #000;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px;
 
 }
 
 .theadStatistics tr {
-  border-collapse: collapse;
+    border-collapse: collapse;
 }
 
 .theadStatistics th {
-  padding-top: 16px;
-  padding-bottom: 15px;
+    padding-top: 16px;
+   padding-bottom: 15px;
 }
 
 .theadStatistics th:first-child {
-  border-radius: 30px 0 0 30px;
-  padding-left: 20px;
-
-  @media(min-width:768px) {
-    padding-left: 15px;
-    text-align: center;
-  }
+    border-radius: 30px 0 0 30px;
+    padding-left: 20px;
+    @media(min-width:768px){
+        padding-left: 15px;
+        text-align: center;
+    }
 }
 
 .theadStatistics th:last-child {
-  border-radius: 0 30px 30px 0;
-  text-align: right;
-  padding-right: 20px;
-
-  @media(min-width:768px) {
+    border-radius: 0 30px 30px 0;
+   text-align: right;
+   padding-right: 20px;
+   @media(min-width:768px){
     padding-right: 0px;
     text-align: center;
-  }
+   }
 }
 
 .bodyStatisticsTable {
-  padding-top: 14px;
+    padding-top:14px;
 }
 
 .bodyStatisticsTable tr {
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 52px;
-  border-bottom: 1px solid #DCDCDF;
-  filter: drop-shadow(0px 1px 0px rgba(255, 255, 255, 0.60));
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 52px;
+    border-bottom: 1px solid #DCDCDF;
+    filter:drop-shadow(0px 1px 0px rgba(255, 255, 255, 0.60));
 }
 
 .tableBodyCategory {
-  text-align: left;
-  vertical-align: middle;
-  color: #000;
-  font-family: Circe;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
+text-align: left;
+    vertical-align: middle;
+    color: #000;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px;
 }
 
 .tableBodySum {
-  padding-right: 20px;
-  color: #000;
-  text-align: right;
-  font-family: Circe;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  vertical-align: middle;
+    padding-right: 20px;
+    color: #000;
+text-align: right;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+vertical-align: middle;
 }
 
 .categorySquare {
-  column-width: 48px;
-  padding-left: 20px;
+    column-width:48px;
+    padding-left: 20px;
 }
 
 .categorySquare::before {
-  content: "";
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  border-radius: 2px;
-  background-color: var(--category-color);
+    content: "";
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    border-radius: 2px;
+    background-color: var(--category-color);
 }
 
 
 :root {
-  --category-color: #000;
+    --category-color: #000;
 }
 
 .categorySquare[data-category="Main expenses"] {
-  --category-color: rgba(254, 208, 87, 1);
+    --category-color: rgba(254, 208, 87, 1);
 }
 
 .categorySquare[data-category="Products"] {
-  --category-color: rgba(255, 216, 208, 1);
+    --category-color: rgba(255, 216, 208, 1);
 }
 
 .categorySquare[data-category="Car"] {
-  --category-color: rgba(253, 148, 152, 1);
+    --category-color: rgba(253, 148, 152, 1);
 }
 
 .categorySquare[data-category="Self care"] {
-  --category-color: rgba(197, 186, 255, 1);
+    --category-color:rgba(197, 186, 255, 1);
 }
 
 .categorySquare[data-category="Child care"] {
-  --category-color: rgba(110, 120, 232, 1);
+    --category-color:rgba(110, 120, 232, 1);
 }
 
 .categorySquare[data-category="Household products"] {
-  --category-color: rgba(74, 86, 226, 1);
+    --category-color:rgba(74, 86, 226, 1);
 }
 
 .categorySquare[data-category="Education"] {
-  --category-color: rgba(129, 225, 255, 1);
+    --category-color:rgba(129, 225, 255, 1);
 }
 
 .categorySquare[data-category="Leisure"] {
-  --category-color: rgba(36, 204, 167, 1);
+    --category-color:rgba(36, 204, 167, 1);
 }
 
 .categorySquare[data-category="Other expenses"] {
-  --category-color: rgba(0, 173, 132, 1);
+    --category-color:rgba(0, 173, 132, 1);
 }
 
 .categorySquare[data-category="Entertainment"] {
-  --category-color: rgba(203, 242, 111, 1);
+    --category-color: rgba(203, 242, 111, 1);
 }
 
 .sumUp {
-  padding-top: 16px;
+    padding-top: 16px;
 }
 
 .containerExpensesIncome {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
+display: flex;
+justify-content: space-between;
+padding-left: 20px;
+padding-right: 20px;
 }
 
 .sumUpExpenses {
-  color: #000;
-  font-family: Circe;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-
-  @media (min-width:768px) {
+    color: #000;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+@media (min-width:768px){
     left: 20px;
-  }
-
-  @media (min-width:1280px) {
-    left: 15px;
-  }
 }
-
+@media (min-width:1280px){
+    left: 15px;
+}
+}
 .expensesValue {
-  color: #FF6596;
-  font-family: Circe;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-
-  @media (min-width: 768px) {
+    color: #FF6596;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+@media (min-width: 768px) {
     right: -210px;
-  }
-
-  @media (min-width:1280px) {
+}
+@media (min-width:1280px){
     right: -270px;
-  }
+}
 }
 
 .sumUpIncome {
-  color: #000;
-  font-family: Circe;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 18px;
-
-  @media(min-width:768px) {
+    color: #000;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px;
+@media(min-width:768px){
     left: 20px;
-  }
-
-  @media(min-width:1280px) {
+}
+@media(min-width:1280px){
     left: 15px;
-  }
+}
 }
 
 .IncomeValue {
-  color: #24CCA7;
-  text-align: right;
-  font-family: Circe;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-
-  @media(min-width:768px) {
+    color: #24CCA7;
+text-align: right;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+@media(min-width:768px){
     right: -225px;
-  }
-
-  @media(min-width:1280px) {
-    right: -285px;
-  }
+}
+@media(min-width:1280px){
+    right:-285px;
+}
 }
 
 .sumUp div:last-child {
-  padding-top: 17px;
+    padding-top:17px;
 }
+
+
+
+
+
+
+
+
+

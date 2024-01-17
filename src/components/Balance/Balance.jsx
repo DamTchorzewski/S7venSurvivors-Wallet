@@ -1,4 +1,4 @@
-import useTransactions from '../../utils/hooks/useTrans';
+import useTransactions from '../../hook/useTransactions';
 import styles from './Balance.module.css';
 
 const BalanceComponent = () => {

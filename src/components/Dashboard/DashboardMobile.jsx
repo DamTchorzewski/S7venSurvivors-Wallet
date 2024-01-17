@@ -1,20 +1,20 @@
 import styles from "./DashboardMobile.module.css";
-import { DeleteButton } from "../Buttons/DeleteButton/DeleteButton";
-import { EditPen } from "../Pen/Pen";
+import { DeleteButton } from "../DeleteButton/DeleteButton";
+import { EditPen } from "../EditPen/EditPen";
 import { useEffect, useState } from "react";
 import {
   getDayDashboard,
   getMonthDashboard,
   getYearDashboard,
 } from "../../services/DateFunctions";
-import { ButtonAddTransactions } from "../Buttons/AddTransactions/AddTransactions";
+import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";
 import { useDispatch } from "react-redux";
 import {
   getTransactions,
   removeTransaction,
 } from "../../redux/trans/actions";
 import { nanoid } from "nanoid";
-import useTransactions from "../../utils/hooks/useTrans";
+import useTransactions from "../../hook/useTransactions";
 
 export const DashboardMobile = () => {
   const { transactions, isTransactionsLoading } = useTransactions();
@@ -53,7 +53,7 @@ export const DashboardMobile = () => {
         <div className={styles.wrapper}>
           {data.map(({ _id, date, type, category, comment, sum }) => {
             return (
-              
+              <>
                 <div key={_id ?? nanoid()} className={styles.element}>
                   <ul
                     key={nanoid()}
@@ -110,14 +110,15 @@ export const DashboardMobile = () => {
                     </li>
                   </ul>
                 </div>
+              </>
             );
           })}
-          <ButtonAddTransactions />
+          <AddTransactionButton />
         </div>
       ) : !isTransactionsLoading ? (
         <div>
           <h2>There are no transactions</h2>
-          <ButtonAddTransactions />
+          <AddTransactionButton />
         </div>
       ) : null}
     </>

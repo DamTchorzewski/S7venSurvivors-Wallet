@@ -1,0 +1,78 @@
+.container {
+	background-color: rgba(238, 238, 238, 0.6);
+	backdrop-filter: blur(50px);
+	min-height: 100vh;
+}
+
+.wrapper {
+	padding: 70px 20px 0px;
+	position: relative;
+
+	@media (min-width: 768px) and (max-width: 1279px) {
+		padding: 112px 32px 0px;
+	}
+
+	@media (min-width: 1280px) {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 118px 16px 0px;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.smallContainer {
+	padding: 12px 0px;
+	display: flex;
+	justify-content: center;
+
+	@media (min-width: 768px) {
+		padding: 0px;
+		height: 182px;
+		gap: 32px;
+		margin-bottom: 20px;
+	}
+
+	@media (min-width: 1280px) {
+		flex-direction: column;
+		max-height: auto;
+		justify-content: flex-start;
+		width: 393px;
+	}
+}
+
+.subContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+	@media (min-width: 768px) {
+		display: flex;
+		align-items: normal;
+		flex: 1;
+		gap: 28px;
+		justify-content: flex-end;
+	}
+
+	@media (min-width: 1280px) {
+		justify-content: flex-start;
+		flex: 0;
+	}
+}
+
+.mainContainer {
+	@media (min-width: 1280px) {
+		flex: 3;
+	}
+}
+
+.verticalBorder {
+	width: 1px;
+	background-color: #e7e5f2;
+	height: 100vh;
+	position: absolute;
+	top: 0px;
+	left: 37.5%;
+	filter: drop-shadow(1px 0px 0px rgba(255, 255, 255, 0.6))
+		drop-shadow(-1px 0px 0px rgba(0, 0, 0, 0.05));
+}

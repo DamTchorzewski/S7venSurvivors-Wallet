@@ -1,33 +1,38 @@
-@import '../../stylesheet/vars.css';
-@import '../../stylesheet/fonts.css';
-
-/*Mobile*/
+@import "../../stylesheet/vars.css";
+@import "../../stylesheet/fonts.css";
 
 .balance {
-  background-color: var(--white);
-  border-radius: 30px;
-  padding: 8px 32px;
-}
+	background-color: var(--secondary-background-color);
+	border-radius: 30px;
+	padding: 8px 32px;
+	position: sticky;
 
-.balance__amount {
-  color: var(--black);
-  font-family: "Poppins";
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 1.5;
-}
-
-.balance__currency {
-  font-weight: 400;
+	@media (min-width:768px) {
+		position: static;
+	}
 }
 
 .balance__text {
-  color: var(--placeholder-dark);
-  font-family: "Circe";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.5;
-  text-transform: uppercase;
+	color: var(--placeholder-color);
+	font-family: "Circe";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 1.5;
+	text-transform: uppercase;
 }
 
+.balance__amount {
+	display: flex;
+	justify-content: center;
+	color: var(--dark-text-color);
+	font-family: "Poppins";
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 1.5;
+
+	@media (min-width:768px) {
+		justify-content: flex-start;
+
+	}
+}

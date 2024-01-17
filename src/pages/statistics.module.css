@@ -1,0 +1,33 @@
+
+
+.titleStatistics {
+    color: #000;
+text-align: start;
+font-family: Poppins;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 0px;
+@media(min-width:768px){
+    position: relative;
+    bottom: 210px;
+    left: 90px;
+}
+}
+
+.containerStatistics {
+    background: rgba(255, 255, 255, 0.40);
+    @media(min-width:768px){
+        display: flex;
+        place-items: center;
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+}
+
+.tabContainer {
+    @media(min-width:768px){
+        display: flex;
+    }
+}

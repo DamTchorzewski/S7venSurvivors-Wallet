@@ -1,9 +1,5 @@
-@import '../../stylesheet/vars.css';
-@import '../../stylesheet/fonts.css';
-
-
 .headerContainer {
-	background-color: var(--white);
+	background-color: white;
 	width: 100%;
 	position: fixed;
 	z-index: 999;
@@ -41,7 +37,7 @@
 	}
 }
 .headerSideText {
-	color: var(--placeholder-dark);
+	color: #bdbdbd;
 	position: relative;
 }
 .headerSideText:nth-child(1):after {
@@ -50,7 +46,7 @@
 	position: absolute;
 	content: "";
 	display: block;
-	background-color: var(--placeholder-dark);
+	background-color: #bdbdbd;
 	width: 1px;
 	height: 100%;
 }
@@ -61,10 +57,10 @@
 .headerLogout:focus .headerSideText,
 .headerLogout:hover Svg,
 .headerLogout:focus Svg {
-	color: var(--purple);
-	fill: var(--purple);
+	color: #4a56e2;
+	fill: #4a56e2;
 }
 .headerLogout Svg {
 	margin-right: 8px;
-	fill: var(--placeholder-dark);
+	fill: #bdbdbd;
 }

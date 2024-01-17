@@ -1,15 +1,15 @@
 import styles from "./Dashboard.module.css";
-import { DeleteButton } from "../Buttons/DeleteButton/DeleteButton";
-import { EditPen } from "../Pen/Pen";
+import { DeleteButton } from "../DeleteButton/DeleteButton";
+import { EditPen } from "../EditPen/EditPen";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { ButtonAddTransactions } from "../Buttons/AddTransactions/AddTransactions";
+import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";
 import {
   getDayDashboard,
   getMonthDashboard,
   getYearDashboard,
 } from "../../services/DateFunctions";
-import useTransactions from "../../utils/hooks/useTrans";
+import useTransactions from "../../hook/useTransactions";
 import {
   getTransactions,
   removeTransaction,
@@ -92,12 +92,12 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          <ButtonAddTransactions />
+          <AddTransactionButton />
         </>
       ) : !isTransactionsLoading ? (
         <div className={styles.dashboardClass}>
           <h2>There are no transactions</h2>
-          <ButtonAddTransactions />
+          <AddTransactionButton />
         </div>
       ) : null}
     </>

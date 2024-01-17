@@ -3,7 +3,7 @@
 
 	@media screen and (min-width: 768px) {
 		display: inline-block;
-		background: url(../../assets/desktop-login/element-up.png);
+		background: url(../../utils/elipse-orange.png);
 		background-repeat: no-repeat;
 		z-index: -10;
 		position: fixed;
@@ -17,7 +17,7 @@
 
 	@media screen and (min-width: 768px) {
 		display: inline-block;
-		background: url(../../assets/desktop-login/element-down.png);
+		background: url(../../utils/elipse-purple.png);
 		background-repeat: no-repeat;
 		z-index: -10;
 		position: fixed;
