@@ -1,4 +1,4 @@
-# <img src="https://github.com/damtchorzewski/s7vensurvivors-wallet/blob/main/src/assets/svg/wallet.svg"/>Wallet App 
+# <img src="https://github.com/damtchorzewski/s7vensurvivors-wallet/blob/main/src/utils/Svg/logo.svg"/>Wallet App 
 ## Description
 
 Wallet Manager is a cutting-edge application tailored for efficient personal finance management. With a user-centric design and adaptability across diverse devices, it empowers users to effortlessly monitor transactions, track account balances, analyze expenditures, and strategize budgets.
