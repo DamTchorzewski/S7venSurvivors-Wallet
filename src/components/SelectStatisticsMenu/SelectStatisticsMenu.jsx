@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import useTransactions from "../../hook/useTransactions";
 import styles from "../SelectStatisticsMenu/SelectStatisticsMenu.module.css";

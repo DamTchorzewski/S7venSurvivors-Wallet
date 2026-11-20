@@ -1,4 +1,3 @@
-import React from 'react'
 import css from './Background.module.css'
 import elipseOrange from '../../utils/elipse-orange.png'
 import elipsePurple from '../../utils/elipse-purple.png'

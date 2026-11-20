@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Svg from '../../utils/Svg/Svg';
 import css from './Header.module.css';

@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import css from './Loader.module.css';
 
-const Loader = ({ isVisible = true }) => {
+const Loader = () => {
   return (
     <div className={css.s}>
       <div className={css.Loader} data-text="Wallet">
@@ -12,10 +11,6 @@ const Loader = ({ isVisible = true }) => {
       </div>
     </div>
   );
-};
-
-Loader.propTypes = {
-  isVisible: PropTypes.bool,
 };
 
 export default Loader;

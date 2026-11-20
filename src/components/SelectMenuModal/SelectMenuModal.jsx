@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../SelectMenuModal/SelectMenuModal.module.css";
 import { nanoid } from "nanoid";
 

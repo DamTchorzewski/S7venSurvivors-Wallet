@@ -1,4 +1,3 @@
-import React from "react";
 import useTransactions from "../hook/useTransactions";
 import DiagramTab from "../components/DiagramTab/DiagramTab";
 import css from "../components/DiagramTab/DiagramTab.module.css";
