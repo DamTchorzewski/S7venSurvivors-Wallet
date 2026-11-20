@@ -14,6 +14,7 @@ import {
   authMessage,
 } from "../../services/firebase";
 import { DEMO_TOKEN, DEMO_USER } from "../../services/demo";
+import { actionCodeSettings } from "../../services/emailAction";
 
 // The API address is set at build time (VITE_API_URL); the default is the local API.
 axios.defaults.baseURL =
@@ -54,7 +55,7 @@ export const register = createAsyncThunk(
       const auth = requireAuth();
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(user, { displayName: username });
-      await sendEmailVerification(user);
+      await sendEmailVerification(user, actionCodeSettings());
       return { user: { username, email } };
     } catch (err) {
       console.error(err.message);
@@ -69,7 +70,7 @@ export const register = createAsyncThunk(
 export const resendVerification = async () => {
   const currentUser = getFirebaseAuth()?.currentUser;
   if (!currentUser) throw new Error(NOT_CONFIGURED);
-  await sendEmailVerification(currentUser);
+  await sendEmailVerification(currentUser, actionCodeSettings());
 };
 
 /*
@@ -84,7 +85,7 @@ export const login = createAsyncThunk(
       const { user } = await signInWithEmailAndPassword(auth, email, password);
 
       if (!user.emailVerified) {
-        await sendEmailVerification(user);
+        await sendEmailVerification(user, actionCodeSettings());
         await signOut(auth);
         return thunkAPI.rejectWithValue(
           "E-mail is not confirmed. We sent you a new confirmation link"

@@ -7,6 +7,7 @@ import PrivateRoute from "../components/PrivateRoute";
 import RestrictedRoute from "../components/RestrictedRoute";
 import Login from "../pages/login";
 import { refreshUser } from "../redux/auth/actions";
+import { handleEmailAction } from "../services/emailAction";
 import Background from "../components/Background/Background";
 
 const Registration = lazy(() => import("../pages/registration"));
@@ -18,7 +19,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refreshUser());
+    handleEmailAction().finally(() => dispatch(refreshUser()));
   }, [dispatch]);
 
   return (

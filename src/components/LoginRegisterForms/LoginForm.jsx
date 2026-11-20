@@ -95,7 +95,10 @@ const LoginForm = () => {
         <Link to="/personal-finance-manager/register">
           <ButtonSecondary text="REGISTER" />
         </Link>
-        <ButtonSecondary text="SIGN IN WITH GOOGLE" onClick={handleGoogle} />
+        <div className={css.divider}>
+          <span>or</span>
+        </div>
+        <ButtonSecondary text="LOG IN WITH GOOGLE" onClick={handleGoogle} />
         <ButtonSecondary text="TRY THE DEMO" onClick={handleDemo} />
       </div>
     </form>
