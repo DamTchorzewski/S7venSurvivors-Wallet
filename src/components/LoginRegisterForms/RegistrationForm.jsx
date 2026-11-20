@@ -195,7 +195,7 @@ const RegistrationForm = () => {
       </div>
       <div className={css.buttons}>
         <ButtonMain text="REGISTER" type="submit" />
-        <Link to="/S7venSurvivors-Wallet/">
+        <Link to="/personal-finance-manager/">
           <ButtonSecondary text="LOG IN" />
         </Link>
         {isRegistered && (

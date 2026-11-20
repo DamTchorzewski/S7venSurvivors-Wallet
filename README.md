@@ -11,7 +11,7 @@
 
 ## About
 
-<a href="https://damtchorzewski.github.io/S7venSurvivors-Wallet/"><img src="docs/images/open-site.png" alt="Open the live site" width="130"></a>
+<a href="https://damtchorzewski.github.io/personal-finance-manager/"><img src="docs/images/open-site.png" alt="Open the live site" width="130"></a>
 
 **Wallet Manager** is a cutting-edge application tailored for efficient personal finance management. With a user-centric
 design and adaptability across diverse devices, it empowers users to effortlessly monitor transactions, track account
@@ -29,7 +29,7 @@ balances, analyze expenditures, and strategize budgets.
   Pages source is set to GitHub Actions; until then the live site is served from the `gh-pages` branch.
 
 > **Status:** the API is the Express and MongoDB backend in
-> [`wallet`](https://github.com/DamTchorzewski/wallet), hosted on Render; its first answer after a pause can take a
+> [`personal-finance-manager-api`](https://github.com/DamTchorzewski/personal-finance-manager-api), hosted on Render; its first answer after a pause can take a
 > while. The "resend the confirmation e-mail" request in `RegistrationForm.jsx` still points at an older API host.
 
 ## Tech stack
@@ -40,7 +40,7 @@ balances, analyze expenditures, and strategize budgets.
 | UI       | MUI 5 with Emotion, CSS modules, `react-hook-form`, `notiflix`, `react-loader-spinner`, `react-media`            |
 | Data     | Redux Toolkit, `redux-persist`, `axios`                                                                          |
 | Charts   | Chart.js 4 with `react-chartjs-2`                                                                                |
-| Services | Wallet API ([`wallet`](https://github.com/DamTchorzewski/wallet)), exchange rates of the National Bank of Poland |
+| Services | Wallet API ([`personal-finance-manager-api`](https://github.com/DamTchorzewski/personal-finance-manager-api)), exchange rates of the National Bank of Poland |
 | Tests    | none                                                                                                             |
 | Hosting  | GitHub Pages: `gh-pages` branch today; `.github/workflows/static.yml` publishes with Actions (Pages source)      |
 
@@ -61,14 +61,14 @@ The dashboard and the statistics need an account on the API, so their images are
 ## Quick start
 
 ```bash
-git clone https://github.com/DamTchorzewski/S7venSurvivors-Wallet.git
-cd S7venSurvivors-Wallet
+git clone https://github.com/DamTchorzewski/personal-finance-manager.git
+cd personal-finance-manager
 npm install
-npm run dev      # http://localhost:5173/S7venSurvivors-Wallet/
+npm run dev      # http://localhost:5173/personal-finance-manager/
 ```
 
 Requirements: Node.js 18 LTS or newer and npm (the workflow builds with Node 18). The app is served under the
-`/S7venSurvivors-Wallet` base path (`vite.config.js`).
+`/personal-finance-manager` base path (`vite.config.js`).
 
 ## Scripts
 
@@ -88,7 +88,7 @@ and the exchange-rate address is in `src/components/Currency/Currency.jsx`; chan
 
 ```
 index.html                 the page; Vite entry
-vite.config.js             base path /S7venSurvivors-Wallet
+vite.config.js             base path /personal-finance-manager
 src/index.jsx              entry: store, persist gate, router
 src/layouts/               ★ App.jsx (the routes), the layouts for guests and for signed-in users, Navigation
 src/pages/                 login, registration, statistics and the home / diagram / currency tabs
@@ -113,7 +113,7 @@ Commits in English. `static.yml` builds every push to `main` and publishes it to
 - **Feature branches straight into `main`:** the team worked this way; there is no `develop`.
 - **No CI beyond the deploy workflow, no tests and no `.env.example`:** the app has no configuration.
 - **npm, not pnpm, and no `.nvmrc`:** the project predates the standards.
-- **README images:** made by `tools/readme-images` (profile `S7venSurvivors-Wallet`); where a login is needed they are the team's own screenshots (see Screenshots).
+- **README images:** made by `tools/readme-images` (profile `personal-finance-manager`); where a login is needed they are the team's own screenshots (see Screenshots).
 - **No DamReboot footer:** the repository belongs to a team of authors.
 
 ## Documentation

@@ -83,7 +83,7 @@ const LoginForm = () => {
       </div>
       <div className={css.buttons}>
         <ButtonMain text="LOG IN" type="submit" />
-        <Link to="/S7venSurvivors-Wallet/register">
+        <Link to="/personal-finance-manager/register">
           <ButtonSecondary text="REGISTER" />
         </Link>
       </div>

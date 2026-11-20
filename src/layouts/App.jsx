@@ -24,12 +24,12 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/S7venSurvivors-Wallet/" element={<SharedLayoutRestricted />}>
+        <Route path="/personal-finance-manager/" element={<SharedLayoutRestricted />}>
           <Route
             index
             element={
               <RestrictedRoute
-                redirectTo="/S7venSurvivors-Wallet/dashboard"
+                redirectTo="/personal-finance-manager/dashboard"
                 component={<Login />}
               />
             }
@@ -38,18 +38,18 @@ const App = () => {
             path="register"
             element={
               <RestrictedRoute
-                redirectTo="/S7venSurvivors-Wallet/dashboard"
+                redirectTo="/personal-finance-manager/dashboard"
                 component={<Registration />}
               />
             }
           />
         </Route>
-        <Route path="/S7venSurvivors-Wallet/dashboard" element={<SharedLayoutPrivate />}>
+        <Route path="/personal-finance-manager/dashboard" element={<SharedLayoutPrivate />}>
           <Route
             index
             element={
               <PrivateRoute
-                redirectTo="/S7venSurvivors-Wallet/"
+                redirectTo="/personal-finance-manager/"
                 component={<HomeTab />}
               />
             }
@@ -58,7 +58,7 @@ const App = () => {
             path="diagram"
             element={
               <PrivateRoute
-                redirectTo="/S7venSurvivors-Wallet/"
+                redirectTo="/personal-finance-manager/"
                 component={<Statistics />}
               />
             }
@@ -67,7 +67,7 @@ const App = () => {
             path="currency"
             element={
               <PrivateRoute
-                redirectTo="/S7venSurvivors-Wallet/"
+                redirectTo="/personal-finance-manager/"
                 component={<Currency />}
               />
             }

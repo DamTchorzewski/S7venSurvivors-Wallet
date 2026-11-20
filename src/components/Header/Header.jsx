@@ -17,7 +17,7 @@ const Header = () => {
     <header className={css.headerContainer}>
       <div className={css.headerWrapper}>
         <div className={css.headerSide}>
-          <Link to='/S7venSurvivors-Wallet/dashboard' className={css.headerLogo}>
+          <Link to='/personal-finance-manager/dashboard' className={css.headerLogo}>
             <Svg icon='wallet' size='40' />
             <h2 className={css.appName}>Wallet</h2>
           </Link>
