@@ -64,3 +64,17 @@
 	margin-right: 8px;
 	fill: #bdbdbd;
 }
+.headerDemo {
+	padding: 4px 12px;
+	border: 1px solid #4a56e2;
+	border-radius: 16px;
+	color: #4a56e2;
+	font-size: 12px;
+	cursor: pointer;
+	background: white;
+}
+.headerDemo:hover,
+.headerDemo:focus {
+	background: #4a56e2;
+	color: white;
+}

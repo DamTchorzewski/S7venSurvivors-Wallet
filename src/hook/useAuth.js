@@ -3,6 +3,7 @@ import {
   selectUser,
   selectAuthError,
   selectIsLoggedIn,
+  selectIsDemo,
   selectIsAuthLoading,
   selectIsRegistered,
   selectIsRefreshing,
@@ -13,6 +14,7 @@ const useAuth = () => {
   const user = useSelector(selectUser);
   const authError = useSelector(selectAuthError);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isDemo = useSelector(selectIsDemo);
   const isAuthLoading = useSelector(selectIsAuthLoading);
   const isRegistered = useSelector(selectIsRegistered);
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -22,6 +24,7 @@ const useAuth = () => {
     user,
     authError,
     isLoggedIn,
+    isDemo,
     isAuthLoading,
     isRegistered,
     isRefreshing,

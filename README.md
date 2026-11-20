@@ -19,6 +19,9 @@ balances, analyze expenditures, and strategize budgets.
 
 - **Accounts.** Registration with e-mail confirmation (with a "resend" button) and login; the session is kept with
   `redux-persist`, and the private pages are guarded by `PrivateRoute` / `RestrictedRoute`.
+- **Demo mode.** "Try the demo" on the login page opens the app with sample transactions and no account; the demo's
+  data is kept in the browser's localStorage (`src/services/demo.js`), works without the API, and "Demo · reset
+  data" in the header restores the sample data.
 - **Transactions.** A table of income and expenses with add, edit and delete windows (`ModalAddTransaction`,
   `ModalEditTransaction`) and the account balance next to it.
 - **Statistics.** A doughnut chart (Chart.js) and a table of expenses by category for a chosen month and year.

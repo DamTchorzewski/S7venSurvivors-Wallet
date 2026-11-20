@@ -4,6 +4,7 @@ import {
   createTransaction,
   updateTransaction,
   removeTransaction,
+  resetDemo,
 } from './actions';
 
 const initialState = {
@@ -19,6 +20,9 @@ const transactionsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getTransactions.fulfilled, (state, action) => {
+        state.items = action.payload;
+      })
+      .addCase(resetDemo.fulfilled, (state, action) => {
         state.items = action.payload;
       })
       .addCase(createTransaction.fulfilled, (state, action) => {
