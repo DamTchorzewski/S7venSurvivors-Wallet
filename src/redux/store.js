@@ -16,7 +16,7 @@ import { transactionsReducer } from './trans/slice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'isDemo'],
 };
 
 export const store = configureStore({
