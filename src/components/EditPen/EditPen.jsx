@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../EditPen/EditPen.module.css";
 import editImage from "../../utils/Svg/editPen.svg";
 import { ModalEditTransaction } from "../ModalEditTransaction/ModalEditTransaction";

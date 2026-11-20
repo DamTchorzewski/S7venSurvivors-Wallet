@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import Media from 'react-media';
 import { Dashboard } from '../../components/Dashboard/Dashboard';
 import { DashboardMobile } from '../../components/Dashboard/DashboardMobile';

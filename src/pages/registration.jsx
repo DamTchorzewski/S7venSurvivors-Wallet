@@ -1,9 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import ButtonSecondary from '../components/ButtonSecondary';
 import Loader from '../components/Loader/Loader';
-import useAuth from '../hook/useAuth';
-import Notiflix from 'notiflix';
 import css from '../components/LoginRegisterForms/LoginRegister.module.css';
 import logo from '../utils/Svg/logo.svg';
 import RegistrationForm from '../components/LoginRegisterForms/RegistrationForm';
@@ -11,8 +6,6 @@ import tabletImg from '../utils/registration/img-tablet.png';
 import desktopImg from '../utils/registration/img-desktop.png';
 
 const Registration = () => {
-  const { isAuthLoading } = useAuth();
-
   return (
     <>
       <div className={css.container}>
@@ -31,7 +24,7 @@ const Registration = () => {
           </div>
         </div>
       </div>
-      <Loader isVisible={isAuthLoading} />
+      <Loader />
     </>
   );
 };
