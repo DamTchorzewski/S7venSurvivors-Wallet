@@ -1,48 +1,117 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
+import {
+  getFirebaseAuth,
+  googleProvider,
+  authMessage,
+} from "../../services/firebase";
 import { DEMO_TOKEN, DEMO_USER } from "../../services/demo";
 
-axios.defaults.baseURL = "https://wallet-sdqv.onrender.com/api";
+// The API address is set at build time (VITE_API_URL); the default is the local API.
+axios.defaults.baseURL =
+  import.meta.env.VITE_API_URL || "http://localhost:8080/api";
 
-const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
+// Every request to the API carries a fresh Firebase ID token (the SDK renews it when it is about to expire).
+axios.interceptors.request.use(async (config) => {
+  const currentUser = getFirebaseAuth()?.currentUser;
+  if (currentUser) {
+    config.headers.Authorization = `Bearer ${await currentUser.getIdToken()}`;
+  }
+  return config;
+});
 
-const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = "";
+const NOT_CONFIGURED = "Sign-in is not configured for this site";
+
+const toUser = (firebaseUser) => ({
+  username:
+    firebaseUser.displayName ?? firebaseUser.email?.split("@")[0] ?? "User",
+  email: firebaseUser.email,
+});
+
+const requireAuth = () => {
+  const auth = getFirebaseAuth();
+  if (!auth) throw new Error(NOT_CONFIGURED);
+  return auth;
 };
 
 /*
- * POST @ /users/register
+ * Sign-up with e-mail and password: the account is created in Firebase, which sends the confirmation e-mail.
+ * The user stays signed out of the app until the address is confirmed.
  * body: { username, email, password }
  */
 export const register = createAsyncThunk(
   "auth/register",
-  async (credentials, thunkAPI) => {
+  async ({ username, email, password }, thunkAPI) => {
     try {
-      const res = await axios.post("/users/register", credentials);
-      return res.data.result;
+      const auth = requireAuth();
+      const { user } = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(user, { displayName: username });
+      await sendEmailVerification(user);
+      return { user: { username, email } };
     } catch (err) {
       console.error(err.message);
-      return thunkAPI.rejectWithValue("Registration failed");
+      return thunkAPI.rejectWithValue(authMessage(err));
     }
   }
 );
 
 /*
- * POST @ /users/login
+ * Sends the confirmation e-mail again to the account that has just been created.
+ */
+export const resendVerification = async () => {
+  const currentUser = getFirebaseAuth()?.currentUser;
+  if (!currentUser) throw new Error(NOT_CONFIGURED);
+  await sendEmailVerification(currentUser);
+};
+
+/*
+ * Sign-in with e-mail and password. An address that is not confirmed yet gets a new confirmation e-mail and no access.
  * body: { email, password }
  */
 export const login = createAsyncThunk(
   "auth/login",
-  async (credentials, thunkAPI) => {
+  async ({ email, password }, thunkAPI) => {
     try {
-      const res = await axios.post("/users/login", credentials);
-      setAuthHeader(res.data.result.token);
-      return res.data.result;
+      const auth = requireAuth();
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+      if (!user.emailVerified) {
+        await sendEmailVerification(user);
+        await signOut(auth);
+        return thunkAPI.rejectWithValue(
+          "E-mail is not confirmed. We sent you a new confirmation link"
+        );
+      }
+
+      return { user: toUser(user) };
     } catch (err) {
       console.error(err.message);
-      return thunkAPI.rejectWithValue("Login failed");
+      return thunkAPI.rejectWithValue(authMessage(err));
+    }
+  }
+);
+
+/*
+ * Sign-in with a Google account (a pop-up window)
+ */
+export const loginGoogle = createAsyncThunk(
+  "auth/loginGoogle",
+  async (_, thunkAPI) => {
+    try {
+      const auth = requireAuth();
+      const { user } = await signInWithPopup(auth, googleProvider);
+      return { user: toUser(user) };
+    } catch (err) {
+      console.error(err.message);
+      return thunkAPI.rejectWithValue(authMessage(err));
     }
   }
 );
@@ -51,18 +120,12 @@ export const login = createAsyncThunk(
  * Demo mode: a local user, no request to the API
  */
 export const loginDemo = createAsyncThunk("auth/loginDemo", async () => {
-  clearAuthHeader();
   return { user: DEMO_USER, token: DEMO_TOKEN };
 });
 
-/*
- * POST @ /users/logout
- * headers: Authorization: Bearer token
- */
 export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    if (!thunkAPI.getState().auth.isDemo) await axios.post("/users/logout");
-    clearAuthHeader();
+    if (!thunkAPI.getState().auth.isDemo) await signOut(requireAuth());
   } catch (err) {
     console.error(err.message);
     return thunkAPI.rejectWithValue("Logout failed");
@@ -70,27 +133,26 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
 });
 
 /*
- * GET @ /users/current
- * headers: Authorization: Bearer token
+ * On start: the demo user, or the Firebase session that the SDK has kept in the browser
  */
 export const refreshUser = createAsyncThunk(
   "auth/refreshUser",
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    if (thunkAPI.getState().auth.isDemo) return { user: DEMO_USER };
 
-    if (!persistedToken) {
+    const auth = getFirebaseAuth();
+    if (!auth) return thunkAPI.rejectWithValue("Unable to refresh user");
+
+    await auth.authStateReady();
+    const user = auth.currentUser;
+
+    if (!user) return thunkAPI.rejectWithValue("Unable to refresh user");
+
+    if (!user.emailVerified) {
+      await signOut(auth);
       return thunkAPI.rejectWithValue("Unable to refresh user");
     }
 
-    if (state.auth.isDemo) return { user: DEMO_USER };
-
-    try {
-      setAuthHeader(persistedToken);
-      const res = await axios.get("/users/current");
-      return res.data.result;
-    } catch {
-      return thunkAPI.rejectWithValue("Refresh user failed");
-    }
+    return { user: toUser(user) };
   }
 );

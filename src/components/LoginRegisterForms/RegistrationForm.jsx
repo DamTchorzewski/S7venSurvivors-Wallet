@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 import useAuth from '../../hook/useAuth';
 import css from '../LoginRegisterForms/LoginRegister.module.css';
 import Input from '../Input';
@@ -8,12 +7,12 @@ import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
 import ResendButton from './ResendButton';
 import { Link } from 'react-router-dom';
-import { register } from '../../redux/auth/actions';
+import { register, resendVerification } from '../../redux/auth/actions';
 import Notiflix from 'notiflix';
 import Svg from '../../utils/Svg/Svg';
 
 const RegistrationForm = () => {
-  const { user, isRegistered } = useAuth();
+  const { isRegistered } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [confirmRegister, setConfirmRegister] = useState(false);
   const [confirmPass, setConfirmPass] = useState(false);
@@ -29,9 +28,7 @@ const RegistrationForm = () => {
   const resend = async () => {
     try {
       setIsLoading(true);
-      await axios.post('https://wallet-app-api.cyclic.cloud/api/users/reverify', {
-        email: user.email,
-      });
+      await resendVerification();
       Notiflix.Notify.success('Verification email has been resend');
     } catch {
       Notiflix.Notify.failure('Sorry, the email could not be resend');

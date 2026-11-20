@@ -4,7 +4,7 @@ Rzeczy, które ustawia się na GitHubie ręcznie (nie da się ich zapisać w pli
 
 ## Nazwa repozytorium: `personal-finance-manager`
 
-Standard nazw repozytoriów: `reops/standards/repo-names.md`. Repozytorium nazywało się wcześniej `S7venSurvivors-Wallet`; od 2026-11-20 nazywa się `personal-finance-manager` (nazwa mówi, czym jest projekt: fraza szukana na GitHubie; nazwa zespołu jest tylko w README). Jego API to osobne repozytorium `personal-finance-manager-api` (rola na końcu nazwy). GitHub przekierowuje stary adres repozytorium, ale **adres strony (GitHub Pages) zmienił się** na `https://damtchorzewski.github.io/personal-finance-manager/`, a stary przestał działać. Ścieżka bazowa `/personal-finance-manager` jest w `vite.config.js` i w trasach `src/layouts/App.jsx`. Strona jest serwowana z gałęzi `gh-pages` (Settings → Pages), a workflow `static.yml` buduje ją tylko jako artefakt.
+Standard nazw repozytoriów: `reops/standards/repo-names.md`. Repozytorium nazywało się wcześniej `S7venSurvivors-Wallet`; od 2026-11-20 nazywa się `personal-finance-manager` (nazwa mówi, czym jest projekt: fraza szukana na GitHubie; nazwa zespołu jest tylko w README). Jego API to osobne repozytorium `personal-finance-manager-api` (rola na końcu nazwy). GitHub przekierowuje stary adres repozytorium, ale **adres strony (GitHub Pages) zmienił się** na `https://damtchorzewski.github.io/personal-finance-manager/`, a stary przestał działać. Ścieżka bazowa `/personal-finance-manager` jest w `vite.config.js` i w trasach `src/layouts/App.jsx`. Strona jest serwowana z gałęzi `gh-pages` (Settings → Pages); workflow `deploy.yml` buduje ją i publikuje na tę gałąź po pushu na `main`.
 
 ## Opis i tagi (About)
 
@@ -40,5 +40,6 @@ Dotychczasowe tagi `database`, `loader`, `netlify`, `html-css-javascript`, `node
 
 | Gdzie (GitHub)                      | Co ustawić                                                      |
 | ----------------------------------- | --------------------------------------------------------------- |
-| Settings → Pages                    | źródło: gałąź `gh-pages` (dziś); `static.yml` buduje artefakt   |
+| Settings → Pages                    | źródło: gałąź `gh-pages` (publikuje ją `deploy.yml`)            |
+| Settings → Secrets and variables → Actions → Variables | `VITE_FIREBASE_*` i `VITE_API_URL`, patrz `.env.example` i dokumentacja wdrożenia API |
 | Settings → General → Default branch | `main` (już jest)                                               |
