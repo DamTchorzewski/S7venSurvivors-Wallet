@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/images/banner-dark.png">
-    <img src="docs/images/banner-light.png" alt="Wallet: a personal finance manager, a React team project" width="100%">
+    <img src="docs/images/banner-light.png" alt="Wallet: a personal finance manager built with React" width="100%">
   </picture>
 </p>
 
@@ -15,7 +15,7 @@
 
 **Wallet Manager** is a cutting-edge application tailored for efficient personal finance management. With a user-centric
 design and adaptability across diverse devices, it empowers users to effortlessly monitor transactions, track account
-balances, analyze expenditures, and strategize budgets. It is a team project of the S7ven Survivors team.
+balances, analyze expenditures, and strategize budgets.
 
 - **Accounts.** Registration with e-mail confirmation (with a "resend" button) and login; the session is kept with
   `redux-persist`, and the private pages are guarded by `PrivateRoute` / `RestrictedRoute`.
@@ -28,7 +28,7 @@ balances, analyze expenditures, and strategize budgets. It is a team project of 
 - **Deployed by Actions.** A push to `main` builds the app and publishes it to GitHub Pages once the repository's
   Pages source is set to GitHub Actions; until then the live site is served from the `gh-pages` branch.
 
-> **Status:** a finished course project. The API is the Express and MongoDB backend in
+> **Status:** the API is the Express and MongoDB backend in
 > [`wallet`](https://github.com/DamTchorzewski/wallet), hosted on Render; its first answer after a pause can take a
 > while. The "resend the confirmation e-mail" request in `RegistrationForm.jsx` still points at an older API host.
 
@@ -110,11 +110,11 @@ Commits in English. `static.yml` builds every push to `main` and publishes it to
 
 **Departures from the standards (and why):**
 
-- **A team project from a course:** the team worked on feature branches straight into `main`; there is no `develop`.
+- **Feature branches straight into `main`:** the team worked this way; there is no `develop`.
 - **No CI beyond the deploy workflow, no tests and no `.env.example`:** the app has no configuration.
 - **npm, not pnpm, and no `.nvmrc`:** the project predates the standards.
 - **README images:** made by `tools/readme-images` (profile `S7venSurvivors-Wallet`); where a login is needed they are the team's own screenshots (see Screenshots).
-- **No DamReboot footer:** a team project, not a company one.
+- **No DamReboot footer:** the repository belongs to a team of authors.
 
 ## Documentation
 
