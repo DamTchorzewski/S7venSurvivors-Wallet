@@ -18,7 +18,8 @@ design and adaptability across diverse devices, it empowers users to effortlessl
 balances, analyze expenditures, and strategize budgets.
 
 - **Accounts.** Sign-up with e-mail confirmation, and sign-in with e-mail and password or with a Google account, both
-  through Firebase Authentication; the private pages are guarded by `PrivateRoute` / `RestrictedRoute`.
+  through Firebase Authentication; the private pages are guarded by `PrivateRoute` / `RestrictedRoute`. The link in the
+  confirmation e-mail returns to the site, where `src/services/emailAction.js` applies it and refreshes the session.
 - **Demo mode.** "Try the demo" on the login page opens the app with sample transactions and no account; the demo's
   data is kept in the browser's localStorage (`src/services/demo.js`), works without the API, and "Demo · reset
   data" in the header restores the sample data.
@@ -93,6 +94,11 @@ public settings of the Firebase web app and the address of the API, baked into t
 
 The exchange-rate address is in `src/components/Currency/Currency.jsx`.
 
+**Confirmation link.** To open the site straight from the e-mail, set Firebase console → Authentication → Templates →
+Email address verification → Customize action URL to the address of the site
+(`https://damtchorzewski.github.io/personal-finance-manager/`). Without it the link ends on a Firebase page whose
+Continue button returns to the site.
+
 ## Structure
 
 ```
@@ -119,7 +125,6 @@ Commits in English. `deploy.yml` builds every push to `main` and publishes it to
 
 **Departures from the standards (and why):**
 
-- **Feature branches straight into `main`:** the team worked this way; there is no `develop`.
 - **No CI beyond the deploy workflow, no tests:** the checks are the build and `npm run lint`.
 - **npm, not pnpm, and no `.nvmrc`:** the project predates the standards.
 - **README images:** made by `tools/readme-images` (profile `personal-finance-manager`); where a login is needed they are the team's own screenshots (see Screenshots).
