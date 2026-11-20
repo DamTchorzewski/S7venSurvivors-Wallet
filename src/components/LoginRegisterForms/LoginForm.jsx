@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Input from '../Input';
 import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
-import { login } from '../../redux/auth/actions';
+import { login, loginDemo } from '../../redux/auth/actions';
 import css from '../LoginRegisterForms/LoginRegister.module.css';
 import { Link } from 'react-router-dom';
 import Notiflix from 'notiflix';
@@ -21,6 +21,11 @@ const LoginForm = () => {
     ev.preventDefault();
     const { name, value } = ev.currentTarget;
     setInputs(data => ({ ...data, [name]: value }));
+  };
+
+  const handleDemo = () => {
+    dispatch(loginDemo());
+    Notiflix.Notify.info('Demo mode: your changes stay in this browser only');
   };
 
   const handleSubmit = e => {
@@ -86,6 +91,7 @@ const LoginForm = () => {
         <Link to="/personal-finance-manager/register">
           <ButtonSecondary text="REGISTER" />
         </Link>
+        <ButtonSecondary text="TRY THE DEMO" onClick={handleDemo} />
       </div>
     </form>
   );

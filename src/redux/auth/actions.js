@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { DEMO_TOKEN, DEMO_USER } from "../../services/demo";
 
 axios.defaults.baseURL = "https://wallet-sdqv.onrender.com/api";
 
@@ -47,12 +48,20 @@ export const login = createAsyncThunk(
 );
 
 /*
+ * Demo mode: a local user, no request to the API
+ */
+export const loginDemo = createAsyncThunk("auth/loginDemo", async () => {
+  clearAuthHeader();
+  return { user: DEMO_USER, token: DEMO_TOKEN };
+});
+
+/*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  */
 export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    await axios.post("/users/logout");
+    if (!thunkAPI.getState().auth.isDemo) await axios.post("/users/logout");
     clearAuthHeader();
   } catch (err) {
     console.error(err.message);
@@ -73,6 +82,8 @@ export const refreshUser = createAsyncThunk(
     if (!persistedToken) {
       return thunkAPI.rejectWithValue("Unable to refresh user");
     }
+
+    if (state.auth.isDemo) return { user: DEMO_USER };
 
     try {
       setAuthHeader(persistedToken);
