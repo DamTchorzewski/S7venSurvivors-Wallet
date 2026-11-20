@@ -25,7 +25,8 @@ balances, analyze expenditures, and strategize budgets. It is a team project of 
 - **Currency rates.** A USD and EUR purchase and sale table from the National Bank of Poland API.
 - **Responsive.** A separate mobile dashboard (`DashboardMobile`) is chosen with `react-media`; a loader covers the
   waits for the API.
-- **Deployed by Actions.** A push to `main` builds the app and publishes it to GitHub Pages.
+- **Deployed by Actions.** A push to `main` builds the app and publishes it to GitHub Pages once the repository's
+  Pages source is set to GitHub Actions; until then the live site is served from the `gh-pages` branch.
 
 > **Status:** a finished course project. The API is the Express and MongoDB backend in
 > [`wallet`](https://github.com/DamTchorzewski/wallet), hosted on Render; its first answer after a pause can take a
@@ -41,7 +42,7 @@ balances, analyze expenditures, and strategize budgets. It is a team project of 
 | Charts   | Chart.js 4 with `react-chartjs-2`                                                                                |
 | Services | Wallet API ([`wallet`](https://github.com/DamTchorzewski/wallet)), exchange rates of the National Bank of Poland |
 | Tests    | none                                                                                                             |
-| Hosting  | GitHub Pages, published by GitHub Actions (`.github/workflows/static.yml`)                                       |
+| Hosting  | GitHub Pages: `gh-pages` branch today; `.github/workflows/static.yml` publishes with Actions (Pages source)      |
 
 The interface is in English; code and commits are in English.
 
