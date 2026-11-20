@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import styles from "../AddTransactionButton/AddTransactionButton.module.css";
 import { ModalAddTransaction } from "../ModalAddTransaction/ModalAddTransaction";

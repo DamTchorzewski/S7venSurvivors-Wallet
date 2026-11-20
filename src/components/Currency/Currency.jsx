@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Currency.module.css';
 import loader from './CurrencyLoader.module.css';
 

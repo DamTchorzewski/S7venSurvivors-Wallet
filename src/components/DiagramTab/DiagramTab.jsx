@@ -97,12 +97,7 @@ const DiagramTab = ({ transactions }) => {
     }
   });
 
-  let totalSum = 0;
-  for (const category in categorySums) {
-    if (categorySums.hasOwnProperty(category)) {
-      totalSum += categorySums[category];
-    }
-  }
+  const totalSum = Object.values(categorySums).reduce((sum, value) => sum + value, 0);
 
   const uniqueCategories = [
     ...new Set(

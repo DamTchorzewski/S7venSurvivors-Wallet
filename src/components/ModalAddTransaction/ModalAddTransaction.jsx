@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../ModalAddTransaction/ModalAddTransaction.module.css";
 import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
@@ -16,7 +16,7 @@ export const ModalAddTransaction = ({
   onChangeSliderMinus,
 }) => {
   const [count, setCount] = useState(true);
-  const handleSlider = (e) => setCount(!count);
+  const handleSlider = () => setCount(!count);
 
   const sendCategory = (data) => {
     onChangeCategory(data);

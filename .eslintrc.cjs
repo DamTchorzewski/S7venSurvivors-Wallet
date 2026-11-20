@@ -11,5 +11,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': 'warn',
+    // plain JavaScript project: props are not declared with prop-types
+    'react/prop-types': 'off',
   },
 }
