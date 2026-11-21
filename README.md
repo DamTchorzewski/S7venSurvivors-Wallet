@@ -135,6 +135,7 @@ Commits in English. `deploy.yml` builds every push to `main` and publishes it to
 | File                                | What it covers                                                |
 | ----------------------------------- | ------------------------------------------------------------- |
 | [docs/repository.md](docs/repository.md) | GitHub description and topics, and the command that sets them |
+| [docs/redesign-plan.md](docs/redesign-plan.md) | the planned rebuild: stack, features, design, data model, releases, open decisions |
 
 ## Team
 
