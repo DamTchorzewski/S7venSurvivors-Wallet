@@ -229,9 +229,20 @@ API serves v1 and v2 side by side until the migration has run.
 | `project-readme.md`   | new README images after release 1 (`tools/readme-images`), Team section kept                      |
 | `licenses.md`         | MIT stays: the web app is a team project (`S7venSurvivors-Wallet contributors`), the API is the owner's |
 
+## Decisions (2026-11-21)
+
+| # | Decision                 | The owner's answer                                                                 |
+| - | ------------------------ | ---------------------------------------------------------------------------------- |
+| 1 | Scope of release 1       | the Must list plus S6 (command palette) and S9 (privacy mode)                      |
+| 2 | Hosting of the web app   | open: the owner asked why Firebase Hosting and not GitHub Pages                    |
+| 3 | Repositories             | two repositories, the client generated from the API's OpenAPI                      |
+| 4 | Name and brand           | as recommended: a separate design chat for the name, logo, icons, illustrations and the Rive jar |
+| 5 | Languages                | Polish and English                                                                 |
+| 6 | Existing data            | stay in Firestore: the v1 → v2 migration runs on the live database                 |
+
 ## Open decisions
 
-The owner picks; the work starts after that.
+The questions as they were put to the owner; the answers are in the table above.
 
 1. **Scope of release 1**: the Must list as it is, or with some Should items moved in (S6 command palette and S9 privacy
    mode are cheap).
