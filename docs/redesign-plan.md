@@ -234,7 +234,7 @@ API serves v1 and v2 side by side until the migration has run.
 | # | Decision                 | The owner's answer                                                                 |
 | - | ------------------------ | ---------------------------------------------------------------------------------- |
 | 1 | Scope of release 1       | the Must list plus S6 (command palette) and S9 (privacy mode)                      |
-| 2 | Hosting of the web app   | open: the owner asked why Firebase Hosting and not GitHub Pages                    |
+| 2 | Hosting of the web app   | Firebase Hosting with `/api/**` rewritten to Cloud Run; the address (`.web.app` or a custom domain) is set by the owner later |
 | 3 | Repositories             | two repositories, the client generated from the API's OpenAPI                      |
 | 4 | Name and brand           | as recommended: a separate design chat for the name, logo, icons, illustrations and the Rive jar |
 | 5 | Languages                | Polish and English                                                                 |
